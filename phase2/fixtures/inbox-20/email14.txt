@@ -1,0 +1,5 @@
+From: learning@company.com
+Subject: Free LLM workshop next week
+Date: 2026-05-16
+
+Optional workshop: 'Building agents with Claude API' on May 22. Sign up if interested.

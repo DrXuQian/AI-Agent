@@ -1,0 +1,18 @@
+id: cc_02_small_modify
+agent: claude_code
+category: modify
+description: "Add a function + tests (Phase 1 baseline)"
+
+setup:
+  - "rm -rf {workspace} && mkdir -p {workspace}"
+  - "cp {bench}/phase2/fixtures/utils-base/utils.py {workspace}/"
+  - "cp {bench}/phase2/fixtures/utils-base/test_utils.py {workspace}/"
+  - "cd {workspace} && git init -q && git add -A && git commit -q -m init"
+
+prompt: |
+  Add a reverse_string function to utils.py that reverses a string.
+  Add comprehensive tests in test_utils.py covering: empty string, single
+  char, unicode (Chinese), palindromes. Run python -m unittest to verify.
+
+timeout: 300
+allowed_tools: "Read,Edit,Write,Bash"

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>What Agentic Workloads Actually Look Like</title></head>
+<body>
+<h1>What Agentic Workloads Actually Look Like</h1>
+<p>By an anonymous infra engineer, May 2026</p>
+<p>After running Claude Code and OpenClaw side-by-side for 3 months, here is what I learned about real agent workloads:</p>
+<h2>1. ReAct loops dominate</h2>
+<p>A single "task" from the user perspective is actually 5-15 LLM calls under the hood: read file, think, edit file, run test, read error, think again, edit again. Each call has prefill of ~2-10K tokens (system prompt + accumulated context) and decode of 100-500 tokens. The ratio of prefill-to-decode tokens is roughly 20:1 — completely different from chatbot workloads.</p>
+<h2>2. Prefix cache is the single biggest lever</h2>
+<p>Without prefix caching, agent latency is dominated by re-processing the same 10K-token system prompt over and over. With prefix caching, only the diff from the previous turn needs prefill — typically 200-1000 tokens. This turns a 2-second prefill into a 100ms one.</p>
+<h2>3. Decode TPS matters less than you think</h2>
+<p>Even at 40 tokens/sec decode, the user-perceived speed is dominated by TTFT plus tool execution time. A 30-second task spends maybe 8 seconds in the LLM and 22 seconds running shell commands.</p>
+<h2>4. Contradiction with the AMD scorecard</h2>
+<p>The AMD Ryzen AI Max+ scorecard claims 45 tok/s decode — but real agent tasks rarely hit decode-bound regions. The bottleneck is prefill TPS, where the iGPU is closer to 800 tok/s vs Radeon's 3000+ tok/s. Take published numbers with a grain of salt.</p>
+</body>
+</html>

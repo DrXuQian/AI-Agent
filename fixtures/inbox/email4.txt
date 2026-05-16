@@ -1,0 +1,10 @@
+From: devops@company.com
+Subject: Scheduled maintenance window - May 18 02:00-06:00
+Date: 2026-05-15
+
+Hi team,
+We will be performing database migration and k8s cluster upgrade this Sunday.
+Expected downtime: 2-4 hours. Please save all work before Friday EOD.
+Rollback plan is documented in Confluence.
+
+DevOps Team

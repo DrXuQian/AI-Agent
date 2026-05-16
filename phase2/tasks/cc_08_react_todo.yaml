@@ -1,0 +1,28 @@
+id: cc_08_react_todo
+agent: claude_code
+category: app_build
+description: "Build React TODO SPA (file generation, no build/test)"
+
+setup:
+  - "rm -rf {workspace} && mkdir -p {workspace}"
+
+prompt: |
+  Build a single-page React TODO app in {workspace}/ using Vite project
+  structure. Generate these files (do NOT actually run npm install or
+  build; only write the source):
+    - package.json with React 18 + Vite + react-dom deps
+    - vite.config.js
+    - index.html
+    - src/main.jsx
+    - src/App.jsx — main component with todo list, add, complete, delete
+    - src/components/TodoItem.jsx
+    - src/components/TodoForm.jsx
+    - src/styles.css
+    - src/storage.js — localStorage persistence wrapper
+    - README.md — explains how to npm install && npm run dev
+
+  Use React functional components with hooks (useState, useEffect).
+  Todos persist in localStorage. Filter buttons: All / Active / Completed.
+
+timeout: 900
+allowed_tools: "Write,Edit,Read,Bash,Glob,Grep"

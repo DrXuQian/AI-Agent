@@ -1,0 +1,17 @@
+id: cc_03_bug_fix
+agent: claude_code
+category: debug
+description: "Find and fix a planted bug — failing test exists"
+
+setup:
+  - "rm -rf {workspace} && mkdir -p {workspace}"
+  - "cp -r {bench}/phase2/fixtures/buggy-code/. {workspace}/"
+  - "cd {workspace} && git init -q && git add -A && git commit -q -m init"
+
+prompt: |
+  This codebase has a failing test. Run the tests, identify the bug, fix it,
+  then re-run the tests to confirm they pass. Do NOT modify the test file —
+  only fix the source code.
+
+timeout: 600
+allowed_tools: "Read,Edit,Write,Bash,Glob,Grep"

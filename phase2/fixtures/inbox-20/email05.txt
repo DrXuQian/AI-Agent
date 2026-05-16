@@ -1,0 +1,5 @@
+From: legal@company.com
+Subject: Compliance training overdue
+Date: 2026-05-16
+
+Your annual compliance training is overdue by 5 days. Please complete it at training.company.com before end of week to avoid escalation.

@@ -1,0 +1,5 @@
+From: vendor@cloudprovider.com
+Subject: Action required: payment method expiring
+Date: 2026-05-16
+
+Your saved payment method ending in 4242 expires May 31. Please update billing settings to avoid service interruption.

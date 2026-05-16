@@ -1,0 +1,5 @@
+From: eng-news@company.com
+Subject: Engineering Newsletter - May edition
+Date: 2026-05-16
+
+This month: New Rust service in production, vault migration update, team profiles...

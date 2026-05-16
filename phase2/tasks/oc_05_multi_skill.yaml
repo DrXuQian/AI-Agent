@@ -1,0 +1,18 @@
+id: oc_05_multi_skill
+agent: openclaw
+category: orchestration
+description: "Multi-step: read email → extract meeting → write reply draft → save"
+
+setup:
+  - "rm -rf {workspace} && mkdir -p {workspace}"
+  - "cp {bench}/phase2/fixtures/inbox-5/email1.txt {workspace}/incoming.txt"
+
+prompt: |
+  Read {workspace}/incoming.txt. Then:
+  1. Extract the meeting time and topic into {workspace}/extracted.json
+     (use keys: time, topic, location, requester)
+  2. Write a polite reply draft confirming attendance, saving to
+     {workspace}/reply.txt
+  3. Print a summary of what you did.
+
+timeout: 300

@@ -1,0 +1,35 @@
+{
+  "date": "2026-05-16",
+  "events": [
+    {
+      "id": "evt-1",
+      "time": "09:00-09:30",
+      "title": "Standup",
+      "location": "Zoom",
+      "attendees": ["team"]
+    },
+    {
+      "id": "evt-2",
+      "time": "10:00-11:00",
+      "title": "Q1 Review with Director Zhang",
+      "location": "Room 301",
+      "attendees": ["boss", "team-leads"],
+      "priority": "high"
+    },
+    {
+      "id": "evt-3",
+      "time": "14:00-15:00",
+      "title": "Code review session with Alice",
+      "location": "Zoom",
+      "attendees": ["alice"],
+      "related_pr": "1234"
+    },
+    {
+      "id": "evt-4",
+      "time": "16:00-16:30",
+      "title": "1:1 with manager",
+      "location": "Office",
+      "attendees": ["manager"]
+    }
+  ]
+}

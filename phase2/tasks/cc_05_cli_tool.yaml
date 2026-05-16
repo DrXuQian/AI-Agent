@@ -1,0 +1,20 @@
+id: cc_05_cli_tool
+agent: claude_code
+category: app_build
+description: "Build a CLI tool from scratch (single file)"
+
+setup:
+  - "rm -rf {workspace} && mkdir -p {workspace}"
+
+prompt: |
+  Build a CLI tool 'wc-stats' in {workspace}/wc_stats.py using argparse:
+  - Subcommand 'count': count lines/words/chars in input files
+  - Subcommand 'top': show top-N most frequent words in input files
+    (flag --n for N, default 10; --case-insensitive to lowercase)
+  - Subcommand 'unique': list unique words across all input files
+
+  Include type hints. Add tests in {workspace}/test_wc_stats.py covering
+  each subcommand. Run them to confirm pass.
+
+timeout: 600
+allowed_tools: "Write,Edit,Read,Bash"

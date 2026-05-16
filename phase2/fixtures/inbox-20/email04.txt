@@ -1,0 +1,7 @@
+From: devops@company.com
+Subject: Maintenance window approval
+Date: 2026-05-16
+
+Please approve the maintenance window for May 18 02:00-06:00. Reply to this email with APPROVED or DENIED.
+
+DevOps

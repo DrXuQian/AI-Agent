@@ -1,0 +1,15 @@
+id: oc_02_email_triage_x20
+agent: openclaw
+category: triage
+description: "Classify 20 emails (tests prefix cache reuse)"
+
+setup:
+  - "rm -rf {workspace} && mkdir -p {workspace}/inbox"
+  - "cp {bench}/phase2/fixtures/inbox-20/*.txt {workspace}/inbox/"
+
+prompt: |
+  Read all 20 email files in {workspace}/inbox/. For each, output a one-line
+  classification: [ACTION_REQUIRED], [FYI], or [SPAM] with email subject and
+  priority (high/medium/low). Format as a markdown table sorted by priority.
+
+timeout: 300

@@ -1,0 +1,12 @@
+{
+  "tasks": [
+    {"id": "t1", "title": "Submit Q1 report", "owner": "me", "deadline": "2026-05-17"},
+    {"id": "t2", "title": "Review PR #1234", "owner": "me", "deadline": "2026-05-18"},
+    {"id": "t3", "title": "Fix flaky test in auth_test.py", "owner": null, "deadline": "2026-05-14"},
+    {"id": "t4", "title": "Update API docs", "owner": null, "deadline": "2026-05-15"},
+    {"id": "t5", "title": "Migrate to async client", "owner": "alice", "deadline": "2026-05-22"},
+    {"id": "t6", "title": "Performance regression investigation", "owner": "me", "deadline": "2026-05-13"},
+    {"id": "t7", "title": "Schedule team offsite", "owner": "manager", "deadline": "2026-05-30"},
+    {"id": "t8", "title": "Renew SSL certificate", "owner": null, "deadline": "2026-05-20"}
+  ]
+}

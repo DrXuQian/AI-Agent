@@ -1,0 +1,7 @@
+From: alice@company.com
+Subject: Re: Code review for PR #1234
+Date: 2026-05-16
+
+Hey, I left some comments on your PR. Main concern is the error handling in the retry logic - we should add exponential backoff instead of fixed delay. Can you update before the sprint ends?
+
+Alice

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>The Rise of Edge AI Hardware</title></head>
+<body>
+<h1>The Rise of Edge AI Hardware</h1>
+<p>By Jane Smith, May 2026</p>
+<p>Edge AI has matured rapidly in 2025-2026, with several hardware platforms now capable of running 30B+ parameter models locally. AMD's Ryzen AI Max+ 128GB configuration has emerged as a popular reference point for personal AI workloads, achieving roughly 45 tokens/sec on Qwen3.5-35B-A3B with the iGPU.</p>
+<h2>The Memory Wall</h2>
+<p>The biggest constraint for edge AI is unified memory capacity. While datacenter GPUs like H100/H800 offer 80GB per device, edge platforms with 128GB unified memory can fit larger models without the latency overhead of distributed inference. This makes Mixture-of-Experts architectures particularly attractive — the full model fits in memory but only ~3B parameters activate per token.</p>
+<h2>Latency vs Throughput</h2>
+<p>Edge deployments prioritize first-token latency over batch throughput. Time-to-first-token (TTFT) under 500ms is the threshold for what feels "instant" to users. With prefix caching enabled, even long-context tasks can hit sub-200ms TTFT after the first query.</p>
+<p>Key takeaway: the "always-on" AI agent paradigm is now viable on consumer hardware.</p>
+</body>
+</html>

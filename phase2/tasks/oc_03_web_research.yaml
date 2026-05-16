@@ -1,0 +1,17 @@
+id: oc_03_web_research
+agent: openclaw
+category: research
+description: "Summarize info from 3 local HTML 'web pages'"
+
+setup:
+  - "rm -rf {workspace} && mkdir -p {workspace}/pages"
+  - "cp {bench}/phase2/fixtures/web-pages/*.html {workspace}/pages/"
+
+prompt: |
+  Read the HTML files in {workspace}/pages/. They are articles about
+  edge AI deployment. Produce a research summary in markdown with:
+  1. Key technical claims from each article (cite filename)
+  2. Common themes across the articles
+  3. Open questions / contradictions you noticed
+
+timeout: 300

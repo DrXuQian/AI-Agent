@@ -1,0 +1,16 @@
+id: oc_04_cron_heartbeat
+agent: openclaw
+category: heartbeat
+description: "Simulated periodic check — short focused task"
+
+setup:
+  - "rm -rf {workspace} && mkdir -p {workspace}"
+  - "cp {bench}/phase2/fixtures/tasklist.json {workspace}/"
+
+prompt: |
+  This is a 30-min periodic heartbeat. Read {workspace}/tasklist.json
+  and report: 1) how many items are overdue (deadline < 2026-05-16),
+  2) how many items have no owner, 3) the single most urgent item.
+  Keep the report to under 10 lines.
+
+timeout: 120

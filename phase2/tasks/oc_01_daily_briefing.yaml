@@ -1,0 +1,20 @@
+id: oc_01_daily_briefing
+agent: openclaw
+category: briefing
+description: "Daily briefing from multi-file inputs"
+
+setup:
+  - "rm -rf {workspace} && mkdir -p {workspace}/inbox"
+  - "cp {bench}/phase2/fixtures/inbox-5/*.txt {workspace}/inbox/"
+  - "cp {bench}/phase2/fixtures/calendar.json {workspace}/"
+  - "cp {bench}/phase2/fixtures/reminders.txt {workspace}/"
+
+prompt: |
+  Read all files in {workspace}/. You will find:
+    - inbox/*.txt — today's emails
+    - calendar.json — today's calendar
+    - reminders.txt — personal reminders
+  Produce a structured "Daily Briefing" markdown with sections: Urgent items,
+  Meetings today, Action items by priority, Free time blocks.
+
+timeout: 300

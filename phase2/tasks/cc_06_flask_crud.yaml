@@ -1,0 +1,27 @@
+id: cc_06_flask_crud
+agent: claude_code
+category: app_build
+description: "Build Flask CRUD web app from scratch"
+
+setup:
+  - "rm -rf {workspace} && mkdir -p {workspace}"
+
+prompt: |
+  Build a Flask CRUD app for a simple Notes service in {workspace}/:
+  - app.py: Flask app using SQLite (notes.db). Routes:
+      GET    /notes        — list all notes (JSON)
+      POST   /notes        — create note (body: {title, content})
+      GET    /notes/<id>   — get one note
+      PUT    /notes/<id>   — update note
+      DELETE /notes/<id>   — delete note
+  - schema.sql: SQL to create the notes table (id PK, title, content,
+    created_at)
+  - init_db.py: script to initialize the DB from schema.sql
+  - test_app.py: pytest tests covering each route (use Flask test client)
+  - README.md: how to run it
+
+  Use Python stdlib + Flask + pytest only. Do NOT actually start the server;
+  just write the code and run pytest to verify.
+
+timeout: 900
+allowed_tools: "Write,Edit,Read,Bash,Glob,Grep"

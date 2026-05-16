@@ -1,0 +1,5 @@
+From: phish@fake-bank.com
+Subject: Verify your account immediately
+Date: 2026-05-16
+
+Your account has been compromised. Click here to verify your credentials and prevent suspension.

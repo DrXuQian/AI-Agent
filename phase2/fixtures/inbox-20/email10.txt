@@ -1,0 +1,5 @@
+From: devops@company.com
+Subject: Scheduled maintenance May 18
+Date: 2026-05-16
+
+We will be performing database migration on Sunday 02:00-06:00. Expected downtime: 2-4 hours.

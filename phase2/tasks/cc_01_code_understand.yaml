@@ -1,0 +1,19 @@
+id: cc_01_code_understand
+agent: claude_code
+category: understand
+description: "Generate ARCHITECTURE.md from a small repo"
+
+setup:
+  - "rm -rf {workspace} && mkdir -p {workspace}"
+  - "cp -r {bench}/phase2/fixtures/sample-repo/. {workspace}/"
+  - "cd {workspace} && git init -q && git add -A && git commit -q -m init"
+
+prompt: |
+  Look at all the files in this repo. Write an ARCHITECTURE.md that explains:
+  1. The overall purpose of this codebase
+  2. The main modules and what each one does (one paragraph each)
+  3. The data flow (mermaid diagram is fine)
+  4. Any patterns or anti-patterns you noticed
+
+timeout: 600
+allowed_tools: "Read,Write,Glob,Grep,Bash"

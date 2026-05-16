@@ -1,0 +1,23 @@
+id: cc_07_textual_tui
+agent: claude_code
+category: app_build
+description: "Build Textual TUI dashboard app"
+
+setup:
+  - "rm -rf {workspace} && mkdir -p {workspace}"
+
+prompt: |
+  Build a Textual TUI app 'sysdash' in {workspace}/:
+  - sysdash.py: a Textual App with 3 widgets:
+      * Top-left: CPU usage bar (read from /proc/stat, refresh every 1s)
+      * Top-right: Memory usage bar (read from /proc/meminfo)
+      * Bottom: scrolling log of timestamps + a key counter
+    Key bindings: 'q' to quit, 'r' to reset the counter
+  - test_sysdash.py: tests using Textual's testing utilities (Pilot)
+    covering: app starts, 'r' resets counter, 'q' exits
+  - requirements.txt: textual>=0.50
+
+  Write code and run pytest. Do NOT try to launch the TUI interactively.
+
+timeout: 900
+allowed_tools: "Write,Edit,Read,Bash,Glob,Grep"

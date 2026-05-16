@@ -1,0 +1,18 @@
+id: cc_04_refactor_sync_async
+agent: claude_code
+category: refactor
+description: "Convert sync HTTP client → async (multi-file change)"
+
+setup:
+  - "rm -rf {workspace} && mkdir -p {workspace}"
+  - "cp -r {bench}/phase2/fixtures/sync-client/. {workspace}/"
+  - "cd {workspace} && git init -q && git add -A && git commit -q -m init"
+
+prompt: |
+  Refactor this codebase to use async/await. The client.py uses requests
+  (sync); convert it to use httpx with async. Update callers in main.py.
+  The existing tests in test_client.py should be updated to use
+  asyncio. Run the tests to verify everything still works.
+
+timeout: 600
+allowed_tools: "Read,Edit,Write,Bash,Glob,Grep"

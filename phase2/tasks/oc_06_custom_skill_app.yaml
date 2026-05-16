@@ -1,0 +1,21 @@
+id: oc_06_custom_skill_app
+agent: openclaw
+category: app_build
+description: "Build a personal-assistant 'app': custom skill template"
+
+setup:
+  - "rm -rf {workspace} && mkdir -p {workspace}"
+
+prompt: |
+  Build a personal assistant "Morning Routine" skill as files in {workspace}/:
+  1. Create routine.yaml with skill metadata (name, description, schedule
+     "0 7 * * *", trigger conditions)
+  2. Create morning_brief.py that, given a weather forecast string and a
+     list of calendar events, prints a personalized morning briefing
+  3. Create test_morning_brief.py with at least 3 unit tests
+  4. Save a README.md explaining how a user would activate the skill
+
+  Use Python 3.12 standard library only (no external deps). All files in
+  {workspace}/.
+
+timeout: 600

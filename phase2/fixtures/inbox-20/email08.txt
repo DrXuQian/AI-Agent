@@ -1,0 +1,5 @@
+From: oncall@infra.company.com
+Subject: Page: db-primary high latency
+Date: 2026-05-16
+
+P2 incident: db-primary p95 latency > 500ms for 10 min. You are oncall. Acknowledge in PagerDuty.

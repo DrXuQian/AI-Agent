@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>KV Cache Management in vLLM</title></head>
+<body>
+<h1>KV Cache Management in vLLM</h1>
+<p>Technical deep-dive, May 2026</p>
+<p>The KV cache dominates memory usage during LLM inference. For a 35B parameter MoE model serving at 64K context, the KV cache can occupy 20-40GB depending on batch size. vLLM's PagedAttention scheme breaks the KV cache into fixed-size blocks (typically 16 tokens), allowing dynamic allocation as sequences grow.</p>
+<h2>Prefix Caching</h2>
+<p>The prefix caching feature (enabled with --enable-prefix-caching) hashes block contents and reuses cached KV state when prefixes match. For agentic workloads with stable system prompts, hit rates above 70% are common, yielding 3-5x throughput improvements on prefill-heavy traffic.</p>
+<h2>Eviction Policy</h2>
+<p>When GPU memory fills up, vLLM evicts blocks using LRU. In practice this means rarely-used conversation prefixes get evicted while hot prefixes (the system prompt) stay resident. The hit rate decay over time follows a power-law distribution in production traces.</p>
+<p>Counter-claim: some practitioners argue that prefix caching can mask actual prefill performance issues — disabling it during benchmarking gives a more honest TTFT number for first-time users.</p>
+</body>
+</html>
