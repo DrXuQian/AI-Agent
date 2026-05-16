@@ -1,0 +1,71 @@
+{
+  "task_id": "oc_06_custom_skill_app",
+  "agent": "openclaw",
+  "category": "app_build",
+  "run_id": 2,
+  "cache_mode": "off",
+  "start_epoch": 1778907159.0721226,
+  "end_epoch": 1778907208.998796,
+  "wall_sec": 49.93,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778907159072",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778907159072.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 228355,
+      "output": 5815,
+      "total": 24158
+    },
+    "lastCallUsage": {
+      "input": 23829,
+      "output": 329,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 24158
+    },
+    "promptTokens": 23829,
+    "toolSummary": {
+      "calls": 10,
+      "tools": [
+        "write",
+        "edit",
+        "exec"
+      ],
+      "failures": 0
+    },
+    "durationMs": 46292,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.8333333333333334,
+    "prefill_p95_sec": 0.9833333333333334,
+    "decode_p50_sec": 1.0,
+    "decode_p95_sec": 9.166666666666666,
+    "ttft_p50_sec": 0.875,
+    "ttft_p95_sec": 0.9875,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 2.0,
+    "e2e_p95_sec": 12.499999999999996,
+    "prompt_tokens": 238471.975,
+    "generation_tokens": 5403.475,
+    "request_count": 12.25,
+    "prefix_cache_hits": 0.0,
+    "prefix_cache_queries": 0.0,
+    "prompt_tokens_cached": 0.0,
+    "kv_cache_usage_pct_avg": 0.0077821011673151474,
+    "kv_cache_usage_pct_max": 0.01124081279723299,
+    "prefill_tps": 4866.775000000001,
+    "decode_tps": 110.275,
+    "prefix_cache_hit_rate": null
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"All files created successfully in `/root/autodl-tmp/agent-bench/phase2/workspaces/oc_06_custom_skill_app-r2/`:\\n\\n| File | Description |\\n|------|-------------|\\n| `routine.yaml` | Skill metadata with cron schedule `\\\"0 7 * * *\\\"` (7AM daily), trigger conditions, and delivery config |\\n| `morning_brief.py` | Main script that parses weather forecasts and calendar events to generate personalized briefings |\\n| `test_morning_brief.py` | 12 unit tests (3+ as required) covering event parsing, weather parsing, and briefing generation |\\n| `README.md` | Complete documentation with activation methods (cron, manual, OpenClaw integration) |\\n\\n**Verified:**\\n- \u2705 All 12 tests pass\\n- \u2705 Sample output demonstrates the briefing format\\n- \u2705 Uses Python 3.12 standard library only (no external deps)\\n- \u2705 Cron schedule configured for 7:00 AM daily in Asia/Shanghai timezone\\n\\n**Quick activation:**\\n```bash\\n# Via cron\\n0 7 * * * python /root/autodl-tmp/agent-bench/",
+  "stderr_excerpt": "",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_06_custom_skill_app__cacheoff__r2.log",
+  "timestamp": "2026-05-16T12:53:36.031289"
+}

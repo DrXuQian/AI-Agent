@@ -1,0 +1,71 @@
+{
+  "task_id": "oc_01_daily_briefing",
+  "agent": "openclaw",
+  "category": "briefing",
+  "run_id": 1,
+  "cache_mode": "on",
+  "start_epoch": 1778902426.8094857,
+  "end_epoch": 1778902448.934355,
+  "wall_sec": 22.12,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778902426809",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778902426809.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 156668,
+      "output": 2240,
+      "total": 19673
+    },
+    "lastCallUsage": {
+      "input": 19372,
+      "output": 301,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 19673
+    },
+    "promptTokens": 19372,
+    "toolSummary": {
+      "calls": 14,
+      "tools": [
+        "exec",
+        "read",
+        "write"
+      ],
+      "failures": 0
+    },
+    "durationMs": 18814,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.16874999999999998,
+    "prefill_p95_sec": 0.6649999999999998,
+    "decode_p50_sec": 0.6499999999999999,
+    "decode_p95_sec": 7.7499999999999964,
+    "ttft_p50_sec": 0.175,
+    "ttft_p95_sec": 0.6374999999999998,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 1.125,
+    "e2e_p95_sec": 7.7499999999999964,
+    "prompt_tokens": 188001.6,
+    "generation_tokens": 2688.0,
+    "request_count": 10.799999999999999,
+    "prefix_cache_hits": 158400.0,
+    "prefix_cache_queries": 188001.6,
+    "prompt_tokens_cached": 158400.0,
+    "kv_cache_usage_pct_avg": 0.0030917457578372165,
+    "kv_cache_usage_pct_max": 0.009490940465918918,
+    "prefill_tps": 6266.72,
+    "decode_tps": 89.6,
+    "prefix_cache_hit_rate": 0.8425460208849286
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"Daily Briefing generated at `/root/autodl-tmp/agent-bench/phase2/workspaces/oc_01_daily_briefing-r1/DAILY_BRIEFING.md`\\n\\n**Summary of findings:**\\n\\n| Source | Items |\\n|--------|-------|\\n| **Inbox** | 5 emails (2 work-urgent, 1 admin, 1 maintenance notice, 1 spam) |\\n| **Calendar** | 4 meetings today (Standup, Q1 Review, Code review, 1:1) |\\n| **Reminders** | 7 personal/admin tasks (rent, flowers, passport, dentist, groceries, dry cleaning, expenses) |\\n\\n**Key highlights:**\\n- **\ud83d\udd34 URGENT:** Q1 Review report due at 10am in Room 301 (bring printed copies)\\n- **\ud83d\udd34 URGENT:** Alice's PR #1234 feedback \u2014 add exponential backoff before sprint ends\\n- **\ud83d\udd50 Best free time:** 11:00-14:00 (3 hours for deep work)\\n- **\ud83d\uddd1\ufe0f 1 spam email** detected (90% OFF prize scam)\",\n      \"mediaUrl\": null\n    }\n  ],\n  \"meta\": {\n    \"durationMs\": 18814,\n    \"agentMeta\": {\n      \"sessionId\": \"bench-1778902426809\",\n      \"sessionFile\": \"/root/.openclaw/agents/main/sessions/be",
+  "stderr_excerpt": "",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_01_daily_briefing__cacheon__r1.log",
+  "timestamp": "2026-05-16T11:34:15.959084"
+}

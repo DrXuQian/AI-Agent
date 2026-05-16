@@ -1,0 +1,71 @@
+{
+  "task_id": "oc_01_daily_briefing",
+  "agent": "openclaw",
+  "category": "briefing",
+  "run_id": 2,
+  "cache_mode": "off",
+  "start_epoch": 1778906632.9702146,
+  "end_epoch": 1778906656.447602,
+  "wall_sec": 23.48,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778906632970",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778906632970.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 88305,
+      "output": 2388,
+      "total": 19568
+    },
+    "lastCallUsage": {
+      "input": 19230,
+      "output": 338,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 19568
+    },
+    "promptTokens": 19230,
+    "toolSummary": {
+      "calls": 10,
+      "tools": [
+        "exec",
+        "read",
+        "write"
+      ],
+      "failures": 0
+    },
+    "durationMs": 20171,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.65,
+    "prefill_p95_sec": 0.785,
+    "decode_p50_sec": 1.625,
+    "decode_p95_sec": 8.749999999999998,
+    "ttft_p50_sec": 0.6666666666666667,
+    "ttft_p95_sec": 0.95,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 2.25,
+    "e2e_p95_sec": 8.749999999999998,
+    "prompt_tokens": 92997.95039999999,
+    "generation_tokens": 2978.9599999999996,
+    "request_count": 6.475999999999999,
+    "prefix_cache_hits": 0.0,
+    "prefix_cache_queries": 0.0,
+    "prompt_tokens_cached": 0.0,
+    "kv_cache_usage_pct_avg": 0.007090358841331579,
+    "kv_cache_usage_pct_max": 0.009511456982274069,
+    "prefill_tps": 3099.9316799999997,
+    "decode_tps": 99.29866666666665,
+    "prefix_cache_hit_rate": null
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"**Daily Briefing created successfully!** \ud83d\udcc5\\n\\nI've read all files from `/root/autodl-tmp/agent-bench/phase2/workspaces/oc_01_daily_briefing-r2/`:\\n\\n| Source | Content |\\n|--------|---------|\\n| `inbox/` (5 files) | Emails from boss, HR, spam, devops, and Alice |\\n| `calendar.json` | 4 meetings today including Q1 Review |\\n| `reminders.txt` | 7 personal reminders |\\n\\n**Output:** `daily_briefing.md` with sections:\\n- \ud83d\udea8 **Urgent Items** \u2014 Immediate actions (Q1 report, PR review, dentist)\\n- \ud83d\udcc5 **Meetings Today** \u2014 Full schedule with prep required for 10am Q1 Review\\n- \u2705 **Action Items by Priority** \u2014 3 priority levels with specific tasks\\n- \u23f0 **Free Time Blocks** \u2014 3+ hours of deep work available today\\n\\nThe briefing is saved in the workspace. Would you like me to adjust the format, add anything else, or share it somewhere?\",\n      \"mediaUrl\": null\n    }\n  ],\n  \"meta\": {\n    \"durationMs\": 20171,\n    \"agentMeta\": {\n      \"sessionId\": \"bench-17789066",
+  "stderr_excerpt": "",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_01_daily_briefing__cacheoff__r2.log",
+  "timestamp": "2026-05-16T12:44:23.471026"
+}

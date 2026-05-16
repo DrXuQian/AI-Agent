@@ -1,0 +1,70 @@
+{
+  "task_id": "oc_01_daily_briefing",
+  "agent": "openclaw",
+  "category": "briefing",
+  "run_id": 2,
+  "cache_mode": "on",
+  "start_epoch": 1778902455.9675233,
+  "end_epoch": 1778902478.7880578,
+  "wall_sec": 22.82,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778902455967",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778902455967.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 235087,
+      "output": 2248,
+      "total": 23632
+    },
+    "lastCallUsage": {
+      "input": 22695,
+      "output": 937,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 23632
+    },
+    "promptTokens": 22695,
+    "toolSummary": {
+      "calls": 18,
+      "tools": [
+        "read",
+        "exec"
+      ],
+      "failures": 0
+    },
+    "durationMs": 19507,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.15,
+    "prefill_p95_sec": 0.285,
+    "decode_p50_sec": 0.6125,
+    "decode_p95_sec": 6.75,
+    "ttft_p50_sec": 0.15250000000000002,
+    "ttft_p95_sec": 0.24025,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 0.70625,
+    "e2e_p95_sec": 6.75,
+    "prompt_tokens": 282104.39999999997,
+    "generation_tokens": 2697.6,
+    "request_count": 15.6,
+    "prefix_cache_hits": 266112.0,
+    "prefix_cache_queries": 282104.39999999997,
+    "prompt_tokens_cached": 266112.0,
+    "kv_cache_usage_pct_avg": 0.003307448950244466,
+    "kv_cache_usage_pct_max": 0.010785159620362417,
+    "prefill_tps": 9403.48,
+    "decode_tps": 89.92,
+    "prefix_cache_hit_rate": 0.9433103489346498
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"# Daily Briefing \u2014 May 16, 2026\\n\\n---\\n\\n## \ud83d\udd34 Urgent Items\\n\\n| Priority | Item | Deadline |\\n|----------|------|----------|\\n| **CRITICAL** | Acknowledge P2 oncall page: db-primary high latency | Now |\\n| **URGENT** | Q1 numbers to Director Zhang | Today 5PM |\\n| **URGENT** | Prepare Q1 work summary report for 10am meeting | 10AM today |\\n| **HIGH** | Update PR #1234 with exponential backoff (per Alice's feedback) | Before sprint ends |\\n| **HIGH** | Compliance training overdue (5 days late) | End of week |\\n| **HIGH** | H1 self-evaluation submission | May 20 |\\n| **MEDIUM** | Approve maintenance window (May 18, 02:00-06:00) | ASAP |\\n| **MEDIUM** | Update payment method (expiring May 31) | Before May 31 |\\n\\n---\\n\\n## \ud83d\udcc5 Meetings Today\\n\\n| Time | Meeting | Location | Notes |\\n|------|---------|----------|-------|\\n| **09:00-09:30** | Standup | Zoom | Team sync |\\n| **10:00-11:00** | Q1 Review with Director Zhang | Room 301 | \ud83d\udccc **Printed copies ",
+  "stderr_excerpt": "[tools] read failed: ENOENT: no such file or directory, access '/root/autodl-tmp/phase2/workspaces/oc_01_daily_briefing-r2/inbox/' raw_params={\"path\":\"/root/autodl-tmp/phase2/workspaces/oc_01_daily_briefing-r2/inbox/\"}\n[tools] read failed: ENOENT: no such file or directory, access '/root/autodl-tmp/phase2/workspaces/oc_01_daily_briefing-r2/calendar.json' raw_params={\"path\":\"/root/autodl-tmp/phase2/workspaces/oc_01_daily_briefing-r2/calendar.json\"}\n[tools] read failed: ENOENT: no such file or dir",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_01_daily_briefing__cacheon__r2.log",
+  "timestamp": "2026-05-16T11:34:45.817307"
+}

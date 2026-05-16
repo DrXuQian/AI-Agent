@@ -12,8 +12,7 @@ phase2/runs/*.log
 phase2/workspaces/
 
 # ---- Test repo state (gets re-initialized per run) ----
-cc-test-repo/.git/
-cc-test-repo/__pycache__/
+cc-test-repo/
 
 # ---- Python ----
 __pycache__/

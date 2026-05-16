@@ -1,0 +1,70 @@
+{
+  "task_id": "oc_05_multi_skill",
+  "agent": "openclaw",
+  "category": "orchestration",
+  "run_id": 2,
+  "cache_mode": "on",
+  "start_epoch": 1778902724.4182796,
+  "end_epoch": 1778902733.9588685,
+  "wall_sec": 9.54,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778902724418",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778902724418.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 50432,
+      "output": 562,
+      "total": 17302
+    },
+    "lastCallUsage": {
+      "input": 17136,
+      "output": 166,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 17302
+    },
+    "promptTokens": 17136,
+    "toolSummary": {
+      "calls": 3,
+      "tools": [
+        "read",
+        "write"
+      ],
+      "failures": 0
+    },
+    "durationMs": 6329,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.15,
+    "prefill_p95_sec": 0.285,
+    "decode_p50_sec": 1.25,
+    "decode_p95_sec": 1.9375,
+    "ttft_p50_sec": 0.175,
+    "ttft_p95_sec": 0.2425,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 1.375,
+    "e2e_p95_sec": 1.9375,
+    "prompt_tokens": 81039.59999999999,
+    "generation_tokens": 1131.6,
+    "request_count": 6.0,
+    "prefix_cache_hits": 76032.0,
+    "prefix_cache_queries": 81039.59999999999,
+    "prompt_tokens_cached": 76032.0,
+    "kv_cache_usage_pct_avg": 0.0013661202185792365,
+    "kv_cache_usage_pct_max": 0.008196721311475419,
+    "prefill_tps": 2701.3199999999997,
+    "decode_tps": 37.72,
+    "prefix_cache_hit_rate": 0.9382079872062549
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"## Summary\\n\\nI processed the meeting invitation from Director Zhang:\\n\\n1. **Extracted meeting details** to `extracted.json`:\\n   - **Time:** 10:00 AM on May 17, 2026 (the day after the invitation date)\\n   - **Topic:** Q1 review meeting\\n   - **Location:** Room 301\\n   - **Requester:** Director Zhang\\n\\n2. **Created reply draft** saved to `reply.txt`:\\n   - Polite confirmation of attendance\\n   - Acknowledged the 4 agenda items to cover\\n   - Confirmed bringing printed copies\\n\\nBoth files have been written to the workspace.\",\n      \"mediaUrl\": null\n    }\n  ],\n  \"meta\": {\n    \"durationMs\": 6329,\n    \"agentMeta\": {\n      \"sessionId\": \"bench-1778902724418\",\n      \"sessionFile\": \"/root/.openclaw/agents/main/sessions/bench-1778902724418.jsonl\",\n      \"provider\": \"vllm-local\",\n      \"model\": \"qwen35\",\n      \"contextTokens\": 200000,\n      \"agentHarnessId\": \"pi\",\n      \"usage\": {\n        \"input\": 50432,\n        \"output\": 562,\n        \"total\": 17302\n   ",
+  "stderr_excerpt": "",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_05_multi_skill__cacheon__r2.log",
+  "timestamp": "2026-05-16T11:39:00.987494"
+}

@@ -1,0 +1,72 @@
+{
+  "task_id": "oc_06_custom_skill_app",
+  "agent": "openclaw",
+  "category": "app_build",
+  "run_id": 1,
+  "cache_mode": "on",
+  "start_epoch": 1778902758.350593,
+  "end_epoch": 1778902821.9763815,
+  "wall_sec": 63.63,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778902758350",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778902758350.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 277005,
+      "output": 9445,
+      "total": 29944
+    },
+    "lastCallUsage": {
+      "input": 29594,
+      "output": 350,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 29944
+    },
+    "promptTokens": 29594,
+    "toolSummary": {
+      "calls": 14,
+      "tools": [
+        "exec",
+        "write",
+        "read",
+        "edit"
+      ],
+      "failures": 0
+    },
+    "durationMs": 60346,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.16666666666666666,
+    "prefill_p95_sec": 0.4,
+    "decode_p50_sec": 1.5,
+    "decode_p95_sec": 35.0,
+    "ttft_p50_sec": 0.175,
+    "ttft_p95_sec": 0.3875,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 1.75,
+    "e2e_p95_sec": 35.0,
+    "prompt_tokens": 258560.04058181818,
+    "generation_tokens": 9014.315781818183,
+    "request_count": 10.613818181818182,
+    "prefix_cache_hits": 238734.4896,
+    "prefix_cache_queries": 258560.04058181818,
+    "prompt_tokens_cached": 238734.4896,
+    "kv_cache_usage_pct_avg": 0.008879781420765029,
+    "kv_cache_usage_pct_max": 0.01380500431406384,
+    "prefill_tps": 4104.1276282828285,
+    "decode_tps": 143.0843774891775,
+    "prefix_cache_hit_rate": 0.9233232214181037
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"\u2705 **Morning Routine skill created successfully!**\\n\\n## Files Created\\n\\n| File | Purpose |\\n|------|---------|\\n| `routine.yaml` | Skill metadata with schedule `0 7 * * *` (7 AM daily) |\\n| `morning_brief.py` | Main generator - parses weather/events, outputs briefings |\\n| `test_morning_brief.py` | 27 unit tests covering weather parsing, outfit suggestions, event handling, JSON output |\\n| `README.md` | Activation guide with OpenClaw cron configuration examples |\\n\\n## Quick Demo\\n\\n```bash\\n# Generate a briefing\\npython morning_brief.py \\\\\\n    --weather \\\"Sunny, 25\u00b0C\\\" \\\\\\n    --events \\\"9:00 Team meeting, 2:00 Doctor\\\" \\\\\\n    --name \\\"Alex\\\"\\n\\n# JSON output for programmatic use\\npython morning_brief.py --weather \\\"Rainy, 18\u00b0C\\\" --json\\n\\n# Run tests\\npython -m unittest test_morning_brief -v\\n```\\n\\n## OpenClaw Activation\\n\\nAdd to your cron jobs:\\n\\n```yaml\\n- name: \\\"Morning Routine\\\"\\n  schedule:\\n    kind: \\\"cron\\\"\\n    expr: \\\"0 7 * * *\\",
+  "stderr_excerpt": "",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_06_custom_skill_app__cacheon__r1.log",
+  "timestamp": "2026-05-16T11:40:29.002756"
+}

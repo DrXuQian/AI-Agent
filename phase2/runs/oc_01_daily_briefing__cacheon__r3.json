@@ -1,0 +1,70 @@
+{
+  "task_id": "oc_01_daily_briefing",
+  "agent": "openclaw",
+  "category": "briefing",
+  "run_id": 3,
+  "cache_mode": "on",
+  "start_epoch": 1778902485.825574,
+  "end_epoch": 1778902502.5444376,
+  "wall_sec": 16.72,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778902485825",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778902485825.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 120654,
+      "output": 1565,
+      "total": 19382
+    },
+    "lastCallUsage": {
+      "input": 18665,
+      "output": 717,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 19382
+    },
+    "promptTokens": 18665,
+    "toolSummary": {
+      "calls": 12,
+      "tools": [
+        "read",
+        "exec"
+      ],
+      "failures": 0
+    },
+    "durationMs": 13413,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.15,
+    "prefill_p95_sec": 0.285,
+    "decode_p50_sec": 0.7250000000000001,
+    "decode_p95_sec": 4.125000000000001,
+    "ttft_p50_sec": 0.1625,
+    "ttft_p95_sec": 0.24125,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 0.7625000000000001,
+    "e2e_p95_sec": 4.125000000000001,
+    "prompt_tokens": 149659.2216,
+    "generation_tokens": 1941.2259999999999,
+    "request_count": 8.6828,
+    "prefix_cache_hits": 141465.1392,
+    "prefix_cache_queries": 149659.2216,
+    "prompt_tokens_cached": 141465.1392,
+    "kv_cache_usage_pct_avg": 0.0018119068162208763,
+    "kv_cache_usage_pct_max": 0.009059534081104381,
+    "prefill_tps": 4988.640719999999,
+    "decode_tps": 64.70753333333333,
+    "prefix_cache_hit_rate": 0.9452483962404894
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"Now I have all the information. Let me compile the Daily Briefing:\\n\\n---\\n\\n# \ud83d\udcc5 Daily Briefing \u2014 Monday, May 16, 2026\\n\\n## \ud83d\udd34 Urgent Items\\n\\n| From | Subject | Priority | Action |\\n|------|---------|----------|--------|\\n| Director Zhang | Q1 review tomorrow 10am | \ud83d\udd34 CRITICAL | Prepare printed work summary report for 10:00 meeting |\\n| Alice | Code review for PR #1234 | \ud83d\udfe1 HIGH | Update retry logic with exponential backoff before sprint ends |\\n| DevOps | Scheduled maintenance May 18 | \ud83d\udfe1 MEDIUM | Save all work before Friday EOD |\\n\\n**Spam alert:** Ignore promotional email from spam@promo.xyz \u274c\\n\\n---\\n\\n## \ud83d\udcc6 Meetings Today\\n\\n| Time | Event | Location | Priority |\\n|------|-------|----------|----------|\\n| **09:00-09:30** | Standup | Zoom | Standard |\\n| **10:00-11:00** | Q1 Review with Director Zhang | Room 301 | \ud83d\udd34 High |\\n| **14:00-15:00** | Code review session with Alice | Zoom | Standard |\\n| **16:00-16:30** | 1:1 with manager | Office | Sta",
+  "stderr_excerpt": "[tools] read failed: ENOENT: no such file or directory, access '/root/autodl-tmp/phase2/workspaces/oc_01_daily_briefing-r3/' raw_params={\"path\":\"/root/autodl-tmp/phase2/workspaces/oc_01_daily_briefing-r3/\"}\n",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_01_daily_briefing__cacheon__r3.log",
+  "timestamp": "2026-05-16T11:35:09.570783"
+}

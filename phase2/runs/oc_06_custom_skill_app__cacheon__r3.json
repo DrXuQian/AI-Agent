@@ -1,0 +1,71 @@
+{
+  "task_id": "oc_06_custom_skill_app",
+  "agent": "openclaw",
+  "category": "app_build",
+  "run_id": 3,
+  "cache_mode": "on",
+  "start_epoch": 1778902885.888996,
+  "end_epoch": 1778902936.6022115,
+  "wall_sec": 50.71,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778902885888",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778902885888.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 222318,
+      "output": 7335,
+      "total": 26351
+    },
+    "lastCallUsage": {
+      "input": 25974,
+      "output": 377,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 26351
+    },
+    "promptTokens": 25974,
+    "toolSummary": {
+      "calls": 9,
+      "tools": [
+        "write",
+        "exec",
+        "edit"
+      ],
+      "failures": 0
+    },
+    "durationMs": 47451,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.15,
+    "prefill_p95_sec": 0.285,
+    "decode_p50_sec": 1.25,
+    "decode_p95_sec": 13.874999999999998,
+    "ttft_p50_sec": 0.175,
+    "ttft_p95_sec": 0.24249999999999997,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 1.75,
+    "e2e_p95_sec": 13.874999999999998,
+    "prompt_tokens": 215616.31875,
+    "generation_tokens": 6819.0375,
+    "request_count": 10.293750000000001,
+    "prefix_cache_hits": 201702.6,
+    "prefix_cache_queries": 215616.31875,
+    "prompt_tokens_cached": 201702.6,
+    "kv_cache_usage_pct_avg": 0.009059534081104405,
+    "kv_cache_usage_pct_max": 0.012079378774805916,
+    "prefill_tps": 4312.326375000001,
+    "decode_tps": 136.38075,
+    "prefix_cache_hit_rate": 0.9354700106621684
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"Morning Routine skill created successfully! \ud83c\udf05\\n\\n## Files Created\\n\\n| File | Purpose | Size |\\n|------|---------|------|\\n| `routine.yaml` | Skill metadata, cron schedule (7 AM daily), trigger conditions | 1.4 KB |\\n| `morning_brief.py` | Core briefing generator with weather + calendar support | 7.9 KB |\\n| `test_morning_brief.py` | 23 unit tests covering all functionality | 8.6 KB |\\n| `README.md` | Activation instructions and usage guide | 5.8 KB |\\n\\n## Test Results\\n\\n\u2705 **All 23 tests pass** covering:\\n- Weather parsing (sunny, rainy, cloudy, snowy, stormy)\\n- Wear recommendations (rain gear, snow gear, layers, etc.)\\n- Brief generation with/without weather, calendar, motivation\\n- Event formatting and location display\\n\\n## Quick Start\\n\\n**Run a manual brief:**\\n```bash\\npython3 morning_brief.py\\n```\\n\\n**Activate scheduled daily briefings:**\\n```bash\\n# Add cron job to run at 7 AM daily\\nopenclaw cron add \\\\\\n  --name \\\"Morning Routine\\\" \\",
+  "stderr_excerpt": "",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_06_custom_skill_app__cacheon__r3.log",
+  "timestamp": "2026-05-16T11:42:23.627250"
+}

@@ -1,0 +1,70 @@
+{
+  "task_id": "oc_05_multi_skill",
+  "agent": "openclaw",
+  "category": "orchestration",
+  "run_id": 3,
+  "cache_mode": "on",
+  "start_epoch": 1778902740.9930139,
+  "end_epoch": 1778902751.3196485,
+  "wall_sec": 10.33,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778902740993",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778902740993.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 67331,
+      "output": 641,
+      "total": 17360
+    },
+    "lastCallUsage": {
+      "input": 17121,
+      "output": 239,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 17360
+    },
+    "promptTokens": 17121,
+    "toolSummary": {
+      "calls": 3,
+      "tools": [
+        "read",
+        "write"
+      ],
+      "failures": 0
+    },
+    "durationMs": 6948,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.15,
+    "prefill_p95_sec": 0.285,
+    "decode_p50_sec": 0.9,
+    "decode_p95_sec": 1.4,
+    "ttft_p50_sec": 0.15000000000000002,
+    "ttft_p95_sec": 0.24,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 1.1666666666666667,
+    "e2e_p95_sec": 1.4666666666666668,
+    "prompt_tokens": 87638.02960000001,
+    "generation_tokens": 834.3256,
+    "request_count": 5.2064,
+    "prefix_cache_hits": 83843.8656,
+    "prefix_cache_queries": 87638.02960000001,
+    "prompt_tokens_cached": 83843.8656,
+    "kv_cache_usage_pct_avg": 0.001725625539257991,
+    "kv_cache_usage_pct_max": 0.008628127696289956,
+    "prefill_tps": 2921.267653333334,
+    "decode_tps": 27.810853333333334,
+    "prefix_cache_hit_rate": 0.9567064205195229
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"## Summary\\n\\nI completed the following tasks:\\n\\n1. **Read the incoming message** from Director Zhang about a Q1 review meeting scheduled for tomorrow at 10am in Room 301.\\n\\n2. **Extracted meeting details** to `/root/autodl-tmp/agent-bench/phase2/workspaces/oc_05_multi_skill-r3/extracted.json`:\\n   - **Time:** 2026-05-17 10:00 (tomorrow at 10am)\\n   - **Topic:** Q1 review\\n   - **Location:** Room 301\\n   - **Requester:** Director Zhang\\n\\n3. **Created a polite reply draft** at `/root/autodl-tmp/agent-bench/phase2/workspaces/oc_05_multi_skill-r3/reply.txt` confirming attendance and noting preparedness to cover all required topics (key deliverables, budget utilization, headcount changes, and Q2 priorities) with printed copies.\",\n      \"mediaUrl\": null\n    }\n  ],\n  \"meta\": {\n    \"durationMs\": 6948,\n    \"agentMeta\": {\n      \"sessionId\": \"bench-1778902740993\",\n      \"sessionFile\": \"/root/.openclaw/agents/main/sessions/bench-1778902740993.jsonl\",\n    ",
+  "stderr_excerpt": "",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_05_multi_skill__cacheon__r3.log",
+  "timestamp": "2026-05-16T11:39:18.346821"
+}

@@ -1,0 +1,63 @@
+{
+  "task_id": "oc_04_cron_heartbeat",
+  "agent": "openclaw",
+  "category": "heartbeat",
+  "run_id": 1,
+  "cache_mode": "off",
+  "start_epoch": 1778906859.0766647,
+  "end_epoch": 1778906865.8906238,
+  "wall_sec": 6.81,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778906859076",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778906859076.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 16506,
+      "output": 38,
+      "total": 16544
+    },
+    "lastCallUsage": {
+      "input": 16506,
+      "output": 38,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 16544
+    },
+    "promptTokens": 16506,
+    "toolSummary": {},
+    "durationMs": 3563,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.65,
+    "prefill_p95_sec": 0.785,
+    "decode_p50_sec": 0.3,
+    "decode_p95_sec": 9.5,
+    "ttft_p50_sec": 0.625,
+    "ttft_p95_sec": 0.7375,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 1.0,
+    "e2e_p95_sec": 14.5,
+    "prompt_tokens": 21838.2633,
+    "generation_tokens": 509.37424999999996,
+    "request_count": 2.6460999999999997,
+    "prefix_cache_hits": 0.0,
+    "prefix_cache_queries": 0.0,
+    "prompt_tokens_cached": 0.0,
+    "kv_cache_usage_pct_avg": 0.0019022913964548138,
+    "kv_cache_usage_pct_max": 0.009511456982274069,
+    "prefill_tps": 727.94211,
+    "decode_tps": 16.979141666666667,
+    "prefix_cache_hit_rate": null
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [],\n  \"meta\": {\n    \"durationMs\": 3563,\n    \"agentMeta\": {\n      \"sessionId\": \"bench-1778906859076\",\n      \"sessionFile\": \"/root/.openclaw/agents/main/sessions/bench-1778906859076.jsonl\",\n      \"provider\": \"vllm-local\",\n      \"model\": \"qwen35\",\n      \"contextTokens\": 200000,\n      \"agentHarnessId\": \"pi\",\n      \"usage\": {\n        \"input\": 16506,\n        \"output\": 38,\n        \"total\": 16544\n      },\n      \"lastCallUsage\": {\n        \"input\": 16506,\n        \"output\": 38,\n        \"cacheRead\": 0,\n        \"cacheWrite\": 0,\n        \"total\": 16544\n      },\n      \"promptTokens\": 16506\n    },\n    \"aborted\": false,\n    \"systemPromptReport\": {\n      \"source\": \"run\",\n      \"generatedAt\": 1778906864673,\n      \"sessionId\": \"bench-1778906859076\",\n      \"sessionKey\": \"agent:main:explicit:bench-1778906859076\",\n      \"provider\": \"vllm-local\",\n      \"model\": \"qwen35\",\n      \"workspaceDir\": \"/root/.openclaw/workspace\",\n      \"bootstrapMaxChars\": 12000,\n      \"bootstrapTotalMaxChars\": 60000,\n ",
+  "stderr_excerpt": "",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_04_cron_heartbeat__cacheoff__r1.log",
+  "timestamp": "2026-05-16T12:47:52.916093"
+}

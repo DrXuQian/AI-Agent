@@ -1,0 +1,70 @@
+{
+  "task_id": "oc_01_daily_briefing",
+  "agent": "openclaw",
+  "category": "briefing",
+  "run_id": 1,
+  "cache_mode": "off",
+  "start_epoch": 1778906606.2182362,
+  "end_epoch": 1778906625.936598,
+  "wall_sec": 19.72,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778906606218",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778906606218.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 103319,
+      "output": 1514,
+      "total": 19307
+    },
+    "lastCallUsage": {
+      "input": 18533,
+      "output": 774,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 19307
+    },
+    "promptTokens": 18533,
+    "toolSummary": {
+      "calls": 11,
+      "tools": [
+        "exec",
+        "read"
+      ],
+      "failures": 0
+    },
+    "durationMs": 16441,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.6761,
+    "prefill_p95_sec": 0.9325287356321837,
+    "decode_p50_sec": 0.5,
+    "decode_p95_sec": 4.249999999999998,
+    "ttft_p50_sec": 0.6761,
+    "ttft_p95_sec": 1.9939655172413782,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 1.5,
+    "e2e_p95_sec": 8.499999999999996,
+    "prompt_tokens": 136458.56925,
+    "generation_tokens": 1999.6154999999999,
+    "request_count": 7.924499999999999,
+    "prefix_cache_hits": 0.0,
+    "prefix_cache_queries": 0.0,
+    "prompt_tokens_cached": 0.0,
+    "kv_cache_usage_pct_avg": 0.0037181150021616816,
+    "kv_cache_usage_pct_max": 0.009511456982274069,
+    "prefill_tps": 4548.618975,
+    "decode_tps": 66.65384999999999,
+    "prefix_cache_hit_rate": null
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"# \ud83d\udcc5 Daily Briefing \u2014 May 16, 2026\\n---\\n## \ud83d\udd34 Urgent Items\\n| Priority | Item | Source | Notes |\\n|----------|------|--------|-------|\\n| **HIGH** | Prepare Q1 work summary for review | Email (boss@company.com) | Cover: deliverables, budget, headcount, Q2 priorities |\\n| **HIGH** | Update PR #1234 with error handling | Email (alice@company.com) | Add exponential backoff to retry logic before sprint ends |\\n| **MEDIUM** | Code review session with Alice | Calendar | 14:00-15:00, Zoom |\\n---\\n## \ud83d\udcc6 Meetings Today\\n| Time | Meeting | Location | Attendees |\\n|------|---------|----------|-----------|\\n| **09:00-09:30** | Standup | Zoom | team |\\n| **10:00-11:00** | Q1 Review with Director Zhang | Room 301 | boss, team-leads |\\n| **14:00-15:00** | Code review session with Alice | Zoom | alice |\\n| **16:00-16:30** | 1:1 with manager | Office | manager |\\n---\\n## \u2705 Action Items by Priority\\n### \ud83d\udd25 High Priority (Due Today/Tomorrow)\\n- [ ] **Q1 Work Summary** ",
+  "stderr_excerpt": "",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_01_daily_briefing__cacheoff__r1.log",
+  "timestamp": "2026-05-16T12:43:52.961757"
+}

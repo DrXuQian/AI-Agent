@@ -1,0 +1,71 @@
+{
+  "task_id": "oc_01_daily_briefing",
+  "agent": "openclaw",
+  "category": "briefing",
+  "run_id": 3,
+  "cache_mode": "off",
+  "start_epoch": 1778906663.4795952,
+  "end_epoch": 1778906683.4436078,
+  "wall_sec": 19.96,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778906663479",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778906663479.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 86428,
+      "output": 1787,
+      "total": 18993
+    },
+    "lastCallUsage": {
+      "input": 18639,
+      "output": 354,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 18993
+    },
+    "promptTokens": 18639,
+    "toolSummary": {
+      "calls": 6,
+      "tools": [
+        "read",
+        "exec",
+        "write"
+      ],
+      "failures": 0
+    },
+    "durationMs": 16617,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.65,
+    "prefill_p95_sec": 0.785,
+    "decode_p50_sec": 1.25,
+    "decode_p95_sec": 8.75,
+    "ttft_p50_sec": 0.65625,
+    "ttft_p95_sec": 0.9375,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 1.75,
+    "e2e_p95_sec": 8.75,
+    "prompt_tokens": 103713.59999999999,
+    "generation_tokens": 2144.4,
+    "request_count": 6.0,
+    "prefix_cache_hits": 0.0,
+    "prefix_cache_queries": 0.0,
+    "prompt_tokens_cached": 0.0,
+    "kv_cache_usage_pct_avg": 0.0043954460296872595,
+    "kv_cache_usage_pct_max": 0.009079118028534339,
+    "prefill_tps": 3457.12,
+    "decode_tps": 71.48,
+    "prefix_cache_hit_rate": null
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"**Daily Briefing** created and saved to `/root/.openclaw/workspace/Daily_Briefing.md`\\n\\nSummary of what I found:\\n\\n| Section | Key Findings |\\n|---------|--------------|\\n| **Urgent Items** | Q1 review report due by 10am + PR #1234 needs exponential backoff update |\\n| **Meetings Today** | 4 meetings: Standup (9am), Q1 Review (10am, high priority), Code Review (2pm), 1:1 (4pm) |\\n| **Action Items** | 2 high-priority work tasks, 4 medium personal reminders (rent, dentist, flowers, expenses), 3 low-priority tasks |\\n| **Free Time** | 3-hour deep work block 11am-2pm + several smaller windows |\\n\\n**Proactive tip:** The 3-hour gap after the Q1 review (11:00-14:00) is perfect for scheduling that overdue dentist appointment and picking up groceries.\",\n      \"mediaUrl\": null\n    }\n  ],\n  \"meta\": {\n    \"durationMs\": 16617,\n    \"agentMeta\": {\n      \"sessionId\": \"bench-1778906663479\",\n      \"sessionFile\": \"/root/.openclaw/agents/main/sessions/bench-177890",
+  "stderr_excerpt": "[tools] read failed: EISDIR: illegal operation on a directory, read raw_params={\"path\":\"/root/.openclaw/workspace\"}\n",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_01_daily_briefing__cacheoff__r3.log",
+  "timestamp": "2026-05-16T12:44:50.467356"
+}

@@ -1,0 +1,71 @@
+{
+  "task_id": "oc_06_custom_skill_app",
+  "agent": "openclaw",
+  "category": "app_build",
+  "run_id": 2,
+  "cache_mode": "on",
+  "start_epoch": 1778902829.0058794,
+  "end_epoch": 1778902878.8629284,
+  "wall_sec": 49.86,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778902829005",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778902829005.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 217684,
+      "output": 7208,
+      "total": 26136
+    },
+    "lastCallUsage": {
+      "input": 25606,
+      "output": 530,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 26136
+    },
+    "promptTokens": 25606,
+    "toolSummary": {
+      "calls": 9,
+      "tools": [
+        "write",
+        "exec",
+        "edit"
+      ],
+      "failures": 0
+    },
+    "durationMs": 46601,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.15,
+    "prefill_p95_sec": 0.285,
+    "decode_p50_sec": 3.1249999999999996,
+    "decode_p95_sec": 12.749999999999996,
+    "ttft_p50_sec": 0.1642857142857143,
+    "ttft_p95_sec": 0.24142857142857144,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 3.1249999999999996,
+    "e2e_p95_sec": 12.749999999999996,
+    "prompt_tokens": 225353.45,
+    "generation_tokens": 6725.250000000001,
+    "request_count": 11.025,
+    "prefix_cache_hits": 209563.2,
+    "prefix_cache_queries": 225353.45,
+    "prompt_tokens_cached": 209563.2,
+    "kv_cache_usage_pct_avg": 0.00690250215703192,
+    "kv_cache_usage_pct_max": 0.012079378774805916,
+    "prefill_tps": 4599.05,
+    "decode_tps": 137.25000000000003,
+    "prefix_cache_hit_rate": 0.9299311814396451
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"All files created successfully. Here's a summary:\\n\\n## Files Created in `/root/autodl-tmp/agent-bench/phase2/workspaces/oc_06_custom_skill_app-r2/`\\n\\n| File | Description |\\n|------|-------------|\\n| `routine.yaml` | Skill metadata with cron schedule `0 7 * * *` (7:00 AM daily) |\\n| `morning_brief.py` | Core script generating personalized briefings from weather + calendar |\\n| `test_morning_brief.py` | 15 unit tests across 5 test classes (all passing) |\\n| `README.md` | Complete documentation with activation instructions |\\n\\n## Sample Output\\n```\\n\u2600\ufe0f GOOD MORNING! \u2600\ufe0f\\n\ud83d\udcc5 Today's Date: Saturday, May 16\\n\\n\ud83c\udf24\ufe0f  Weather Overview\\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\\nSunny with a high of 75\u00b0F and light breeze\\n\\n\ud83d\udccb Today's Schedule\\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\\n1. 12:30 PM \u2014 Lunch with Client \ud83d\udccd Downtown Restaurant\\n\\n\ud83d\udca1 Quick Recommendations\\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\\n\u2022 \u2600\ufe0f Perfect day for a morning walk!\\n\u2022 \ud83d\udd76\ufe0f Don't fo",
+  "stderr_excerpt": "",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_06_custom_skill_app__cacheon__r2.log",
+  "timestamp": "2026-05-16T11:41:25.885977"
+}

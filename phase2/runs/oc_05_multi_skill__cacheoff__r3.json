@@ -1,0 +1,70 @@
+{
+  "task_id": "oc_05_multi_skill",
+  "agent": "openclaw",
+  "category": "orchestration",
+  "run_id": 3,
+  "cache_mode": "off",
+  "start_epoch": 1778906942.3220816,
+  "end_epoch": 1778906954.791037,
+  "wall_sec": 12.47,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778906942322",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778906942322.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 50454,
+      "output": 778,
+      "total": 17419
+    },
+    "lastCallUsage": {
+      "input": 17142,
+      "output": 277,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 17419
+    },
+    "promptTokens": 17142,
+    "toolSummary": {
+      "calls": 3,
+      "tools": [
+        "read",
+        "write"
+      ],
+      "failures": 0
+    },
+    "durationMs": 9160,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.65,
+    "prefill_p95_sec": 0.785,
+    "decode_p50_sec": 1.5,
+    "decode_p95_sec": 2.4,
+    "ttft_p50_sec": 0.625,
+    "ttft_p95_sec": 0.7375,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 2.0,
+    "e2e_p95_sec": 4.5,
+    "prompt_tokens": 60544.799999999996,
+    "generation_tokens": 975.5999999999999,
+    "request_count": 4.8,
+    "prefix_cache_hits": 0.0,
+    "prefix_cache_queries": 0.0,
+    "prompt_tokens_cached": 0.0,
+    "kv_cache_usage_pct_avg": 0.0028102031993082477,
+    "kv_cache_usage_pct_max": 0.008646779074794608,
+    "prefill_tps": 2018.1599999999999,
+    "decode_tps": 32.519999999999996,
+    "prefix_cache_hit_rate": null
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"## Summary\\n\\nI completed the following tasks:\\n\\n1. **Read** `/root/autodl-tmp/agent-bench/phase2/workspaces/oc_05_multi_skill-r3/incoming.txt` - Extracted meeting details from an email from Director Zhang about a Q1 review meeting.\\n\\n2. **Created** `/root/autodl-tmp/agent-bench/phase2/workspaces/oc_05_multi_skill-r3/extracted.json` containing:\\n   - **Time:** 2026-05-17 10:00 (tomorrow at 10am based on \\\"tomorrow\\\" reference)\\n   - **Topic:** Q1 review meeting\\n   - **Location:** Room 301\\n   - **Requester:** Director Zhang\\n\\n3. **Wrote** `/root/autodl-tmp/agent-bench/phase2/workspaces/oc_05_multi_skill-r3/reply.txt` - A polite confirmation message that:\\n   - Confirms attendance to the meeting\\n   - Acknowledges the agenda items (deliverables, budget, headcount, Q2 priorities)\\n   - Confirms bringing printed copies as requested\",\n      \"mediaUrl\": null\n    }\n  ],\n  \"meta\": {\n    \"durationMs\": 9160,\n    \"agentMeta\": {\n      \"sessionId\": \"bench",
+  "stderr_excerpt": "",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_05_multi_skill__cacheoff__r3.log",
+  "timestamp": "2026-05-16T12:49:21.818362"
+}

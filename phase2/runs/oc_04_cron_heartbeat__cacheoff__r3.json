@@ -1,0 +1,69 @@
+{
+  "task_id": "oc_04_cron_heartbeat",
+  "agent": "openclaw",
+  "category": "heartbeat",
+  "run_id": 3,
+  "cache_mode": "off",
+  "start_epoch": 1778906888.705544,
+  "end_epoch": 1778906897.8571386,
+  "wall_sec": 9.15,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778906888705",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778906888705.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 33451,
+      "output": 324,
+      "total": 17172
+    },
+    "lastCallUsage": {
+      "input": 16945,
+      "output": 227,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 17172
+    },
+    "promptTokens": 16945,
+    "toolSummary": {
+      "calls": 1,
+      "tools": [
+        "read"
+      ],
+      "failures": 0
+    },
+    "durationMs": 5885,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.65,
+    "prefill_p95_sec": 0.785,
+    "decode_p50_sec": 0.9,
+    "decode_p95_sec": 1.4249999999999998,
+    "ttft_p50_sec": 0.625,
+    "ttft_p95_sec": 0.7375,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 1.625,
+    "e2e_p95_sec": 1.9625,
+    "prompt_tokens": 60460.799999999996,
+    "generation_tokens": 595.1999999999999,
+    "request_count": 3.5999999999999996,
+    "prefix_cache_hits": 0.0,
+    "prefix_cache_queries": 0.0,
+    "prompt_tokens_cached": 0.0,
+    "kv_cache_usage_pct_avg": 0.0013690733535091464,
+    "kv_cache_usage_pct_max": 0.008214440121054878,
+    "prefill_tps": 2015.36,
+    "decode_tps": 19.839999999999996,
+    "prefix_cache_hit_rate": null
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"**Heartbeat Report:**\\n\\n1. **Overdue items (deadline < 2026-05-16):** 3 items\\n   - t3: Fix flaky test in auth_test.py (2026-05-14)\\n   - t4: Update API docs (2026-05-15)\\n   - t6: Performance regression investigation (2026-05-13)\\n\\n2. **Items with no owner:** 3 items\\n   - t3: Fix flaky test in auth_test.py\\n   - t4: Update API docs\\n   - t8: Renew SSL certificate\\n\\n3. **Most urgent item:** t6 - \\\"Performance regression investigation\\\" (deadline: 2026-05-13, already 3 days overdue)\",\n      \"mediaUrl\": null\n    }\n  ],\n  \"meta\": {\n    \"durationMs\": 5885,\n    \"agentMeta\": {\n      \"sessionId\": \"bench-1778906888705\",\n      \"sessionFile\": \"/root/.openclaw/agents/main/sessions/bench-1778906888705.jsonl\",\n      \"provider\": \"vllm-local\",\n      \"model\": \"qwen35\",\n      \"contextTokens\": 200000,\n      \"agentHarnessId\": \"pi\",\n      \"usage\": {\n        \"input\": 33451,\n        \"output\": 324,\n        \"total\": 17172\n      },\n      \"lastCallUsage\": {\n        \"in",
+  "stderr_excerpt": "",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_04_cron_heartbeat__cacheoff__r3.log",
+  "timestamp": "2026-05-16T12:48:24.880268"
+}

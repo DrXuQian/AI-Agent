@@ -1,0 +1,72 @@
+{
+  "task_id": "oc_06_custom_skill_app",
+  "agent": "openclaw",
+  "category": "app_build",
+  "run_id": 1,
+  "cache_mode": "off",
+  "start_epoch": 1778906961.8225398,
+  "end_epoch": 1778907152.0425236,
+  "wall_sec": 190.22,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778906961822",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778906961822.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 1372699,
+      "output": 20366,
+      "total": 56455
+    },
+    "lastCallUsage": {
+      "input": 56148,
+      "output": 307,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 56455
+    },
+    "promptTokens": 56148,
+    "toolSummary": {
+      "calls": 34,
+      "tools": [
+        "exec",
+        "write",
+        "edit",
+        "read"
+      ],
+      "failures": 0
+    },
+    "durationMs": 186898,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 1.8125,
+    "prefill_p95_sec": 3.6249999999999982,
+    "decode_p50_sec": 1.5416666666666665,
+    "decode_p95_sec": 17.249999999999996,
+    "ttft_p50_sec": 1.875,
+    "ttft_p95_sec": 4.333333333333332,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 3.9375,
+    "e2e_p95_sec": 18.374999999999993,
+    "prompt_tokens": 1360701.3381222223,
+    "generation_tokens": 20044.256833333333,
+    "request_count": 33.97331666666667,
+    "prefix_cache_hits": 0.0,
+    "prefix_cache_queries": 0.0,
+    "prompt_tokens_cached": 0.0,
+    "kv_cache_usage_pct_avg": 0.0141035977611853,
+    "kv_cache_usage_pct_max": 0.024643320363164745,
+    "prefill_tps": 7161.58599011696,
+    "decode_tps": 105.49608859649122,
+    "prefix_cache_hit_rate": null
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"All files have been created successfully in `/root/autodl-tmp/agent-bench/phase2/workspaces/oc_06_custom_skill_app-r1/`:\\n\\n## Files Created\\n\\n| File | Lines | Description |\\n|------|-------|-------------|\\n| `routine.yaml` | 67 | Skill metadata with name, description, schedule `\\\"0 7 * * *\\\"`, triggers |\\n| `morning_brief.py` | 364 | Main briefing generator (weather + calendar \u2192 personalized output) |\\n| `test_morning_brief.py` | 313 | 30 unit tests (all passing) |\\n| `README.md` | 231 | User activation documentation |\\n\\n## Test Results\\n```\\nRan 30 tests in 0.002s\\nOK\\n```\\n\\nCoverage includes:\\n- Weather parsing & temperature extraction\\n- Calendar event parsing  \\n- Clothing recommendations\\n- Weather warnings\\n- Complete briefing generation\\n- JSON output format\\n\\n## Quick Usage\\n```bash\\npython morning_brief.py --weather \\\"Sunny, 22\u00b0C\\\" --calendar \\\"9:00 AM Standup, 2:00 PM Meeting\\\"\\n```\\n\\nThe skill integrates with OpenClaw's cron syste",
+  "stderr_excerpt": "[tools] edit failed: Could not find edits[2] in /root/autodl-tmp/agent-bench/phase2/workspaces/oc_06_custom_skill_app-r1/morning_brief.py. The oldText must match exactly including all whitespace and newlines. raw_params={\"path\":\"/root/autodl-tmp/agent-bench/phase2/workspaces/oc_06_custom_skill_app-r1/morning_brief.py\",\"edits\":[{\"oldText\":\" def generate(self) -> MorningBriefing:\\n \\\"\\\"\\\"Generate the complete morning briefing.\\\"\\\"\\\"\\n \\n # Weather analysis\\n weather_summary = f\\\"Weather: {self.wea",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_06_custom_skill_app__cacheoff__r1.log",
+  "timestamp": "2026-05-16T12:52:39.068869"
+}

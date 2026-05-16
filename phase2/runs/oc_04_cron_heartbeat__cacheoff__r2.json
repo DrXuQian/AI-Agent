@@ -1,0 +1,69 @@
+{
+  "task_id": "oc_04_cron_heartbeat",
+  "agent": "openclaw",
+  "category": "heartbeat",
+  "run_id": 2,
+  "cache_mode": "off",
+  "start_epoch": 1778906872.9211533,
+  "end_epoch": 1778906881.6775305,
+  "wall_sec": 8.76,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778906872921",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778906872921.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 33439,
+      "output": 257,
+      "total": 17105
+    },
+    "lastCallUsage": {
+      "input": 16933,
+      "output": 172,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 17105
+    },
+    "promptTokens": 16933,
+    "toolSummary": {
+      "calls": 1,
+      "tools": [
+        "read"
+      ],
+      "failures": 0
+    },
+    "durationMs": 5517,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.65,
+    "prefill_p95_sec": 0.785,
+    "decode_p50_sec": 0.4,
+    "decode_p95_sec": 0.97,
+    "ttft_p50_sec": 0.625,
+    "ttft_p95_sec": 0.7375,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 1.25,
+    "e2e_p95_sec": 1.9249999999999998,
+    "prompt_tokens": 64114.3965,
+    "generation_tokens": 378.6915,
+    "request_count": 3.8511,
+    "prefix_cache_hits": 0.0,
+    "prefix_cache_queries": 0.0,
+    "prompt_tokens_cached": 0.0,
+    "kv_cache_usage_pct_avg": 0.0,
+    "kv_cache_usage_pct_max": 0.0,
+    "prefill_tps": 2137.14655,
+    "decode_tps": 12.623050000000001,
+    "prefix_cache_hit_rate": null
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"**Heartbeat Report:**\\n\\n1. **Overdue items (deadline < 2026-05-16):** 3 (t3, t4, t6)\\n2. **Items with no owner:** 3 (t3, t4, t8)\\n3. **Most urgent item:** t6 - \\\"Performance regression investigation\\\" (due 2026-05-13, owned by \\\"me\\\")\\n\\n\ud83d\udcc5 Status: 3 tasks past deadline, one of which (t6) is assigned to you and already 3 days late.\",\n      \"mediaUrl\": null\n    }\n  ],\n  \"meta\": {\n    \"durationMs\": 5517,\n    \"agentMeta\": {\n      \"sessionId\": \"bench-1778906872921\",\n      \"sessionFile\": \"/root/.openclaw/agents/main/sessions/bench-1778906872921.jsonl\",\n      \"provider\": \"vllm-local\",\n      \"model\": \"qwen35\",\n      \"contextTokens\": 200000,\n      \"agentHarnessId\": \"pi\",\n      \"usage\": {\n        \"input\": 33439,\n        \"output\": 257,\n        \"total\": 17105\n      },\n      \"lastCallUsage\": {\n        \"input\": 16933,\n        \"output\": 172,\n        \"cacheRead\": 0,\n        \"cacheWrite\": 0,\n        \"total\": 17105\n      },\n      \"promptTokens\": 16933\n    },\n    \"",
+  "stderr_excerpt": "",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_04_cron_heartbeat__cacheoff__r2.log",
+  "timestamp": "2026-05-16T12:48:08.700737"
+}

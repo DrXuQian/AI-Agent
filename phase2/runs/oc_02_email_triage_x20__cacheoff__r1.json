@@ -1,0 +1,70 @@
+{
+  "task_id": "oc_02_email_triage_x20",
+  "agent": "openclaw",
+  "category": "triage",
+  "run_id": 1,
+  "cache_mode": "off",
+  "start_epoch": 1778906690.4738624,
+  "end_epoch": 1778906709.5393484,
+  "wall_sec": 19.07,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778906690473",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778906690473.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 70226,
+      "output": 1721,
+      "total": 19523
+    },
+    "lastCallUsage": {
+      "input": 19105,
+      "output": 418,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 19523
+    },
+    "promptTokens": 19105,
+    "toolSummary": {
+      "calls": 21,
+      "tools": [
+        "exec",
+        "read"
+      ],
+      "failures": 0
+    },
+    "durationMs": 15641,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.65,
+    "prefill_p95_sec": 0.785,
+    "decode_p50_sec": 2.5,
+    "decode_p95_sec": 4.75,
+    "ttft_p50_sec": 0.6666666666666667,
+    "ttft_p95_sec": 0.95,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 3.3333333333333335,
+    "e2e_p95_sec": 4.833333333333333,
+    "prompt_tokens": 84271.2,
+    "generation_tokens": 2065.2,
+    "request_count": 4.8,
+    "prefix_cache_hits": 0.0,
+    "prefix_cache_queries": 0.0,
+    "prompt_tokens_cached": 0.0,
+    "kv_cache_usage_pct_avg": 0.002954316183888158,
+    "kv_cache_usage_pct_max": 0.009079118028534339,
+    "prefill_tps": 2809.04,
+    "decode_tps": 68.83999999999999,
+    "prefix_cache_hit_rate": null
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"Based on my analysis of all 20 emails, here's the classification sorted by priority (High \u2192 Medium \u2192 Low):\\n\\n| Classification | Subject | Priority |\\n|----------------|---------|----------|\\n| [ACTION_REQUIRED] | Page: db-primary high latency | High |\\n| [ACTION_REQUIRED] | URGENT: Q1 numbers needed by EOD | High |\\n| [ACTION_REQUIRED] | Contract renewal - decision needed | High |\\n| [ACTION_REQUIRED] | Maintenance window approval | High |\\n| [ACTION_REQUIRED] | Action required: payment method expiring | High |\\n| [ACTION_REQUIRED] | Code review for PR #1234 | Medium |\\n| [ACTION_REQUIRED] | Compliance training overdue | Medium |\\n| [ACTION_REQUIRED] | Performance review - your input needed | Medium |\\n| [FYI] | Annual leave policy update | Medium |\\n| [FYI] | Scheduled maintenance May 18 | Medium |\\n| [FYI] | Fire drill scheduled May 20 | Medium |\\n| [FYI] | Engineering Newsletter - May edition | Low |\\n| [FYI] | Open positions update | Low |\\n|",
+  "stderr_excerpt": "",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_02_email_triage_x20__cacheoff__r1.log",
+  "timestamp": "2026-05-16T12:45:16.563405"
+}

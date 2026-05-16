@@ -1,0 +1,67 @@
+{
+  "task_id": "cc_07_textual_tui",
+  "agent": "claude_code",
+  "category": "app_build",
+  "run_id": 3,
+  "cache_mode": "on",
+  "start_epoch": 1778902195.205386,
+  "end_epoch": 1778902327.8117993,
+  "wall_sec": 132.61,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "tool_uses": 42,
+    "messages": 95,
+    "result": {
+      "duration_ms": 132103,
+      "duration_api_ms": 104505,
+      "num_turns": 43,
+      "usage": {
+        "input_tokens": 1677262,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 16002,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "",
+        "iterations": [],
+        "speed": "standard"
+      },
+      "total_cost_usd": 8.78636
+    }
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.15,
+    "prefill_p95_sec": 0.28500000000000003,
+    "decode_p50_sec": 0.78,
+    "decode_p95_sec": 12.000000000000004,
+    "ttft_p50_sec": 0.1875,
+    "ttft_p95_sec": 0.4125,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 0.95,
+    "e2e_p95_sec": 12.75,
+    "prompt_tokens": 1687798.956,
+    "generation_tokens": 14428.7235,
+    "request_count": 37.962,
+    "prefix_cache_hits": 1650284.064,
+    "prefix_cache_queries": 1687798.956,
+    "prompt_tokens_cached": 1650284.064,
+    "kv_cache_usage_pct_avg": 0.013356341673856771,
+    "kv_cache_usage_pct_max": 0.023727351164797184,
+    "prefill_tps": 12786.355727272727,
+    "decode_tps": 109.30851136363637,
+    "prefix_cache_hit_rate": 0.9777728906238286
+  },
+  "stdout_excerpt": "{\"type\":\"system\",\"subtype\":\"hook_started\",\"hook_id\":\"ddfe92ab-2362-4d0a-ab15-c266d5b5186f\",\"hook_name\":\"SessionStart:startup\",\"hook_event\":\"SessionStart\",\"uuid\":\"a27cb4a8-ff9c-4a37-a79b-34dce8dd2697\",\"session_id\":\"ab65e929-60ab-4686-99f6-e7777f6f47f8\"}\n{\"type\":\"system\",\"subtype\":\"hook_response\",\"hook_id\":\"ddfe92ab-2362-4d0a-ab15-c266d5b5186f\",\"hook_name\":\"SessionStart:startup\",\"hook_event\":\"SessionStart\",\"output\":\"\",\"stdout\":\"\",\"stderr\":\"\",\"exit_code\":0,\"outcome\":\"success\",\"uuid\":\"bed1587e-d58d-473e-ad18-16ff74aa2197\",\"session_id\":\"ab65e929-60ab-4686-99f6-e7777f6f47f8\"}\n{\"type\":\"system\",\"subtype\":\"init\",\"cwd\":\"/root/autodl-tmp/agent-bench/phase2/workspaces/cc_07_textual_tui-r3\",\"session_id\":\"ab65e929-60ab-4686-99f6-e7777f6f47f8\",\"tools\":[\"Task\",\"AskUserQuestion\",\"Bash\",\"CronCreate\",\"CronDelete\",\"CronList\",\"Edit\",\"EnterPlanMode\",\"EnterWorktree\",\"ExitPlanMode\",\"ExitWorktree\",\"Glob\",\"Grep\",\"NotebookEdit\",\"Read\",\"ScheduleWakeup\",\"Skill\",\"TaskCreate\",\"TaskGet\",\"TaskList\",\"TaskOutput\",\"TaskS",
+  "stderr_excerpt": "",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/cc_07_textual_tui__cacheon__r3.log",
+  "timestamp": "2026-05-16T11:32:14.839403"
+}

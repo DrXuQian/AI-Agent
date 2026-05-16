@@ -1,0 +1,70 @@
+{
+  "task_id": "oc_02_email_triage_x20",
+  "agent": "openclaw",
+  "category": "triage",
+  "run_id": 3,
+  "cache_mode": "on",
+  "start_epoch": 1778902557.3301373,
+  "end_epoch": 1778902578.3471987,
+  "wall_sec": 21.02,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778902557330",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778902557330.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 52352,
+      "output": 2482,
+      "total": 20296
+    },
+    "lastCallUsage": {
+      "input": 19131,
+      "output": 1165,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 20296
+    },
+    "promptTokens": 19131,
+    "toolSummary": {
+      "calls": 21,
+      "tools": [
+        "exec",
+        "read"
+      ],
+      "failures": 0
+    },
+    "durationMs": 17667,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.15,
+    "prefill_p95_sec": 0.285,
+    "decode_p50_sec": 6.25,
+    "decode_p95_sec": 9.625,
+    "ttft_p50_sec": 0.175,
+    "ttft_p95_sec": 0.2425,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 6.25,
+    "e2e_p95_sec": 9.625,
+    "prompt_tokens": 62822.399999999994,
+    "generation_tokens": 2978.4,
+    "request_count": 3.5999999999999996,
+    "prefix_cache_hits": 57024.0,
+    "prefix_cache_queries": 62822.399999999994,
+    "prompt_tokens_cached": 57024.0,
+    "kv_cache_usage_pct_avg": 0.004385964912280715,
+    "kv_cache_usage_pct_max": 0.009490940465918918,
+    "prefill_tps": 2094.08,
+    "decode_tps": 99.28,
+    "prefix_cache_hit_rate": 0.9077017114914426
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"Here's the classification of all 20 emails:\\n\\n| Subject | Classification | Priority |\\n|---------|----------------|----------|\\n| Page: db-primary high latency | [ACTION_REQUIRED] | High |\\n| URGENT: Q1 numbers needed by EOD | [ACTION_REQUIRED] | High |\\n| Contract renewal - decision needed | [ACTION_REQUIRED] | High |\\n| Action required: payment method expiring | [ACTION_REQUIRED] | High |\\n| Verify your account immediately | [SPAM] | High |\\n| Maintenance window approval | [ACTION_REQUIRED] | Medium |\\n| Compliance training overdue | [ACTION_REQUIRED] | Medium |\\n| Performance review - your input needed | [ACTION_REQUIRED] | Medium |\\n| Fire drill scheduled May 20 | [FYI] | Medium |\\n| Scheduled maintenance May 18 | [FYI] | Medium |\\n| Re: Code review for PR #1234 | [ACTION_REQUIRED] | Low |\\n| Annual leave policy update | [FYI] | Low |\\n| Engineering Newsletter - May edition | [FYI] | Low |\\n| Open positions update | [FYI] | Low |\\n| Free LLM ",
+  "stderr_excerpt": "",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_02_email_triage_x20__cacheon__r3.log",
+  "timestamp": "2026-05-16T11:36:25.372827"
+}

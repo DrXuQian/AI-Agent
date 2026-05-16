@@ -1,0 +1,70 @@
+{
+  "task_id": "oc_03_web_research",
+  "agent": "openclaw",
+  "category": "research",
+  "run_id": 2,
+  "cache_mode": "on",
+  "start_epoch": 1778902607.4166405,
+  "end_epoch": 1778902626.583999,
+  "wall_sec": 19.17,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778902607416",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778902607416.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 51318,
+      "output": 2192,
+      "total": 19999
+    },
+    "lastCallUsage": {
+      "input": 18086,
+      "output": 1913,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 19999
+    },
+    "promptTokens": 18086,
+    "toolSummary": {
+      "calls": 4,
+      "tools": [
+        "exec",
+        "read"
+      ],
+      "failures": 0
+    },
+    "durationMs": 15952,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.15,
+    "prefill_p95_sec": 0.285,
+    "decode_p50_sec": 1.25,
+    "decode_p95_sec": 14.25,
+    "ttft_p50_sec": 0.175,
+    "ttft_p95_sec": 0.2425,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 1.25,
+    "e2e_p95_sec": 14.25,
+    "prompt_tokens": 66118.1112,
+    "generation_tokens": 2824.1728,
+    "request_count": 3.8651999999999997,
+    "prefix_cache_hits": 61224.768,
+    "prefix_cache_queries": 66118.1112,
+    "prompt_tokens_cached": 61224.768,
+    "kv_cache_usage_pct_avg": 0.005349439171699744,
+    "kv_cache_usage_pct_max": 0.009490940465918918,
+    "prefill_tps": 2203.93704,
+    "decode_tps": 94.13909333333332,
+    "prefix_cache_hit_rate": 0.9259908803928446
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"# Edge AI Deployment Research Summary\\n\\nBased on the three HTML articles about edge AI deployment.\\n\\n---\\n\\n## 1. Key Technical Claims by Article\\n\\n### `article1_edge_ai.html` \u2014 The Rise of Edge AI Hardware\\n\\n| Claim | Detail |\\n|-------|--------|\\n| **Hardware capability** | AMD Ryzen AI Max+ with 128GB unified memory achieves ~45 tokens/sec on Qwen3.5-35B-A3B with iGPU |\\n| **Memory requirement** | 128GB unified memory enables fitting 30B+ parameter models locally, avoiding distributed inference latency |\\n| **MoE advantage** | Mixture-of-Experts models benefit: full model fits in memory but only ~3B parameters activate per token |\\n| **Latency threshold** | TTFT under 500ms = \\\"instant\\\" to users; with prefix caching, sub-200ms TTFT achievable for long-context tasks |\\n| **Viability** | \\\"Always-on\\\" AI agent paradigm now viable on consumer hardware |\\n\\n---\\n\\n### `article2_kv_cache.html` \u2014 KV Cache Management in vLLM\\n\\n| Claim | Detail |",
+  "stderr_excerpt": "",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_03_web_research__cacheon__r2.log",
+  "timestamp": "2026-05-16T11:37:13.608912"
+}

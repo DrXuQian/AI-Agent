@@ -1,0 +1,70 @@
+{
+  "task_id": "oc_04_cron_heartbeat",
+  "agent": "openclaw",
+  "category": "heartbeat",
+  "run_id": 1,
+  "cache_mode": "on",
+  "start_epoch": 1778902659.8239734,
+  "end_epoch": 1778902669.73138,
+  "wall_sec": 9.91,
+  "exit_code": 0,
+  "timed_out": false,
+  "agent_meta": {
+    "sessionId": "bench-1778902659823",
+    "sessionFile": "/root/.openclaw/agents/main/sessions/bench-1778902659823.jsonl",
+    "provider": "vllm-local",
+    "model": "qwen35",
+    "contextTokens": 200000,
+    "agentHarnessId": "pi",
+    "usage": {
+      "input": 84208,
+      "output": 454,
+      "total": 17434
+    },
+    "lastCallUsage": {
+      "input": 17315,
+      "output": 119,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 17434
+    },
+    "promptTokens": 17315,
+    "toolSummary": {
+      "calls": 4,
+      "tools": [
+        "read",
+        "exec"
+      ],
+      "failures": 0
+    },
+    "durationMs": 6634,
+    "stopReason": "stop"
+  },
+  "metrics": {
+    "prefill_p50_sec": 0.15,
+    "prefill_p95_sec": 0.285,
+    "decode_p50_sec": 0.5,
+    "decode_p95_sec": 13.499999999999998,
+    "ttft_p50_sec": 0.15625,
+    "ttft_p95_sec": 0.240625,
+    "tbt_p50_sec": null,
+    "tbt_p95_sec": null,
+    "e2e_p50_sec": 0.68,
+    "e2e_p95_sec": 13.499999999999998,
+    "prompt_tokens": 101049.59999999999,
+    "generation_tokens": 1108.8,
+    "request_count": 7.199999999999999,
+    "prefix_cache_hits": 96307.2,
+    "prefix_cache_queries": 101049.59999999999,
+    "prompt_tokens_cached": 96307.2,
+    "kv_cache_usage_pct_avg": 0.0015818234109864864,
+    "kv_cache_usage_pct_max": 0.009490940465918918,
+    "prefill_tps": 3368.3199999999997,
+    "decode_tps": 36.96,
+    "prefix_cache_hit_rate": 0.9530685920577617
+  },
+  "stdout_excerpt": "{\n  \"payloads\": [\n    {\n      \"text\": \"Overdue (<2026-05-16): t3, t4, t6 = 3 items\\nOwnerless (null): t3, t4, t8 = 3 items\\nMost urgent: t6 - \\\"Performance regression investigation\\\" (deadline 2026-05-13)\",\n      \"mediaUrl\": null\n    }\n  ],\n  \"meta\": {\n    \"durationMs\": 6634,\n    \"agentMeta\": {\n      \"sessionId\": \"bench-1778902659823\",\n      \"sessionFile\": \"/root/.openclaw/agents/main/sessions/bench-1778902659823.jsonl\",\n      \"provider\": \"vllm-local\",\n      \"model\": \"qwen35\",\n      \"contextTokens\": 200000,\n      \"agentHarnessId\": \"pi\",\n      \"usage\": {\n        \"input\": 84208,\n        \"output\": 454,\n        \"total\": 17434\n      },\n      \"lastCallUsage\": {\n        \"input\": 17315,\n        \"output\": 119,\n        \"cacheRead\": 0,\n        \"cacheWrite\": 0,\n        \"total\": 17434\n      },\n      \"promptTokens\": 17315\n    },\n    \"aborted\": false,\n    \"systemPromptReport\": {\n      \"source\": \"run\",\n      \"generatedAt\": 1778902665475,\n      \"sessionId\": \"bench-1778902659823\",\n      \"sessionKey\": \"a",
+  "stderr_excerpt": "[tools] read failed: ENOENT: no such file or directory, access '/root/autodl-tmp/phase2/workspaces/oc_04_cron_heartbeat-r1/tasklist.json' raw_params={\"path\":\"/root/autodl-tmp/phase2/workspaces/oc_04_cron_heartbeat-r1/tasklist.json\"}\n[tools] read failed: ENOENT: no such file or directory, access '/root/.openclaw/workspace/autodl-tmp/phase2/workspaces/oc_04_cron_heartbeat-r1/tasklist.json' raw_params={\"path\":\"/root/.openclaw/workspace/autodl-tmp/phase2/workspaces/oc_04_cron_heartbeat-r1/tasklist.j",
+  "log_path": "/root/autodl-tmp/agent-bench/phase2/runs/oc_04_cron_heartbeat__cacheon__r1.log",
+  "timestamp": "2026-05-16T11:37:56.755269"
+}
