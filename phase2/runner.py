@@ -178,6 +178,10 @@ def run_claude_code(
         "ANTHROPIC_DEFAULT_HAIKU_MODEL": "qwen35",
         "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
         "DISABLE_PROMPT_CACHING": "1",
+        # Limit Claude Code requested output so input has room within vLLM's
+        # max_model_len. Default Claude Code requests 32K output which eats
+        # half the 64K context budget — too tight for app-build tasks.
+        "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "8192",
     })
     cmd = [
         "claude", "-p", prompt,
@@ -251,10 +255,20 @@ def execute_setup(commands: list[str], workspace: str, run_id: int) -> int:
     return 0
 
 
-def run_one(task: dict, run_id: int, cache_mode: str) -> dict:
+def run_one(task: dict, run_id: int, cache_mode: str, resume: bool = False) -> dict:
     workspace = str(WORKSPACES_DIR / f"{task['id']}-r{run_id}")
     log_path = RUNS_DIR / f"{task['id']}__cache{cache_mode}__r{run_id}.log"
     result_path = RUNS_DIR / f"{task['id']}__cache{cache_mode}__r{run_id}.json"
+
+    # Resume: skip if a successful prior run is already on disk
+    if resume and result_path.exists():
+        try:
+            prior = json.loads(result_path.read_text())
+            if prior.get("exit_code") == 0 and not prior.get("timed_out"):
+                print(f"  [skip] already passed: {result_path.name}")
+                return prior
+        except Exception:
+            pass
 
     # Setup
     print(f"  [setup]")
@@ -328,6 +342,7 @@ def main():
     ap.add_argument("--runs", type=int, default=3, help="Repeats per task")
     ap.add_argument("--cache-mode", default="on", choices=["on", "off"], help="Just a label; vLLM flag set externally")
     ap.add_argument("--start-run", type=int, default=1, help="Starting run id (for resume)")
+    ap.add_argument("--resume", action="store_true", help="Skip runs whose JSON already exists with exit_code=0")
     args = ap.parse_args()
 
     # Resolve task files
@@ -353,7 +368,7 @@ def main():
         for run_id in range(args.start_run, args.start_run + args.runs):
             print(f"-- run {run_id}/{args.runs}")
             try:
-                result = run_one(task, run_id, args.cache_mode)
+                result = run_one(task, run_id, args.cache_mode, resume=args.resume)
                 summary.append(result)
             except Exception as e:
                 print(f"  ! exception: {e}")
