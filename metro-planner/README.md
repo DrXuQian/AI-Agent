@@ -63,6 +63,39 @@ python -m metro.cli --list
 
 ---
 
+## 在线实时方案（百度地图）
+
+离线引擎用的是示例/静态数据；要拿**实时、全量**的结果，可切到百度地图 provider。它先把站名 geocode 成坐标，再调用百度公交路线规划，返回的整体耗时**已包含候车 + 换乘步行 + 乘车**。
+
+### 方式一：命令行 REST 适配器（可自动化 / 做服务）
+
+```bash
+export BAIDU_MAP_AK=你的AK        # 或用 --ak 传入；BAIDU_MAP_API_KEY 同样识别
+python -m metro.cli --provider baidu --city 上海 --from 人民广场 --to 陆家嘴
+python -m metro.cli --provider baidu --from 人民广场 --to 陆家嘴 --json
+```
+
+- AK 在[百度地图开放平台](https://lbsyun.baidu.com/)申请「服务端」应用，勾选 Web 服务 API。
+- 底层接口：地点检索 `place/v2/search` + 轻量公交规划 `directionlite/v1/transit`，坐标系都是 BD-09，无需转换。
+- ⚠️ 百度把候车折进了总耗时/各段耗时，**不单独拆「候车」字段**；所以在线模式展示「权威总时间 + 各段线路/上下车/站数 + 步行」，不再显示离线那种逐段候车拆分。在线结果按**当前实时**计算，`--depart` 仅用于估算 ETA 时钟。
+
+### 方式二：注册 MCP，让 AI 直接现场查
+
+在 Claude Code 里注册百度地图 MCP Server（stdio）：
+
+```bash
+# Python 版（uvx）
+claude mcp add baidu-map -e BAIDU_MAP_API_KEY=你的AK -- uvx mcp-server-baidu-maps
+# 或 Node 版（npx）
+claude mcp add baidu-map -e BAIDU_MAP_API_KEY=你的AK -- npx -y @baidumap/mcp-server-baidu-map
+```
+
+注册后，助手即可直接调用其「公交路线规划」等工具现场查路（适合临时问路、不写代码）。环境变量名/参数以[官方 MCP 文档](https://lbs.baidu.com/faq/api?title=mcpserver/base)为准。
+
+> REST 适配器 vs MCP：前者适合**程序化/批量/落库**，自己掌控解析与缓存；后者适合**对话式临时查询**，由 AI 直接调用。两者可并存，离线引擎作为无网/无 key 时的兜底。
+
+---
+
 ## 算法
 
 这是一个**时间相关的最早到达问题**（time-dependent earliest-arrival），用 Dijkstra 求解。
@@ -135,7 +168,7 @@ python tests/test_planner.py      # 无需 pytest
 # 或： python -m pytest tests/
 ```
 
-覆盖：无换乘、初始候车、换乘步行+候车、同站零时长、末班车后不可达、`half`/`full` 候车模型、示例数据可加载并规划。
+覆盖：无换乘、初始候车、换乘步行+候车、同站零时长、末班车后不可达、`half`/`full` 候车模型、示例数据可加载并规划，以及百度在线响应的解析与嵌套 steps 展平（用合成数据，无需 AK/联网）。
 
 ---
 
@@ -146,7 +179,9 @@ metro-planner/
 ├── metro/
 │   ├── model.py      # 数据模型 + 线网查询 + grid 时刻表生成
 │   ├── planner.py    # 时间相关 Dijkstra（最早到达）+ 行程重建/渲染
-│   └── cli.py        # 命令行入口
+│   ├── cli.py        # 命令行入口（offline / baidu 两种 provider）
+│   └── providers/
+│       └── baidu.py  # 在线实时：百度地图 geocode + 公交路线规划适配器
 ├── data/
 │   └── shanghai_sample.json   # 上海示例子集（示意数据）
 └── tests/
