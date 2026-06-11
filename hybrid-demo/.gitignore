@@ -1,2 +1,8 @@
 workspace_v*/
 run_*.log
+lane_*.log
+swebench/repos/
+swebench/eval_*.txt
+swebench/patch_*.diff
+swebench/result_*.json
+swebench_light.json
