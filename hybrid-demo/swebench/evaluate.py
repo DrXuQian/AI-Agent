@@ -10,6 +10,11 @@ def main():
                 if r["instance_id"] == iid)
     repo = f"{__file__.rsplit('/',1)[0]}/repos/{iid}"
 
+    # The grader owns the test directories: drop any agent-made repro files or
+    # test edits there before applying the official test patch.
+    for d in ("tests", "testing"):
+        subprocess.run(["git", "checkout", "--", d], cwd=repo, capture_output=True)
+        subprocess.run(["git", "clean", "-qfd", d], cwd=repo, capture_output=True)
     # Apply official test patch (tests only — never touches the fix itself).
     subprocess.run(["git", "apply", "--whitespace=nowarn", "-"], cwd=repo,
                    input=inst["test_patch"], text=True, check=True)

@@ -31,3 +31,8 @@ __pycache__/
 *.safetensors
 *.bin
 *.pt
+
+# hybrid-demo generated artifacts
+hybrid-demo/swebench/repos/
+hybrid-demo/workspace_v*/
+hybrid-demo/run_*.log
