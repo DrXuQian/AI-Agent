@@ -1,0 +1,1 @@
+{"instance_id": "psf__requests-2148", "ok": false, "reason": "pip install failed: This error originates from a subprocess, and is likely not a problem with pip.\n\n[notice] A new release of pip is available: 24.0 -> 26.1.2\n[notice] To update, run: python3 -m pip install --upgrade pip"}

@@ -6,7 +6,7 @@ import json, subprocess, sys, random
 def main():
     iid = sys.argv[1]
     n_p2p = int(sys.argv[sys.argv.index("--p2p-sample")+1]) if "--p2p-sample" in sys.argv else 20
-    inst = next(r for r in json.load(open(__file__.rsplit("/",1)[0]+"/instances.json"))
+    inst = next(r for r in json.load(open(__file__.rsplit("/",1)[0]+"/candidates.json"))
                 if r["instance_id"] == iid)
     repo = f"{__file__.rsplit('/',1)[0]}/repos/{iid}"
 

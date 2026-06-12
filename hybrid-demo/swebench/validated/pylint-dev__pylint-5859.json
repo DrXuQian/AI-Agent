@@ -1,0 +1,1 @@
+{"instance_id": "pylint-dev__pylint-5859", "ok": false, "reason": "pip install failed:  issue with the package mentioned above, not pip.\nhint: See above for details.\n\n[notice] A new release of pip is available: 24.0 -> 26.1.2\n[notice] To update, run: python3 -m pip install --upgrade pip"}

@@ -1,0 +1,29 @@
+psf__requests-1963: SKIP (pip install failed: This error originates from a subprocess, and is likely not a problem with pip.
+
+[notice] A new release of pip is available: 24.0 -> 26.1.2
+[notice] To update, run: python3 -m pip install --upgrade pip)
+psf__requests-2317: SKIP (pip install failed: This error originates from a subprocess, and is likely not a problem with pip.
+
+[notice] A new release of pip is available: 24.0 -> 26.1.2
+[notice] To update, run: python3 -m pip install --upgrade pip)
+psf__requests-2148: SKIP (pip install failed: This error originates from a subprocess, and is likely not a problem with pip.
+
+[notice] A new release of pip is available: 24.0 -> 26.1.2
+[notice] To update, run: python3 -m pip install --upgrade pip)
+pallets__flask-4992: OK (validated)
+psf__requests-863: SKIP (pip install failed: This error originates from a subprocess, and is likely not a problem with pip.
+
+[notice] A new release of pip is available: 24.0 -> 26.1.2
+[notice] To update, run: python3 -m pip install --upgrade pip)
+pallets__flask-5063: OK (validated)
+pallets__flask-4045: OK (validated)
+psf__requests-3362: SKIP (gold patch does not fix F2P (env mismatch))
+psf__requests-2674: SKIP (gold patch does not fix F2P (env mismatch))
+pylint-dev__pylint-5859: SKIP (pip install failed:  issue with the package mentioned above, not pip.
+hint: See above for details.
+
+[notice] A new release of pip is available: 24.0 -> 26.1.2
+[notice] To update, run: python3 -m pip install --upgrade pip)
+pylint-dev__pylint-7080: SKIP (gold patch does not fix F2P (env mismatch))
+pytest-dev__pytest-11143: OK (validated)
+pylint-dev__pylint-6506: OK (validated)

@@ -212,7 +212,7 @@ def reset_repo(repo_dir, base_commit):
 def main():
     global WORKSPACE, ISSUE
     iid = sys.argv[1]
-    inst = next(r for r in json.load(open(os.path.join(HERE, "instances.json")))
+    inst = next(r for r in json.load(open(os.path.join(HERE, "candidates.json")))
                 if r["instance_id"] == iid)
     WORKSPACE = os.path.join(HERE, "repos", iid)
     ISSUE = inst["problem_statement"]
