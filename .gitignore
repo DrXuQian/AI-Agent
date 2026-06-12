@@ -36,3 +36,7 @@ __pycache__/
 hybrid-demo/swebench/repos/
 hybrid-demo/workspace_v*/
 hybrid-demo/run_*.log
+
+hybrid-demo/humaneval/sol_*.py
+hybrid-demo/humaneval/res_*.json
+hybrid-demo/humaneval/*.log
