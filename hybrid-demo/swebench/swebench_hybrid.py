@@ -22,12 +22,13 @@ import sys
 import anthropic
 
 ORCHESTRATOR = "claude-fable-5"
-WORKER = "claude-sonnet-4-6"
+WORKER = os.environ.get("WORKER_MODEL", "claude-sonnet-4-6")
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 PRICE = {
     "claude-fable-5": (10.0, 50.0),
     "claude-sonnet-4-6": (3.0, 15.0),
+    "claude-haiku-4-5": (1.0, 5.0),
 }
 
 
@@ -316,7 +317,7 @@ def main():
     ISSUE = inst["problem_statement"]
     reset_repo(WORKSPACE, inst["base_commit"])
 
-    arm = "baseline" if baseline else "hybrid"
+    arm = ("baseline" if baseline else "hybrid") + os.environ.get("ARM_TAG", "")
     tools = [t for t in TOOLS if t["name"] != "delegate_to_local"] if baseline else TOOLS
     system = SYSTEM_BASELINE if baseline else SYSTEM_HYBRID
 

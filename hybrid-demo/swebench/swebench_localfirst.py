@@ -21,12 +21,13 @@ import sys
 import anthropic
 
 ORCHESTRATOR = "claude-fable-5"
-WORKER = "claude-sonnet-4-6"
+WORKER = os.environ.get("WORKER_MODEL", "claude-sonnet-4-6")
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 PRICE = {
     "claude-fable-5": (10.0, 50.0),
     "claude-sonnet-4-6": (3.0, 15.0),
+    "claude-haiku-4-5": (1.0, 5.0),
 }
 
 
@@ -240,11 +241,12 @@ def main():
 
     final_diff = subprocess.run(["git", "diff"], cwd=WORKSPACE,
                                 capture_output=True, text=True).stdout
-    rec = {"instance_id": iid, "arm": "localfirst", "meter": meter.summary(),
+    tag = os.environ.get("ARM_TAG", "")
+    rec = {"instance_id": iid, "arm": "localfirst" + os.environ.get("ARM_TAG", ""), "meter": meter.summary(),
            "verdict": verdict.strip()[:500], "diff_chars": len(final_diff)}
-    with open(os.path.join(HERE, f"patch_{iid}_localfirst.diff"), "w") as f:
+    with open(os.path.join(HERE, f"patch_{iid}_localfirst{tag}.diff"), "w") as f:
         f.write(final_diff)
-    with open(os.path.join(HERE, f"result_{iid}_localfirst.json"), "w") as f:
+    with open(os.path.join(HERE, f"result_{iid}_localfirst{tag}.json"), "w") as f:
         json.dump(rec, f, indent=1)
     print(json.dumps(rec["meter"], indent=1))
 
