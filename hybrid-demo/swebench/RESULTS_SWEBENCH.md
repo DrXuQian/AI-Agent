@@ -177,3 +177,26 @@ P2P 基线 ≥5/10），覆盖 flask×3、pylint×4、pytest×4。
   合计/中位数比单题可靠。预算允许时应做 3 重复取均值。
 - local worker 由 Sonnet 4.6 扮演；真实端侧 30B 级模型的能力差距会进一步
   压低 local-first/hybrid 的解题率，结论偏乐观侧。
+
+---
+
+# escalation 臂补全（11/11，Fable 云端）
+
+之前 3 个实例因 429 限流缺失，补跑后完整数据：
+
+| 架构 | 解题率 | 云端合计 | vs baseline |
+|---|---|---|---|
+| baseline（纯云端） | 10/11 | $3.20 | — |
+| **escalate**（本地先解，失败升级） | **11/11** | $5.49 | **+71%** ❌ |
+
+**全部 11 题都升级了**（worker 从未可信地报 solved——它看不到隐藏判分测试，
+且常在 20 轮上限前还在「锦上添花」没来得及输出 verdict）。escalation 退化成
+「本地白跑一遍 + 云端每题从头接手」，故 +71%。
+
+有意思的副作用：escalate 解题率 11/11 **高于** baseline 10/11——worker 放弃后
+云端 fresh 接手，比 baseline 一次过更稳，恰好救回了 baseline 漏掉的那题。
+但代价是把成本翻了 1.7 倍。
+
+**与 HumanEval+ 的决定性对照**（见 `../humaneval/RESULTS_HUMANEVAL.md`）：
+同一套 escalation 代码，SWE-bench +71%（全升级）、HumanEval+ −88%（94% 不升级）。
+唯一区别是**本地能否自证正确**——这是省钱的唯一决定变量。
