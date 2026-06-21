@@ -110,8 +110,10 @@ EXPLORE_TOOLS = [
 ]
 
 
-def local_agent(task, system, max_turns=18):
-    """A free local agent loop with read/grep tools. Returns its final text."""
+def local_agent(task, system, max_turns=14, final_nudge=None):
+    """A free local agent loop with read/grep tools. Returns its final text.
+    If it exhausts turns, make one FORCED no-tools call so it always emits a
+    real package/answer instead of dying at the turn limit."""
     sysb = [{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}]
     msgs = [{"role": "user", "content": [{"type": "text", "text": task}]}]
     for _ in range(max_turns):
@@ -136,7 +138,14 @@ def local_agent(task, system, max_turns=18):
                 out = f"ERROR: {e}"
             res.append({"type": "tool_result", "tool_use_id": b.id, "content": out})
         msgs.append({"role": "user", "content": res})
-    return "(local explore hit turn limit)"
+    # Out of turns: force a final summary with NO tools so we always get output.
+    msgs.append({"role": "user", "content":
+                 (final_nudge or "Stop exploring now. Output your final answer "
+                  "from what you've already found.")})
+    resp = client.messages.create(model=WORKER, max_tokens=6000, system=sysb,
+                                   messages=msgs)
+    meter.add(WORKER, resp.usage)
+    return "".join(b.text for b in resp.content if b.type == "text") or "(no package)"
 
 
 EXPLORER_SYS = (
@@ -206,7 +215,10 @@ def main():
     # Stage 1: free local exploration -> compact package
     pkg = local_agent(
         f"Bug to investigate in {inst['repo']}:\n\n{ISSUE}\n\nProduce the context package.",
-        EXPLORER_SYS)
+        EXPLORER_SYS,
+        final_nudge=("Stop exploring. Output the full context package now "
+                     "(ROOT CAUSE / FIX LOCATION / RELEVANT CODE / REPRO / NOTES) "
+                     "from what you have already found."))
     print(f"\n  -- context package: {len(pkg)} chars --")
 
     # Stage 2: cloud fixes using the package; request_local_context is free
