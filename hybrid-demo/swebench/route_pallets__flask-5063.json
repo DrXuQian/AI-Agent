@@ -1,0 +1,6 @@
+{
+ "instance_id": "pallets__flask-5063",
+ "route": "SURGICAL",
+ "why": "ROUTE: SURGICAL\n\nThe fix is entirely contained in `src/flask/cli.py` in the `routes_command` function (around line 1001\u20131030) \u2014 just adding subdomain data extra",
+ "triage_cost": 0.01803
+}

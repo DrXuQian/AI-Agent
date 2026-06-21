@@ -1,0 +1,6 @@
+{
+ "instance_id": "pallets__flask-4045",
+ "route": "SURGICAL",
+ "why": "The repository appears nearly empty. Based on the bug report alone, this is a well-scoped, self-contained fix: add a `ValueError` in the `Blueprint.__init__` (o",
+ "triage_cost": 0.02399
+}

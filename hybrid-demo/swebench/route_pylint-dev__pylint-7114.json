@@ -1,0 +1,6 @@
+{
+ "instance_id": "pylint-dev__pylint-7114",
+ "route": "SURGICAL",
+ "why": "The bug is localized to `pylint/lint/expand_modules.py`, specifically in the logic around `__init__.py` detection and namespace package handling (lines ~94, 119",
+ "triage_cost": 0.01997
+}

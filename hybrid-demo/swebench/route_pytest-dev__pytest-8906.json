@@ -1,0 +1,6 @@
+{
+ "instance_id": "pytest-dev__pytest-8906",
+ "route": "SURGICAL",
+ "why": "The bug is localized to two files: the error message string in `src/_pytest/python.py` (line 611) and the `skip` function API in `src/_pytest/outcomes.py`. The ",
+ "triage_cost": 0.01995
+}

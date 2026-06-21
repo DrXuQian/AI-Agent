@@ -1,0 +1,6 @@
+{
+ "instance_id": "pytest-dev__pytest-11143",
+ "route": "SURGICAL",
+ "why": "The bug is clearly localized to lines ~668\u2013683 in `src/_pytest/assertion/rewrite.py`. The `doc` variable is set from `item.value.value` (line 680), which can be",
+ "triage_cost": 0.03559
+}

@@ -1,0 +1,6 @@
+{
+ "instance_id": "pallets__flask-4992",
+ "route": "SURGICAL",
+ "why": "The repository appears to be mostly empty (likely not fully populated). Based on the bug report itself, the fix is clearly localized to the `from_file()` method",
+ "triage_cost": 0.02641
+}

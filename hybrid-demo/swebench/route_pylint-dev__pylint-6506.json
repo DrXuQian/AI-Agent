@@ -1,0 +1,6 @@
+{
+ "instance_id": "pylint-dev__pylint-6506",
+ "route": "SURGICAL",
+ "why": "The fix is clearly localized to `pylint/config/config_initialization.py` around line 82-85: the `raise _UnrecognizedOptionError` propagates as an unhandled exce",
+ "triage_cost": 0.02175
+}

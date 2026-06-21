@@ -1,0 +1,6 @@
+{
+ "instance_id": "pytest-dev__pytest-11148",
+ "route": "SURGICAL",
+ "why": "The key logic is concentrated in `src/_pytest/pathlib.py`, specifically in the `import_path` function and `insert_missing_modules`. The bug is that under `Impor",
+ "triage_cost": 0.04752
+}

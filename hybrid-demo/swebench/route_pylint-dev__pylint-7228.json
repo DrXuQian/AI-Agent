@@ -1,0 +1,6 @@
+{
+ "instance_id": "pylint-dev__pylint-7228",
+ "route": "SURGICAL",
+ "why": "The issue is clear: pylint uses Python's `re.compile` for regex patterns, but `\\p{Han}` is a Unicode property escape only supported by the `regex` module (not t",
+ "triage_cost": 0.02992
+}

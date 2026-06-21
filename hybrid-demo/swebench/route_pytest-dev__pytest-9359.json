@@ -1,0 +1,6 @@
+{
+ "instance_id": "pytest-dev__pytest-9359",
+ "route": "SURGICAL",
+ "why": "The bug is clearly localized to `get_statement_startend2` in `src/_pytest/_code/source.py`. Python 3.9 introduced `end_lineno` on AST nodes, which likely causes",
+ "triage_cost": 0.03482
+}

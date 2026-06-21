@@ -1,0 +1,6 @@
+{
+ "instance_id": "pylint-dev__pylint-7993",
+ "route": "SURGICAL",
+ "why": "The bug is clearly localized to `pylint/reporters/text.py` around line 178. The regex `r\"\\{(.+?)(:.*)?\\}\"` matches `{` and `}` literally, but `{{` and `}}` in P",
+ "triage_cost": 0.02348
+}
