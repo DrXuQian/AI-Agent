@@ -21,11 +21,12 @@ import sys
 
 import anthropic
 
-ORCHESTRATOR = "claude-fable-5"
+ORCHESTRATOR = os.environ.get("CLOUD_MODEL", "claude-fable-5")
 WORKER = os.environ.get("WORKER_MODEL", "claude-sonnet-4-6")
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 PRICE = {
+    "claude-opus-4-8": (5.0, 25.0),
     "claude-fable-5": (10.0, 50.0),
     "claude-sonnet-4-6": (3.0, 15.0),
     "claude-haiku-4-5": (1.0, 5.0),
