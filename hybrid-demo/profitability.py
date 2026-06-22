@@ -18,7 +18,7 @@ MEASURED = {
 }
 
 
-def payback(monthly_usd, savings_rate, hw_usd, price_mult=1.0):
+def payback(monthly_usd, savings_rate, hw_usd=8000, price_mult=1.0):
     """price_mult: 云端 token 未来涨价倍数（机器价值随之放大）。"""
     annual_saving = monthly_usd * 12 * savings_rate * price_mult
     years = hw_usd / annual_saving if annual_saving > 0 else float("inf")
@@ -36,7 +36,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--monthly", type=float, help="云端月消耗 USD")
     ap.add_argument("--savings", type=float, help="混合省钱率 0-1")
-    ap.add_argument("--hw", type=float, help="硬件价格 USD")
+    ap.add_argument("--hw", type=float, default=8000, help="硬件价格 USD (默认8000)")
     ap.add_argument("--price-mult", type=float, default=1.0, help="云端涨价倍数")
     a = ap.parse_args()
 
@@ -44,28 +44,31 @@ def main():
     for k, v in MEASURED.items():
         print(f"  {k:34} -{v*100:.0f}%")
 
-    if a.monthly and a.savings and a.hw:
+    if a.monthly and a.savings:
         s, y = payback(a.monthly, a.savings, a.hw, a.price_mult)
         print(f"\n月消耗 ${a.monthly:.0f} | 省钱率 {a.savings*100:.0f}% | 硬件 ${a.hw:.0f}"
               f" | 涨价 {a.price_mult}x")
         print(f"  年节省 ${s:.0f}  →  回本 {y:.1f} 年  {verdict(y)}")
         return
 
-    print("\n=== 内置场景（省钱率 30%，当前价格）===")
-    scenarios = [
-        ("个人重度用户", 150, 0.30, 4000),
-        ("小团队8人共享", 1200, 0.30, 15000),
-        ("重度agentic/CI团队", 3000, 0.30, 20000),
-        ("CI团队+可验证负载", 3000, 0.50, 20000),
-    ]
-    print(f"{'场景':22} {'月消耗':>8} {'省率':>5} {'硬件':>8} {'年省':>8} {'回本':>7}  判定")
-    for name, m, s, hw in scenarios:
-        ann, yr = payback(m, s, hw)
-        print(f"{name:22} ${m:>6.0f} {s*100:>4.0f}% ${hw:>6.0f} ${ann:>6.0f} {yr:>5.1f}年  {verdict(yr)}")
+    HW = 8000
+    print(f"\n=== 售价 ${HW} 回本期矩阵（行=云端月消耗 / 列=混合省钱率）===")
+    rates = [0.23, 0.30, 0.50, 0.88]
+    print(f"{'月消耗':>8} | " + "  ".join(f"{int(r*100)}%".rjust(11) for r in rates))
+    for m in (150, 300, 600, 1000, 2000, 3000):
+        cells = []
+        for s in rates:
+            _, yr = payback(m, s, HW)
+            cells.append(f"{yr:>4.1f}y {verdict(yr)[:3]}".rjust(11))
+        print(f"${m:>6} | " + "  ".join(cells))
 
-    print("\n=== 涨价敏感性（重度团队 $3000/月, 省30%, 硬件$20k）===")
+    print(f"\n=== ${HW} 盈亏平衡线（2 年回本 → 需年省 $4000）===")
+    for s in rates:
+        print(f"  省{int(s*100)}% → 云端月消耗需 ≥ ${4000/(12*s):.0f}")
+
+    print(f"\n=== 涨价敏感性（月$600, 省30%, 售价${HW}）===")
     for mult in (1.0, 1.5, 2.0, 3.0):
-        ann, yr = payback(3000, 0.30, 20000, mult)
+        ann, yr = payback(600, 0.30, HW, mult)
         print(f"  云端涨价 {mult}x → 年省 ${ann:.0f}, 回本 {yr:.1f}年  {verdict(yr)}")
 
 
