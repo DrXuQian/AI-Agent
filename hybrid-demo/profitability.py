@@ -17,7 +17,7 @@ FX = 7.2  # CNY per USD
 
 # 档位: 名称, 售价¥, int4模型, int4估计Verified
 TIERS = [
-    ("单卡", 15000, "Qwen3.5-122B-A10B-int4", 68),
+    ("单卡", 20000, "Qwen3.5-122B-A10B-int4", 68),
     ("双卡", 24000, "MiniMax-M3-int4", 76),
     ("四卡", 54000, "GLM-5.2-int4", 77),
 ]
