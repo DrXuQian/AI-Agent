@@ -20,7 +20,7 @@ import sys
 
 import anthropic
 
-ORCHESTRATOR = "claude-fable-5"
+ORCHESTRATOR = os.environ.get("CLOUD_MODEL", "claude-opus-4-8")
 WORKER = os.environ.get("WORKER_MODEL", "claude-sonnet-4-6")
 HERE = os.path.dirname(os.path.abspath(__file__))
 
