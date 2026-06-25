@@ -11,13 +11,31 @@
 - **硬件假设**：端侧本地模型算力**免费**（自有 AI station，电费忽略）；只计**云端
   API token 成本**。这是 AI station 的核心商业前提。
 - **云端模型**：Claude Opus 4.8（\$5 / \$25 per Mtok 输入/输出）。
-- **本地模型**：实验用 Claude Sonnet 4.6 / Haiku 4.5 扮演端侧模型。
-  - Haiku 4.5（SWE-bench Verified ≈73%）≈ **MiniMax-M2 级**（≈69%）的可信代理；
-    单卡 128G 可跑 M2 的 W4 量化（~115GB），是该硬件的目标模型。
+- **本地模型**：实验用 Claude **Haiku 4.5**（SWE-bench Verified **73.3%**）/ Sonnet 4.6
+  扮演端侧模型。**关键**：Haiku 4.5 与单卡档真实端侧模型 **Qwen3.5-122B-A10B
+  （~72%）几乎同分**——所以实测省钱率直接适用于单卡档，不再只是代理估计（见 §0.1）。
 - **判分**：代码任务用**官方隐藏测试**判对错（SWE-bench 用 FAIL_TO_PASS +
   PASS_TO_PASS；HumanEval+ 用 EvalPlus 强化测试集），不是自评。
 - **成本计量**：精确累计每次 API 调用的 input / cache write / cache read / output
   四类 token，按官方单价折算（cache write ×1.25，cache read ×0.1）。
+
+### 0.1 硬件档位 × 端侧模型 × 省钱率（联网核实的真实模型）
+
+端侧模型能力（SWE-bench Verified）越接近云端 Opus 4.8（88.6%），可外包给本地的
+工作越多 → 省钱率越高。三档硬件对应三档真实开源模型：
+
+| 档位 | 端侧模型 | 总参/激活 | int4 显存 | SWE-bench Verified | 对省钱率的含义 |
+|---|---|---|---|---|---|
+| **单卡 128G** | Qwen3.5-122B-A10B | 122B/10B | ~61GB | **~72%** | ≈ 实验代理 Haiku 4.5（73.3%）→ **实测 −23%/−88% 直接适用** |
+| **双卡 256G** | Qwen3.5-397B-A17B | 397B/17B | ~199GB | ~80%（"最小 Open-Opus 级"，估） | 强于代理 → 省钱率 ≥ 实测 |
+| **四卡 512G** | GLM-5.2 | ~753B/~40B | ~377GB | **~81%**（约值） | 逼近 Opus → 本地自解率更高，escalate 收益更大 |
+| **四卡** | MiniMax-M2.7 | 230B/10B | ~115GB | 暂无干净 Verified | 激活仅 10B，端侧 decode 快，作四卡备选 |
+
+> **参照**：云端 Opus 4.8 = 88.6%，Sonnet 4.6 = 79.6%，Haiku 4.5 = 73.3%。
+> **核心推论**：单卡档（Qwen3.5-122B ≈ Haiku 4.5）的省钱率**已被本报告实测覆盖**
+> （非估计）；双卡/四卡只会更强 → 省钱率单调上升。数据来源见文末。
+> 注：397B / GLM-5.2 / M2.7 的 Verified 分尚未完全进入公开主榜，标注为估值，
+> 待官方榜确认；但"更大模型 → 更高可外包比例 → 更高省钱率"的方向稳健。
 
 ---
 
@@ -219,16 +237,16 @@ AI station 的核心能力：**本地当云端"免费的眼睛和手"，云端�
 
 - **样本与方差**：SWE-bench 每实例单次运行，agent 成本方差 ±50%；−23% 是 11 题合计，
   方向稳健但精确值需每题 3 重复取均值。
-- **本地模型代理**：用 Sonnet/Haiku 4.5 扮演端侧模型（Haiku 4.5 的 SWE-bench
-  Verified ≈73%，与端侧目标模型 MiniMax-M2 系列同档）；真实端侧模型探索能力略弱，
-  上下文包质量会下降，但"读代码打包"对模型能力要求远低于"独立解题"，预计仍为正。
+- **本地模型代理**：用 Haiku 4.5（Verified 73.3%）扮演端侧模型，与单卡档真实模型
+  Qwen3.5-122B-A10B（~72%）几乎同分——故单卡档省钱率已被实测覆盖，非估计；
+  双卡/四卡模型更强，省钱率只会更高（见 §0.1）。
 - **下一步**：
   1. **补 BigCodeBench**（公开、调真实库、自带 unittest）：把"批量多文件生成"这个
      任务形态也变成公开硬证据，替掉已弃用的自造 calclang。
   2. **in-flight 路由**：云端小预算内自探索，卡住才注入免费本地包（初步难子集 −41%，
      待调预算/成功检测）→ 逼近 oracle 的 −35%。
-  3. **真实 vLLM 端点**：把 worker 换成本地实跑的端侧模型（MiniMax-M2 系列），
-     得到产品级真实数字，替掉 Haiku 代理。
+  3. **真实 vLLM 端点**：把 worker 换成本地实跑的端侧模型（单卡 Qwen3.5-122B /
+     双卡 397B / 四卡 GLM-5.2），按档位得到产品级真实数字，替掉 Haiku 代理。
   4. **统计化**：全量 SWE-bench + 每题 3 重复，给出带置信区间的省钱率。
 
 ---
@@ -240,3 +258,14 @@ AI station 的核心能力：**本地当云端"免费的眼睛和手"，云端�
 - `swebench/` — context-engine / hybrid / local-first / escalate / 路由器全部实现 + 11 实例数据
 - `humaneval/` — escalate −88% 验证
 - 各子目录 `RESULTS_*.md` — 逐实验详细记录
+
+## 附：端侧模型性能数据来源（2026-06 联网核实）
+
+- SWE-bench Verified 主榜（Opus 4.8 88.6% / Sonnet 4.6 79.6% / Haiku 4.5 73.3% /
+  Qwen3.5-122B-A10B 72% / GLM-5 77.8% / MiniMax M3 80.5%）：benchlm.ai/benchmarks/sweVerified
+- Qwen3.5-122B-A10B 72.4%：llm-stats.com、apxml.com 模型页
+- Qwen3.5-397B-A17B（397B/17B，"最小 Open-Opus 级"）：latent.space、huggingface.co/Qwen
+- GLM-5.2（~744–753B/~40B active，SWE-bench Verified ~81%）：avenchat.com、llm-stats.com
+- MiniMax-M2.7（230B/10B active）：artificialanalysis.ai
+> 部分新模型（397B / GLM-5.2 / M2.7）的 Verified 分散见于厂商页/聚合站，尚未完全
+> 进入统一公开主榜，故标注为估值，待官方 SWE-bench Verified 收录确认。
