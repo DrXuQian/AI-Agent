@@ -14,7 +14,7 @@ TARGETS = [(2.0, "2-yr break-even", "gray"), (1.0, "1-yr break-even", "#444")]
 TIERS = [
     ("Single-card  ¥20k", 20000, 0.48, "#1f77b4", (-46, -20)),
     ("Dual-card    ¥40k", 40000, 0.75, "#ff7f0e", (8, 9)),
-    ("Quad-card    ¥80k", 80000, 0.78, "#2ca02c", (8, 9)),
+    ("Quad-card    ¥80k", 80000, 0.836, "#2ca02c", (8, 9)),
 ]
 
 monthly = np.linspace(100, 3000, 500)
@@ -32,7 +32,7 @@ fig, ax = plt.subplots(figsize=(11, 7))
 
 for label, rmb, s, color, off in TIERS:
     ax.plot(monthly, payback(rmb, monthly, s), color=color, lw=2.4,
-            label=f"{label}  (−{int(s*100)}%)")
+            label=f"{label}  (−{round(s*100)}%)")
     for years, _, _ in TARGETS:
         bx = breakeven_month(rmb, s, years)
         if bx <= 3000:

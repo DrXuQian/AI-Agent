@@ -20,12 +20,16 @@ import argparse
 
 FX = 7.2  # CNY per USD
 
-# 档位: 名称, 售价¥, int4模型, int4估计Verified,
-#        难任务省钱率(context-engine), 简单/可验证省钱率(escalate)
+# 档位: 名称, 售价¥, int4模型, 能力(Verified), 难任务省钱率, 简单省钱率,
+#        难任务完成度(本地自解率), 简单任务完成度(本地自解率)
+# 完成度=本地自解率(零云端成本)。简单省钱率 ≈ 1 − 2×(1−简单完成度)（实测拟合：
+#   单卡完成83%→省63%, 双卡94%→省88%, 四卡98%→省≈95%）。
+# 难任务: 单卡/双卡 context-engine(单卡弱→误导云端 +12%; 双卡 −23%);
+#   四卡能力够(85%、难任务自解~40%)→改用 escalate, 突破 context-engine −30% 上限 → −38%。
 TIERS = [
-    ("单卡", 20000, "Qwen3.5-122B-A10B-int4", 68, -0.12, 0.63),
-    ("双卡", 40000, "MiniMax-M3-int4",        76,  0.23, 0.88),
-    ("四卡", 80000, "GLM-5.2-int4",           77,  0.30, 0.90),
+    ("单卡", 20000, "Qwen3.5-122B-A10B-int4", 68, -0.12, 0.63, 0.00, 0.83),
+    ("双卡", 40000, "MiniMax-M3-int4",        76,  0.23, 0.88, 0.09, 0.94),
+    ("四卡", 80000, "GLM-5.2-int4",           85,  0.38, 0.95, 0.40, 0.98),
 ]
 
 EASY_FRAC = 0.80  # 混合负载: 80% 简单 + 20% 难（按任务数加权）
@@ -49,7 +53,7 @@ def tag(y):
 
 
 def rate_str(s):
-    return f"+{int(-s*100)}%(更贵!)" if s < 0 else f"−{int(s*100)}%"
+    return f"+{round(-s*100)}%(更贵!)" if s < 0 else f"−{round(s*100)}%"
 
 
 def payback_table(title, rate_idx_or_fn):
@@ -89,12 +93,13 @@ def main():
         print(f"  → 回本 {y:.1f} 年  {tag(y)}")
         return
 
-    print("=== 三档：售价 / int4 模型 / 难任务 & 简单任务实测省钱率 ===")
-    print(f"{'档位':5} {'¥':>7} {'≈$':>6}  {'int4模型':26} {'~Ver':>5} "
-          f"{'难任务':>9} {'简单/可验证':>11}")
-    for n, rmb, m, v, hard, simple in TIERS:
-        print(f"{n:5} ¥{rmb:>5} ${rmb/FX:>5.0f}  {m:26} ~{v}% "
-              f"{rate_str(hard):>9} {rate_str(simple):>11}")
+    print("=== 三档：能力 / 完成度(本地自解率) / 省钱率 ===")
+    print(f"{'档位':5} {'¥':>7} {'~Ver':>5}  {'易完成':>7} {'难完成':>7}  "
+          f"{'难任务省':>9} {'简单省':>8}")
+    for n, rmb, m, v, hard, simple, hc, sc in TIERS:
+        print(f"{n:5} ¥{rmb:>5} ~{v}%   {sc*100:>5.0f}% {hc*100:>6.0f}%  "
+              f"{rate_str(hard):>9} {rate_str(simple):>8}")
+    print("  (四卡 85% 为设定值；其易/难完成度由实测两点反推外推，省钱率随之重算)")
 
     payback_table("难任务回本（context-engine 本档率）", 4)
     payback_table("简单/可验证任务回本（escalate 本档率）", 5)
@@ -102,16 +107,17 @@ def main():
                   f"{round((1-EASY_FRAC)*100)}% 难，按任务数加权）", blended)
 
     print("\n=== 各档 2 年回本所需「云端月消耗」===")
-    for n, rmb, m, v, hard, simple in TIERS:
+    for n, rmb, m, v, hard, simple, hc, sc in TIERS:
         bl = blended(hard, simple)
         def need(s): return f"≥${(rmb/FX)/2/(12*s):.0f}/mo" if s > 0 else "永不回本"
         print(f"  {n} ¥{rmb}: 难任务 {need(hard)} | 简单 {need(simple)} | "
               f"混合 {need(bl)}")
 
     print(f"\n注: 汇率 {FX}; 本地免费。✅<2.5y / ⚠️2.5–4y / ❌>4y。")
-    print("    难任务=SWE-bench bug 修复(context-engine); 简单=HumanEval+(escalate)。")
-    print("    简单任务上连单卡都省钱(−63%实测)：弱本地也能跑测试自证、整题自解。")
-    print("    混合按任务数加权(80/20); 难任务烧 token/题更多, 实际混合会略偏难任务侧。")
+    print("    难任务=SWE-bench bug 修复; 简单=HumanEval+(escalate)。")
+    print("    完成度=本地自解率(零云端)。简单省钱率≈1−2×(1−简单完成度)，实测拟合。")
+    print("    四卡设为 85% 能力: 易完成≈98%→简单省≈95%; 难完成≈40%→escalate 难任务省≈38%")
+    print("    (突破单/双卡 context-engine 的 −30% 上限——强本地能在零云端成本下自解一部分难题)。")
 
 
 if __name__ == "__main__":
