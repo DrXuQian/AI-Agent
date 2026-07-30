@@ -141,7 +141,7 @@
 
 <!-- 5c · FIVE ARCHITECTURES -->
 <section class="slide" data-title="五种架构">
-  <h2>五种端云 Agent 架构<span class="mut"> · 难任务(SWE-bench)成本</span></h2>
+  <h2>五种架构<b class="hl">单独裸跑</b>的成本<span class="mut"> · 难任务(SWE-bench)</span></h2>
   <div class="methods" id="methods">
     <div class="meth" data-pct="-23">
       <span class="meth-lab"><span class="meth-name">context-engine ✅</span><span class="meth-desc">本地探索打包 · 云端只决策</span></span>
@@ -159,7 +159,45 @@
       <span class="meth-lab"><span class="meth-name">escalate</span><span class="meth-desc">本地先试 · 失败才升级云端</span></span>
       <span class="meth-track"></span><span class="meth-val"></span></div>
   </div>
-  <p class="foot"><span class="good">◀ 省</span> · <span class="bad">费 ▶</span>（相对 baseline）。难任务上<b>只有 context-engine 省且不掉质量</b>；其余要么陷入协调循环更贵，要么本地乱指挥掉质量。</p>
+  <p class="foot"><span class="good">◀ 省</span> · <span class="bad">费 ▶</span>（相对 baseline，<b>单一策略从头跑到底</b>）。+33% / +71% 是<b>裸跑、无路由地板</b>的成本——
+  产品不裸跑任何一种：<b>路由 Agent 按题选策略、0% 地板兜底</b>（见下一页的团队配合）。</p>
+</section>
+
+<!-- 5d · TEAM ANALOGY -->
+<section class="slide" data-title="团队配合">
+  <h2>像一个工程团队：<span class="chip-s">云端 = Senior</span> <span class="chip-j">端侧 = Junior（免费）</span></h2>
+  <div class="team">
+    <article class="tcard">
+      <h4>baseline <span class="tc-use">对照组</span></h4>
+      <div class="tflow"><span class="ps">S 独自探索 + 修复</span></div>
+      <p class="tc-note">Senior 单干——一切云端价</p>
+    </article>
+    <article class="tcard">
+      <h4>hybrid <span class="tc-use">批量样板</span></h4>
+      <div class="tflow"><span class="ps">S 拆任务</span><i>▶</i><span class="pj">J 写样板</span><i>▶</i><span class="ps">S 组装</span></div>
+      <p class="tc-note">Senior 派活；难任务上协调开销反噬</p>
+    </article>
+    <article class="tcard">
+      <h4>local-first <span class="tc-use">中等难度</span></h4>
+      <div class="tflow"><span class="pj">J 全部做完</span><i>▶</i><span class="ps">S 逐一审查</span></div>
+      <p class="tc-note">Junior 全做；审查费接近自己做</p>
+    </article>
+    <article class="tcard tcard--win">
+      <h4>escalate <span class="tc-use">可验证 · −88%</span></h4>
+      <div class="tflow"><span class="pj">J 做 + 自测</span><i>▶</i><span class="pok">✓ 交付 $0</span><i>/</i><span class="ps">✗ S 干净接手</span></div>
+      <p class="tc-note">Junior 能自证时，Senior 几乎不出场</p>
+    </article>
+    <article class="tcard tcard--win">
+      <h4>context-engine <span class="tc-use">难任务 · −23%</span></h4>
+      <div class="tflow"><span class="pj">J 探索 · 打包</span><i>▶</i><span class="ps">S 只决策 + 修复</span></div>
+      <p class="tc-note">Junior 当眼睛和手，Senior 当大脑</p>
+    </article>
+    <article class="tcard tcard--lead">
+      <h4>路由 Agent <span class="tc-use">= Tech Lead</span></h4>
+      <div class="tflow"><span class="pl">按任务形态分诊</span></div>
+      <p class="tc-note">可验证→escalate · 难→context-engine · J 帮不上→S 单干（地板 0%）</p>
+    </article>
+  </div>
 </section>
 
 <!-- 6 · RESULTS -->
@@ -220,7 +258,7 @@
   <div class="swing">
     <div class="sw sw--good"><span class="sw-num">−88%</span><span class="sw-lab">escalate · HumanEval+（可验证）</span></div>
     <div class="sw-vs" aria-hidden="true">同一套<br>escalate<br>代码</div>
-    <div class="sw sw--bad"><span class="sw-num">+71%</span><span class="sw-lab">escalate · SWE-bench（难任务）</span></div>
+    <div class="sw sw--bad"><span class="sw-num">+71%</span><span class="sw-lab">裸 escalate · SWE-bench 难任务<br>（无路由地板 · 产品不会这样跑）</span></div>
   </div>
   <div class="deep">
     <div class="deep-card">
@@ -596,6 +634,26 @@ b{font-weight:700}
 .meth-fill{position:absolute;top:0;height:100%;border-radius:5px}
 .meth-val{font-family:var(--mono);font-weight:700;text-align:right;font-variant-numeric:tabular-nums;font-size:clamp(13px,1.3vw,16px)}
 
+/* TEAM ANALOGY */
+.chip-s,.chip-j{display:inline-block;font-size:.55em;font-weight:700;padding:.28em .7em;border-radius:999px;vertical-align:.35em;color:#fff}
+.chip-s{background:var(--blue)} .chip-j{background:var(--teal)}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,20px)}
+.tcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+  padding:clamp(14px,1.7vw,24px);display:flex;flex-direction:column;gap:10px}
+.tcard--win{border-top:3px solid var(--teal)}
+.tcard--lead{border-top:3px solid var(--amber);background:color-mix(in srgb,var(--amber) 6%,var(--surface))}
+.tcard h4{margin:0;font-family:var(--mono);font-size:clamp(13px,1.35vw,17px);display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.tc-use{font-family:var(--disp);font-size:11.5px;color:var(--mut);font-weight:600}
+.tcard--win .tc-use{color:var(--teal)}
+.tflow{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.tflow i{font-style:normal;color:var(--mut);font-size:11px}
+.pj,.ps,.pok,.pl{font-size:clamp(11px,1.05vw,13px);font-weight:700;padding:5px 10px;border-radius:999px;white-space:nowrap}
+.pj{background:var(--teal);color:#fff}
+.ps{background:var(--blue);color:#fff}
+.pok{background:var(--teal-soft);color:var(--teal);border:1px solid var(--teal)}
+.pl{background:var(--amber);color:#fff}
+.tc-note{margin:0;font-size:clamp(11px,1.05vw,13.5px);color:var(--mut)}
+
 /* AGENT DEEP */
 .swing{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(12px,2.5vw,40px);max-width:900px}
 .sw{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);
@@ -764,6 +822,24 @@ b{font-weight:700}
       }
     });
   });
+  // baseline inset: 全部本地做完 (−100%) @ $150/mo subscription
+  var SUB=150;
+  var bx=452,by=52,bw=352,bh=158;
+  svg.appendChild(el('rect',{x:bx,y:by,width:bw,height:bh,rx:12,fill:'var(--surface)',stroke:'var(--line)','stroke-width':1}));
+  var bt=el('text',{x:bx+18,y:by+30,fill:'var(--ink)','font-size':14,'font-weight':700});
+  bt.textContent='理想上限：全部本地做完（−100%）';svg.appendChild(bt);
+  var bs=el('text',{x:bx+18,y:by+50,fill:'var(--mut)','font-size':12});
+  bs.textContent='按订阅 $'+SUB+'/月计（省下整个订阅）';svg.appendChild(bs);
+  tiers.forEach(function(t,i){
+    var yy=by+76+i*26;
+    var yrs=(t.rmb/FX)/(SUB*12);
+    var tag=yrs<2.5?'✅':(yrs<4?'⚠️':'❌');
+    svg.appendChild(el('circle',{cx:bx+24,cy:yy-4,r:5,fill:t.c}));
+    var r1=el('text',{x:bx+38,y:yy,fill:'var(--ink)','font-size':13});
+    r1.textContent=t.n;svg.appendChild(r1);
+    var r2=el('text',{x:bx+bw-18,y:yy,'text-anchor':'end',fill:'var(--ink)','font-size':13,'font-weight':700,'font-family':'var(--mono)'});
+    r2.textContent=yrs.toFixed(1)+' 年 '+tag;svg.appendChild(r2);
+  });
   // legend
   var lg=document.getElementById('legend');
   tiers.forEach(function(t){
@@ -771,5 +847,8 @@ b{font-weight:700}
     d.innerHTML='<i style="background:'+t.c+'"></i>'+t.n+' <b>&minus;'+Math.round(t.s*100)+'%</b>';
     lg.appendChild(d);
   });
+  var d0=document.createElement('div');d0.className='lg';
+  d0.innerHTML='<i style="background:var(--mut);height:2px"></i>右上框 = 全部本地（−100%）@ 订阅 $150/月';
+  lg.appendChild(d0);
 })();
 </script>
