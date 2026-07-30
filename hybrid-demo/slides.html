@@ -793,13 +793,18 @@ b{font-weight:700}
     var t=el('text',{x:X0-10,y:py(y)+4,'text-anchor':'end',fill:'var(--mut)','font-size':12,'font-family':'var(--mono)'});
     t.textContent=y+'y';svg.appendChild(t);
   });
-  // x labels
+  // x labels + user-count row ($150/mo per user)
   [300,600,1000,1500,2000,2500,3000].forEach(function(m){
     var t=el('text',{x:px(m),y:Y1+22,'text-anchor':'middle',fill:'var(--mut)','font-size':12,'font-family':'var(--mono)'});
     t.textContent='$'+m;svg.appendChild(t);
+    if(m%150===0){
+      var u=el('text',{x:px(m),y:Y1+38,'text-anchor':'middle',fill:'var(--teal)','font-size':11,'font-family':'var(--mono)'});
+      u.textContent='≈'+(m/150)+'人';
+      svg.appendChild(u);
+    }
   });
-  var xl=el('text',{x:(X0+X1)/2,y:Y1+44,'text-anchor':'middle',fill:'var(--mut)','font-size':13});
-  xl.textContent='云端月消耗 (USD)';svg.appendChild(xl);
+  var xl=el('text',{x:(X0+X1)/2,y:Y1+56,'text-anchor':'middle',fill:'var(--mut)','font-size':13});
+  xl.textContent='云端月消耗 (USD) · 绿色 = 折合人数 × $150/月 订阅';svg.appendChild(xl);
   // break-even reference lines
   [{y:2,l:'2 年回本'},{y:1,l:'1 年回本'}].forEach(function(r){
     svg.appendChild(el('line',{x1:X0,y1:py(r.y),x2:X1,y2:py(r.y),stroke:'var(--ink)','stroke-width':1,'stroke-dasharray':'5 5',opacity:.45}));
@@ -822,24 +827,26 @@ b{font-weight:700}
       }
     });
   });
-  // baseline inset: 全部本地做完 (−100%) @ $150/mo subscription
-  var SUB=150;
-  var bx=452,by=52,bw=352,bh=158;
+  // baseline inset: 全部本地做完 (−100%), multi-user @ $150/mo per user
+  var SUB=150, USERS=[1,2,4];
+  var bx=430,by=50,bw=376,bh=182;
   svg.appendChild(el('rect',{x:bx,y:by,width:bw,height:bh,rx:12,fill:'var(--surface)',stroke:'var(--line)','stroke-width':1}));
   var bt=el('text',{x:bx+18,y:by+30,fill:'var(--ink)','font-size':14,'font-weight':700});
   bt.textContent='理想上限：全部本地做完（−100%）';svg.appendChild(bt);
   var bs=el('text',{x:bx+18,y:by+50,fill:'var(--mut)','font-size':12});
-  bs.textContent='按订阅 $'+SUB+'/月计（省下整个订阅）';svg.appendChild(bs);
+  bs.textContent='多用户共享 · 每人 $'+SUB+'/月 订阅被完全替代';svg.appendChild(bs);
   tiers.forEach(function(t,i){
     var yy=by+76+i*26;
-    var yrs=(t.rmb/FX)/(SUB*12);
-    var tag=yrs<2.5?'✅':(yrs<4?'⚠️':'❌');
+    var n=USERS[i];
+    var yrs=(t.rmb/FX)/(SUB*n*12);
     svg.appendChild(el('circle',{cx:bx+24,cy:yy-4,r:5,fill:t.c}));
     var r1=el('text',{x:bx+38,y:yy,fill:'var(--ink)','font-size':13});
-    r1.textContent=t.n;svg.appendChild(r1);
+    r1.textContent=t.n+' · '+n+' 人';svg.appendChild(r1);
     var r2=el('text',{x:bx+bw-18,y:yy,'text-anchor':'end',fill:'var(--ink)','font-size':13,'font-weight':700,'font-family':'var(--mono)'});
-    r2.textContent=yrs.toFixed(1)+' 年 '+tag;svg.appendChild(r2);
+    r2.textContent=yrs.toFixed(1)+' 年 ✅';svg.appendChild(r2);
   });
+  var bp=el('text',{x:bx+18,y:by+bh-14,fill:'var(--teal)','font-size':12.5,'font-weight':700});
+  bp.textContent='价格 ×2 → 共享人数 ×2，回本不变';svg.appendChild(bp);
   // legend
   var lg=document.getElementById('legend');
   tiers.forEach(function(t){
@@ -848,7 +855,7 @@ b{font-weight:700}
     lg.appendChild(d);
   });
   var d0=document.createElement('div');d0.className='lg';
-  d0.innerHTML='<i style="background:var(--mut);height:2px"></i>右上框 = 全部本地（−100%）@ 订阅 $150/月';
+  d0.innerHTML='<i style="background:var(--mut);height:2px"></i>右上框 = 全部本地 · 多用户共享 · $150/月·人';
   lg.appendChild(d0);
 })();
 </script>
