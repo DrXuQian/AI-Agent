@@ -27,8 +27,7 @@
   </div>
   <p class="foot">虚线 = 各档显存上限；点在线下 = <b>权重装得下</b>；虚连线 = 量化把同一模型从原始精度拉进可跑区间（Kimi-K3 2.8T 即使 1-bit 也要 594G，只有四卡能跑）。
   分档还要留长上下文 KV 与并发余量，故模型常上挂一档（M3 单卡可装，双卡跑长上下文/多并发才稳）。
-  <b>体积为 HuggingFace / Unsloth GGUF 实际文件大小</b>（非估算）；<b>评分为估计值</b>。
-  Opus 4.8 体积未公开，仅作评分参照。</p>
+  <b>体积为 HuggingFace / Unsloth GGUF 实际文件大小</b>；<b>评分为估计值</b>。</p>
 </section>
 
 <!-- 3 · ARCHITECTURES (personified) -->
@@ -522,8 +521,6 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
       svg.appendChild(E('text',{x:X(d.sq)+d.dx,y:Y(d.gq)+d.dy,'text-anchor':d.a||'start','font-size':11.5,'font-weight':700,fill:'var(--ink)','font-family':'var(--mono)'},d.n));
       svg.appendChild(E('text',{x:X(d.sq)+d.dx,y:Y(d.gq)+d.dy+12,'text-anchor':d.a||'start','font-size':10,fill:d.c,'font-family':'var(--mono)'},d.pq));
     });
-    svg.appendChild(E('line',{x1:X(88.6),y1:T,x2:X(88.6),y2:B,stroke:'var(--ink)','stroke-width':1.5,'stroke-dasharray':'3 4',opacity:.5}));
-    svg.appendChild(E('text',{x:X(88.6)-6,y:T+13,'text-anchor':'end','font-size':11.5,'font-weight':700,fill:'var(--ink)',opacity:.75},'云端 Opus 4.8 · 88.6%（体积未公开）'));
     // legend
     svg.appendChild(E('circle',{cx:L+14,cy:T+10,r:6,fill:'var(--mut)'}));
     svg.appendChild(E('text',{x:L+25,y:T+14,'font-size':11,fill:'var(--mut)'},'实际部署量化版'));
