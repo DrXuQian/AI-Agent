@@ -8,9 +8,9 @@
     <h1>AI Station<span class="tld">：本地免费算力 × 云端前沿模型</span></h1>
     <p class="lede">按任务形态可省 <b class="hl">23%–95%</b> 云端 token，<b>且不掉解题率</b>。</p>
     <div class="title-metrics">
-      <div class="tm"><span class="tm-num">−88%</span><span class="tm-lab">可验证任务实测</span></div>
-      <div class="tm"><span class="tm-num">−23%</span><span class="tm-lab">难 bug 修复实测</span></div>
-      <div class="tm"><span class="tm-num">0%</span><span class="tm-lab">路由地板 · 绝不亏</span></div>
+      <div class="tm"><span class="tm-num">−88%</span><span class="tm-lab">可验证任务 · 双卡档实测</span></div>
+      <div class="tm"><span class="tm-num">−23%</span><span class="tm-lab">难 bug 修复 · 双卡档实测</span></div>
+      <div class="tm"><span class="tm-num">1.5 年</span><span class="tm-lab">四卡 · 4 人团队回本</span></div>
     </div>
   </div>
 </section>
@@ -26,8 +26,8 @@
     </article>
     <article class="premise premise--floor">
       <div class="pico" aria-hidden="true">▤</div>
-      <h3>路由地板 = 系统绝不亏钱</h3>
-      <p>本地免费先试，搞不定就让云端<b>从干净状态接手</b> → 最坏 = 纯云端 baseline（省 0%），<b>永不为负</b>。文中"更贵"的数字都是无地板的裸架构（反面教材）。</p>
+      <h3>统一流程：先试 → 自证 → 干净升级</h3>
+      <p>本地免费先试；搞不定让云端<b>从干净状态接手</b>，最坏也只是回到纯云端 baseline。文中"更贵"的数字均来自无此流程的裸架构（反面教材）。</p>
     </article>
   </div>
   <div class="acct acct--slim">
@@ -132,14 +132,14 @@
       难任务里<b>自带裁判的子集</b>（可复现 / 有现成测试）照样走左边——四卡实测 3/11 自解、零假阳性。</p>
     </article>
   </div>
-  <p class="foot">可验证性决定的是<b>免费阶段敢不敢停</b>：有裁判 → 整题外包给免费本地（escalate <b class="good">−88%</b>）；
-  没裁判 → 只外包探索体力活、云端拍板（context-engine <b class="good">−23%</b>）——本地当"免费的眼睛和手"，云端当大脑。
+  <p class="foot">可验证性决定的是<b>免费阶段敢不敢停</b>：有裁判 → 整题外包给免费本地（escalate 双卡实测 <b class="good">−88%</b>）；
+  没裁判 → 只外包探索体力活、云端拍板（context-engine 双卡实测 <b class="good">−23%</b>）——本地当"免费的眼睛和手"，云端当大脑。
   <b class="hl">给任务装裁判（TDD / 先写测试）= 把负载搬进左边 = 最强省钱杠杆。</b></p>
 </section>
 
 <!-- 5c · FIVE ARCHITECTURES -->
 <section class="slide" data-title="五种架构">
-  <h2>五种架构<b class="hl">单独裸跑</b>的成本<span class="mut"> · 难任务(SWE-bench)</span></h2>
+  <h2>五种架构<b class="hl">单独裸跑</b>的成本<span class="mut"> · 难任务 SWE-bench · 双卡档代理</span></h2>
   <div class="methods" id="methods">
     <div class="meth" data-pct="-23">
       <span class="meth-lab"><span class="meth-name">context-engine ✅</span><span class="meth-desc">本地探索打包 · 云端只决策</span></span>
@@ -200,7 +200,7 @@
 
 <!-- 6 · RESULTS -->
 <section class="slide" data-title="实测结果">
-  <h2>实测：两端都省，且不掉解题率</h2>
+  <h2>实测：两端都省，且不掉解题率<span class="mut" style="font-size:.55em"> · 双卡档代理（Sonnet）× 云端 Opus 4.8（$5/$25）</span></h2>
   <div class="results">
     <figure class="res">
       <figcaption><b>HumanEval+</b> · 可验证 · escalate</figcaption>
@@ -309,12 +309,12 @@
     <div class="mcell" data-v="95"></div>
   </div>
   <div class="mkey">
-    <span>下有 <b>0% 地板</b>（绝不亏）</span>
+    <span>难任务列上限 ≈ 本地<b>可自证</b>比例</span>
     <span class="mkey-scale" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
     <span>可验证列 <b>无封顶 → 趋近 −100%</b></span>
   </div>
   <p class="foot">驱动变量 = <b>本地自解率</b>（实测锚点：易 83%→94%→~98%，难 ~0%→9%→~40%）；
-  <span class="mono">简单省钱率 ≈ 1−2×(1−自解率)</span>，四卡整行按 85% 能力反推（偏保守）。</p>
+  <span class="mono">简单省钱率 ≈ 1−2×(1−自解率)</span>，四卡整行按 85% 能力反推（偏保守）。<br>难任务列卡在<b>「可自证」而非能力</b>：即使本地≈云端也只到 ~−50/60%——做对但<b>无法证明</b>的题，要么升级白做、要么盲发掉质量，仍需云端拍板。</p>
 </section>
 
 <!-- 11 · BREAK-EVEN CHART -->
@@ -343,8 +343,10 @@
       兑现<b>打折但不归零</b>：货币从 $/token 变成"档位 × 座位数"。</p>
     </article>
   </div>
-  <p class="foot"><b>诚实的风险</b>：token 补贴期省下的美元缩水。三个对冲：<b>①涨价期权</b>（云端涨价、机器价值线性放大）
-  <b>②主攻 API 客户</b> <b>③隐私第二条腿</b>——context-engine 天然"仓库不上云、只上压缩包"，<b class="hl">省 token 的机制 = 缩小数据暴露面的机制</b>，与计费无关。</p>
+  <p class="foot"><b>进阶产品</b>：与云厂商联合推<b class="hl">「端云协同版 coding plan」</b>——机器当入场券、云端只接升级题，
+  订阅价可以低一档（云厂商也乐意：获客 + 算力减压）；或机器捆绑云 credits 一体化订阅。<br>
+  <b>诚实的风险</b>：token 补贴期省下的美元缩水。对冲：①涨价期权 ②主攻 API 客户
+  ③隐私腿——context-engine 天然"仓库不上云、只上压缩包"，省 token 的机制 = 缩小数据暴露面的机制。</p>
 </section>
 
 <!-- 12 · BUSINESS -->
