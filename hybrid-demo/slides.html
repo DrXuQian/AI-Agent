@@ -101,6 +101,67 @@
   <p class="foot">两个公开学术基准卡住"可验证性"这根轴的两端，隐藏测试判分 = 硬证据。</p>
 </section>
 
+<!-- 5b · BENCHMARK DETAIL -->
+<section class="slide" data-title="基准详解">
+  <h2>两个基准分别测什么</h2>
+  <div class="bm2">
+    <article class="bm bm--swe">
+      <header><h3>SWE-bench Lite</h3><span class="bm-kind">真实仓库 bug 修复</span></header>
+      <div class="pipe">
+        <span class="pstep"><b>输入</b>真实 GitHub issue<br>+ 整个代码库</span>
+        <span class="parrow" aria-hidden="true">▶</span>
+        <span class="pstep"><b>产出</b>一个补丁<br>patch</span>
+        <span class="parrow" aria-hidden="true">▶</span>
+        <span class="pstep"><b>判分</b>隐藏测试<br>F2P + P2P</span>
+      </div>
+      <ul class="bm-facts">
+        <li>普林斯顿 · 2,294 真实 issue → Verified 500 → 用 <b>Lite 子集</b></li>
+        <li>考：陌生大仓库里<b>定位 · 理解 · 修改</b>（探索密集，产出代码量小）</li>
+        <li>本地<b>看不到判分测试</b> → 弱自证</li>
+      </ul>
+    </article>
+    <article class="bm bm--he">
+      <header><h3>HumanEval+</h3><span class="bm-kind">函数级代码生成</span></header>
+      <div class="pipe">
+        <span class="pstep"><b>输入</b>函数签名<br>+ docstring</span>
+        <span class="parrow" aria-hidden="true">▶</span>
+        <span class="pstep"><b>产出</b>函数实现</span>
+        <span class="parrow" aria-hidden="true">▶</span>
+        <span class="pstep"><b>判分</b>~764 条<br>隐藏测试/题</span>
+      </div>
+      <ul class="bm-facts">
+        <li>OpenAI 164 题；EvalPlus 把测试 <b>9.6 → ~764 条/题（~80×）</b>，全集 ~12.5 万条</li>
+        <li>考：<b>照规格写对一个函数</b>（纯生成、零仓库探索）</li>
+        <li>docstring 自带示例 → 本地能跑测试自证 → <b>强自证</b></li>
+      </ul>
+    </article>
+  </div>
+  <p class="foot">F2P = 修复前必失败·修复后必过（真修好了）；P2P = 修复前后都过（没改坏）。二元判定、无部分分。</p>
+</section>
+
+<!-- 5c · FIVE ARCHITECTURES -->
+<section class="slide" data-title="五种架构">
+  <h2>五种端云 Agent 架构<span class="mut"> · 难任务(SWE-bench)成本</span></h2>
+  <div class="methods" id="methods">
+    <div class="meth" data-pct="-23">
+      <span class="meth-lab"><span class="meth-name">context-engine ✅</span><span class="meth-desc">本地探索打包 · 云端只决策</span></span>
+      <span class="meth-track"></span><span class="meth-val"></span></div>
+    <div class="meth" data-pct="-2.5">
+      <span class="meth-lab"><span class="meth-name">local-first</span><span class="meth-desc">本地做完 · 云端逐一审查</span></span>
+      <span class="meth-track"></span><span class="meth-val"></span></div>
+    <div class="meth" data-pct="0">
+      <span class="meth-lab"><span class="meth-name">baseline</span><span class="meth-desc">纯云端 · 自己探索+修复</span></span>
+      <span class="meth-track"></span><span class="meth-val"></span></div>
+    <div class="meth" data-pct="33">
+      <span class="meth-lab"><span class="meth-name">hybrid（云端编排）</span><span class="meth-desc">云端派子任务 · 本地写样板</span></span>
+      <span class="meth-track"></span><span class="meth-val"></span></div>
+    <div class="meth" data-pct="71">
+      <span class="meth-lab"><span class="meth-name">escalate</span><span class="meth-desc">本地先试 · 失败才升级云端</span></span>
+      <span class="meth-track"></span><span class="meth-val"></span></div>
+  </div>
+  <p class="foot"><span class="good">◀ 省</span> · <span class="bad">费 ▶</span>（相对 baseline）。难任务上<b>只有 context-engine 省且不掉质量</b>；其余要么陷入协调循环更贵，要么本地乱指挥掉质量。</p>
+</section>
+
 <!-- 6 · RESULTS -->
 <section class="slide" data-title="实测结果">
   <h2>实测：两端都省，且不掉解题率</h2>
@@ -150,6 +211,35 @@
     </div>
   </div>
   <p class="foot"><b>关键</b>：升级时不要把本地失败产物硬塞给云端消化——那正是裸架构 +71% / +12% 的根因。</p>
+</section>
+
+<!-- 8b · AGENT DESIGN = DEEP DIRECTION -->
+<section class="slide" data-title="Agent 可深挖">
+  <p class="eyebrow">Agent 设计 = 值得深挖的方向</p>
+  <h2>同一套代码，设计一变，结果天差地别</h2>
+  <div class="swing">
+    <div class="sw sw--good"><span class="sw-num">−88%</span><span class="sw-lab">escalate · HumanEval+（可验证）</span></div>
+    <div class="sw-vs" aria-hidden="true">同一套<br>escalate<br>代码</div>
+    <div class="sw sw--bad"><span class="sw-num">+71%</span><span class="sw-lab">escalate · SWE-bench（难任务）</span></div>
+  </div>
+  <div class="deep">
+    <div class="deep-card">
+      <h4>路由信号怎么选 · 实测</h4>
+      <div class="rsig"><span>事前 · 读题面预判难易</span><b class="bad">+10%</b><span>❌ 判不出</span></div>
+      <div class="rsig"><span>事中 · 先试卡住才升级</span><b class="good">−41%</b><span>✅ 有效</span></div>
+      <div class="rsig"><span>oracle · 上帝视角路由</span><b class="good">−35%</b><span>↑ 仍有 headroom</span></div>
+    </div>
+    <div class="deep-card">
+      <h4>待挖方向</h4>
+      <ul>
+        <li>事中路由调参 → 逼近 oracle</li>
+        <li>预算自适应 / 混合策略</li>
+        <li>多 Agent 编排 · 并行探索</li>
+        <li>更强端侧模型 → 解封难任务</li>
+      </ul>
+    </div>
+  </div>
+  <p class="foot">微小设计差异把结果从 <b class="bad">+71%</b> 甩到 <b class="good">−88%</b> —— <b>Agent 编排本身值得当作核心课题深挖</b>。</p>
 </section>
 
 <!-- 9 · COMPLETION RATES -->
@@ -476,6 +566,59 @@ b{font-weight:700}
 .cg-k{display:block;font-family:var(--mono);font-weight:700;color:var(--ink);margin-bottom:6px;font-size:13px}
 .close-line{font-size:clamp(18px,2.4vw,32px);font-weight:750;margin:0;text-wrap:balance}
 
+/* BENCHMARK DETAIL */
+.bm2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,30px)}
+.bm{background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  padding:clamp(18px,2.3vw,32px);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:16px;--tc:var(--teal)}
+.bm--swe{border-top:4px solid var(--blue);--tc:var(--blue)}
+.bm--he{border-top:4px solid var(--teal);--tc:var(--teal)}
+.bm header{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.bm h3{margin:0;font-size:clamp(18px,2vw,26px);font-weight:800}
+.bm-kind{font-size:12.5px;color:var(--mut);font-family:var(--mono)}
+.pipe{display:flex;align-items:stretch;gap:8px}
+.pstep{flex:1 1 0;min-width:0;background:var(--paper);border:1px solid var(--line);border-radius:10px;
+  padding:11px 12px;font-size:clamp(11.5px,1.05vw,13.5px);line-height:1.35;display:flex;flex-direction:column;gap:4px}
+.pstep b{font-family:var(--mono);font-size:10.5px;color:var(--tc);text-transform:uppercase;letter-spacing:.07em}
+.parrow{align-self:center;color:var(--mut);font-size:13px}
+.bm-facts{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+.bm-facts li{font-size:clamp(12px,1.15vw,15px);color:var(--mut);padding-left:16px;position:relative}
+.bm-facts li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--tc)}
+.bm-facts b{color:var(--ink)}
+
+/* FIVE ARCHITECTURES (diverging bars) */
+.methods{display:flex;flex-direction:column;gap:clamp(9px,1.5vh,14px);max-width:1000px}
+.meth{display:grid;grid-template-columns:minmax(180px,270px) 1fr 62px;align-items:center;gap:clamp(10px,1.6vw,20px)}
+.meth-lab{display:flex;flex-direction:column;gap:2px;min-width:0}
+.meth-name{font-family:var(--mono);font-weight:700;font-size:clamp(13px,1.35vw,17px)}
+.meth-desc{font-size:clamp(11px,1.05vw,13px);color:var(--mut)}
+.meth-track{position:relative;height:clamp(22px,3vh,28px);background:var(--line);border-radius:6px}
+.meth-track::before{content:"";position:absolute;left:50%;top:-4px;bottom:-4px;width:2px;background:var(--mut);opacity:.5;transform:translateX(-50%)}
+.meth-fill{position:absolute;top:0;height:100%;border-radius:5px}
+.meth-val{font-family:var(--mono);font-weight:700;text-align:right;font-variant-numeric:tabular-nums;font-size:clamp(13px,1.3vw,16px)}
+
+/* AGENT DEEP */
+.swing{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(12px,2.5vw,40px);max-width:900px}
+.sw{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);
+  padding:clamp(16px,2.2vw,32px);text-align:center;display:flex;flex-direction:column;gap:8px}
+.sw--good{border-top:4px solid var(--teal)} .sw--bad{border-top:4px solid var(--loss)}
+.sw-num{font-family:var(--mono);font-weight:800;font-size:clamp(36px,5.6vw,72px);letter-spacing:-.03em;line-height:1}
+.sw--good .sw-num{color:var(--teal)} .sw--bad .sw-num{color:var(--loss)}
+.sw-lab{font-size:clamp(11px,1.05vw,14px);color:var(--mut)}
+.sw-vs{font-family:var(--mono);font-size:12.5px;color:var(--mut);text-align:center;line-height:1.35}
+.deep{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,30px);max-width:960px}
+.deep-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  padding:clamp(16px,2vw,28px);box-shadow:var(--shadow)}
+.deep-card h4{margin:0 0 12px;font-size:clamp(13px,1.35vw,17px);font-weight:750;color:var(--mut)}
+.rsig{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:8px 0;
+  border-bottom:1px dashed var(--line);font-size:clamp(12px,1.15vw,15px)}
+.rsig:last-child{border-bottom:0}
+.rsig b{font-family:var(--mono);font-weight:700}
+.rsig span:last-child{color:var(--mut);font-size:12px;text-align:right}
+.deep-card ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.deep-card li{font-size:clamp(12.5px,1.2vw,15.5px);padding-left:18px;position:relative;color:var(--ink)}
+.deep-card li::before{content:"→";position:absolute;left:0;color:var(--teal);font-family:var(--mono);font-weight:700}
+.good{color:var(--teal)} .bad{color:var(--loss)}
+
 /* RAIL + CHROME */
 .rail{position:fixed;right:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;
   gap:11px;z-index:20}
@@ -551,6 +694,26 @@ b{font-weight:700}
     var i=document.createElement('i');
     i.style.background='color-mix(in srgb, var(--teal) '+Math.round(((v/100)*0.9+0.06)*100)+'%, var(--surface))';
     i.style.border='1px solid var(--line)';scale.appendChild(i);});}
+
+  /* ---- five architectures: diverging cost bars ---- */
+  var MAXP=75;
+  document.querySelectorAll('.meth').forEach(function(m){
+    var p=parseFloat(m.dataset.pct);
+    var track=m.querySelector('.meth-track'), val=m.querySelector('.meth-val');
+    var f=document.createElement('span');f.className='meth-fill';
+    var w=Math.min(Math.abs(p),MAXP)/MAXP*50;
+    if(p===0){
+      f.style.left='calc(50% - 3px)';f.style.width='6px';f.style.background='var(--mut)';
+      val.textContent='基准';val.style.color='var(--mut)';
+    }else if(p<0){
+      f.style.right='50%';f.style.width=w+'%';f.style.background='var(--teal)';
+      val.textContent='−'+Math.abs(p)+'%';val.style.color='var(--teal)';
+    }else{
+      f.style.left='50%';f.style.width=w+'%';f.style.background='var(--loss)';
+      val.textContent='+'+p+'%';val.style.color='var(--loss)';
+    }
+    track.appendChild(f);
+  });
 
   /* ---- break-even line chart (SVG) ---- */
   var FX=7.2;
