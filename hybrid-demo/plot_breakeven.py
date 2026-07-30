@@ -12,9 +12,9 @@ TARGETS = [(2.0, "2-yr break-even", "gray"), (1.0, "1-yr break-even", "#444")]
 
 # (label, price¥, blended-80/20 savings, color, label offset (x,y) pts)
 TIERS = [
-    ("Single-card  ¥20k", 20000, 0.68, "#1f77b4", (-46, -20)),
-    ("Dual-card    ¥40k", 40000, 0.83, "#ff7f0e", (8, 9)),
-    ("Quad-card    ¥80k", 80000, 0.90, "#2ca02c", (8, 9)),
+    ("Single-card  ¥20k", 20000, 0.83, "#1f77b4", (-46, -20)),
+    ("Dual-card    ¥40k", 40000, 0.92, "#ff7f0e", (8, 9)),
+    ("Quad-card    ¥80k", 80000, 0.98, "#2ca02c", (8, 9)),
 ]
 
 monthly = np.linspace(100, 3000, 500)

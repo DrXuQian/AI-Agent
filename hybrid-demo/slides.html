@@ -8,8 +8,8 @@
     <h1>本地免费算力 × 云端前沿模型</h1>
     <p class="lede">把「不需要顶级智能、却烧 token」的活搬到免费本地。</p>
     <div class="title-metrics">
-      <div class="tm"><span class="tm-num">−88%</span><span class="tm-lab">简单任务 · 实测</span></div>
-      <div class="tm"><span class="tm-num">−23%</span><span class="tm-lab">困难任务 · 实测</span></div>
+      <div class="tm"><span class="tm-num">−88%</span><span class="tm-lab">简单任务 · 单卡档实测</span></div>
+      <div class="tm"><span class="tm-num">≈−68%</span><span class="tm-lab">困难任务 · 单卡迭代估（实测下限 −23%）</span></div>
       <div class="tm"><span class="tm-num">$0</span><span class="tm-lab">本地算力 · 免费</span></div>
     </div>
   </div>
@@ -18,27 +18,15 @@
 
 <!-- 2 · TIERS × MODEL INTELLIGENCE -->
 <section class="slide" data-title="硬件与模型">
-  <h2>三档硬件 × 能跑的模型 × 智力水平</h2>
-  <div class="ladder2"><svg id="ladder" viewBox="0 0 1000 190" role="img" aria-label="模型智力标尺"></svg></div>
-  <div class="tiers">
-    <article class="tier tier--1">
-      <header><span class="tier-name">单卡</span><span class="tier-price">¥20k</span></header>
-      <div class="tier-model">Qwen3.5-122B-A10B-int4 · 122B/10B</div>
-      <p class="tier-use">预算型个人 · 走量主力</p>
-    </article>
-    <article class="tier tier--2">
-      <header><span class="tier-name">双卡</span><span class="tier-price">¥40k</span></header>
-      <div class="tier-model">MiniMax-M3-int4 · 230B/10B</div>
-      <p class="tier-use">小团队 · 顶级个人</p>
-    </article>
-    <article class="tier tier--3">
-      <header><span class="tier-name">四卡</span><span class="tier-price">¥80k</span></header>
-      <div class="tier-model">GLM-5.2-int4 · ~735B/40B</div>
-      <p class="tier-use">团队 / CI 共享 · 多用户</p>
-    </article>
+  <h2>哪些模型能在哪一档跑起来</h2>
+  <div class="fitwrap"><svg id="fitmap" viewBox="0 0 1000 360" role="img" aria-label="模型体积 vs 评分 与显存容量"></svg></div>
+  <div class="pricestrip">
+    <span class="pchip pchip--1"><b>单卡 256G</b> ¥20k · Qwen3.5-397B-A17B-int4 / DS-V4-Flash-int4 · 预算个人 <em>实测锚档</em></span>
+    <span class="pchip pchip--2"><b>双卡 512G</b> ¥40k · MiniMax-M3-int4 · 小团队 / 顶级个人</span>
+    <span class="pchip pchip--3"><b>四卡 1T</b> ¥80k · GLM-5.2-int4 / DS-V4-Pro-int4 / Kimi-K3 Q2_K_XL · 团队 CI 共享</span>
   </div>
-  <p class="foot"><span class="mono">智力 = SWE-bench Verified（int4 会略降）。</span> *四卡 85% 为设定值（同代 GLM-5 综合榜开源第一作旁证）。
-  本地越逼近云端，可外包的活越多、省得越多。</p>
+  <p class="foot">虚线 = 各档显存上限；点在线下 = <b>权重装得下</b>。实际分档还要留长上下文 KV 与并发余量，所以模型常上挂一档
+  （如 M3 单卡可装，双卡跑长上下文/多并发才稳）。实验代理（Haiku/Sonnet 级）对标<b>单卡档</b> → −88%/−23% 实测背书单卡行，双卡/四卡按能力单调外推。</p>
 </section>
 
 <!-- 3 · ARCHITECTURES (personified) -->
@@ -113,7 +101,7 @@
 
 <!-- 5 · METHOD COMPARISON MATRIX -->
 <section class="slide" data-title="方法对比">
-  <h2>方法 × 难度：云端 token 相对 baseline<span class="mut"> · 双卡档代理实测</span></h2>
+  <h2>方法 × 难度：云端 token 相对 baseline<span class="mut"> · 单卡档代理实测</span></h2>
   <div class="mx">
     <div class="mxc mxh"></div>
     <div class="mxc mxh">简单 · HumanEval+<br><small>31 题</small></div>
@@ -137,10 +125,28 @@
 
     <div class="mxc mxr mxr--lead">路由 Agent<small>按难度组合以上</small></div>
     <div class="mxc" data-v="-88" data-note="走 escalate"></div>
-    <div class="mxc" data-v="-23" data-note="走 context-engine · 迭代流估 −45%"></div>
+    <div class="mxc" data-v="-23" data-note="走 context-engine · 迭代流估 −68%"></div>
   </div>
   <p class="foot"><b>没有一种方法两边都赢</b>——escalate 简单 −88% ↔ 困难 +71%（同一套代码！），context-engine 反之。
   <b class="hl">只有按难度分诊的路由 Agent 能吃满两列</b>。红格是<b>裸跑</b>成本（坏 harness 的产物，见下页）；一次性判分保守实测，真实工作流可免费迭代、困难列更省。</p>
+</section>
+
+<!-- 5b · MASTER TABLE -->
+<section class="slide" data-title="档位总表">
+  <h2>固化总表：档位 × 难度 → 省钱率与回本</h2>
+  <div class="stwrap">
+  <table class="stbl">
+    <thead><tr><th>档位</th><th>端侧模型</th><th>智力*</th><th>困难（迭代估）</th><th>简单</th><th>混合 80/20</th><th>2 年回本</th></tr></thead>
+    <tbody>
+      <tr><td><b>单卡</b><small>256G · ¥20k</small></td><td>Qwen3.5-397B-A17B-int4<br>DS-V4-Flash-int4</td><td>~76%</td><td class="cs" data-s="68">≈−68%</td><td class="cs" data-s="87">≈−87%<br><small>一次性实测 −88%</small></td><td class="cs" data-s="83">≈−83%</td><td>≥$139/月</td></tr>
+      <tr><td><b>双卡</b><small>512G · ¥40k</small></td><td>MiniMax-M3-int4</td><td>~80%</td><td class="cs" data-s="84">≈−84%</td><td class="cs" data-s="94">≈−94%</td><td class="cs" data-s="92">≈−92%</td><td>≥$252/月</td></tr>
+      <tr><td><b>四卡</b><small>1T · ¥80k</small></td><td>GLM-5.2-int4 · DS-V4-Pro-int4<br>Kimi-K3 Q2_K_XL</td><td>85–86%</td><td class="cs" data-s="92">≈−92%</td><td class="cs" data-s="99">→−100%</td><td class="cs" data-s="98">≈−98%</td><td>≥$470/月</td></tr>
+      <tr class="stref"><td>云端参照</td><td>Opus 4.8</td><td>88.6%</td><td>→−100%<small>置信盲发</small></td><td>→−100%</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="foot">困难列：<span class="mono">省 ≈ 自解率 + (1−自解率)×20%</span>（自解零云端；升级题仍附压缩包）；迭代自解率设定：困难 单 60%/双 80%/四 90%，简单 29/31 · 30/31 · 31/31。
+  实测硬证据（<b>单卡档</b>代理，一次性判分）：简单 −88%、困难 −23%（保守下限）。回本按混合负载，多用户共享再除以人数。</p>
 </section>
 
 <!-- 6 · NO GOOD HARNESS -->
@@ -185,9 +191,9 @@
       <p class="tier-use">账单不自动变少，但订阅本质是<b>限额</b>：<b>降档</b>（Max $200→Pro $20）· <b>减座位</b>（10→3）· <b>不撞限流</b>。</p>
     </article>
     <article class="tier tier--1">
-      <header><span class="tier-name">端上订阅</span><span class="tier-price">新收入</span></header>
-      <div class="tier-model">机器不只卖断</div>
-      <p class="tier-use">硬件分期 + 端侧服务费（模型更新/Agent 升级），与云端 credits 合成<b>一张账单</b>。</p>
+      <header><span class="tier-name">端云协同收费</span><span class="tier-price">联合订阅</span></header>
+      <div class="tier-model">与云厂商（如阿里云）合作一档</div>
+      <p class="tier-use">机器 + 云端 credits <b>合成一张账单</b>：云端只接升级题 → 订阅可定<b>更低价档</b>，双方分成。</p>
     </article>
   </div>
   <p class="foot"><b>诚实的风险</b>：token 补贴期省下的美元缩水。对冲：①云端涨价时机器价值线性放大 ②主攻 API 客户
@@ -198,29 +204,11 @@
 <section class="slide" data-title="回本图">
   <h2>成本核算：回本周期 vs 云端月消耗<span class="mut"> · 混合负载 80/20</span></h2>
   <div class="chartwrap">
-    <svg id="chart" viewBox="0 0 840 470" role="img" aria-label="回本折线图"></svg>
+    <svg id="chart" viewBox="0 0 840 455" role="img" aria-label="回本折线图"></svg>
   </div>
   <div class="legend" id="legend"></div>
 </section>
 
-<!-- 9 · NEW SUBSCRIPTION PROPOSAL -->
-<section class="slide" data-title="新订阅 Proposal">
-  <p class="eyebrow">Proposal · 与云厂商联合出一档新订阅</p>
-  <h2>「端云协同版」Coding Plan</h2>
-  <div class="prop">
-    <div class="prop-price">
-      <div class="pp pp--old"><span class="pp-name">纯云端 Max</span><span class="pp-num">$200<small>/月</small></span><span class="pp-sub">全部 token 云端算力扛</span></div>
-      <div class="pp-vs" aria-hidden="true">→</div>
-      <div class="pp pp--new"><span class="pp-name">端云协同版<sup>示意</sup></span><span class="pp-num">$49<small>/月</small></span><span class="pp-sub">机器当入场券 · 云端只接升级题（量少且都是真难题）</span></div>
-    </div>
-    <div class="prop-wins">
-      <div class="pw"><b>用户</b>总成本降：订阅降档 + 机器随时间摊薄 + 隐私（仓库不上云）</div>
-      <div class="pw"><b>云厂商</b>获客（买机器的都是重度用户）· 算力减压（~80% token 端侧消化）· 留存（工作流锁定）</div>
-      <div class="pw"><b>机器厂商</b>硬件收入 + 订阅分成 + Agent harness 的持续价值</div>
-    </div>
-  </div>
-  <p class="foot">把"还要订阅"从劣势翻成<b>三赢的渠道合作</b>；价格为示意，实际取决于分成谈判。替代形态：机器捆绑云端 credits 一体化订阅。</p>
-</section>
 
 </section>
 
@@ -377,7 +365,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
 .mx-note{font-size:clamp(9.5px,.95vw,11.5px);opacity:.85}
 
 /* CHART */
-.chartwrap{width:100%;max-width:940px;margin:0 auto}
+.chartwrap{width:100%;max-width:860px;margin:0 auto}
 #chart{width:100%;height:auto;display:block}
 .legend{display:flex;gap:clamp(14px,2.6vw,36px);justify-content:center;flex-wrap:wrap}
 .lg{display:flex;align-items:center;gap:8px;font-size:clamp(11.5px,1.15vw,14.5px);color:var(--mut)}
@@ -402,6 +390,33 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
 .pw{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--teal);
   border-radius:10px;padding:12px 14px;font-size:clamp(11.5px,1.15vw,14px);color:var(--mut)}
 .pw b{color:var(--ink);display:block;margin-bottom:3px}
+
+/* FIT MAP + PRICE STRIP */
+.fitwrap{width:100%;max-width:1000px;margin:0 auto}
+.fitwrap svg{width:100%;height:auto;display:block}
+.pricestrip{display:flex;flex-direction:column;gap:7px;max-width:1000px;margin:0 auto}
+.pchip{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--pc);
+  border-radius:9px;padding:9px 14px;font-size:clamp(11px,1.1vw,14px);color:var(--mut);box-shadow:var(--shadow)}
+.pchip b{color:var(--ink);font-family:var(--mono);margin-right:6px}
+.pchip em{font-style:normal;color:var(--teal);font-weight:700}
+.pchip--1{--pc:var(--amber)} .pchip--2{--pc:var(--blue)} .pchip--3{--pc:var(--teal)}
+
+/* MASTER TABLE */
+.stwrap{overflow-x:auto;max-width:1060px}
+.stbl{width:100%;border-collapse:separate;border-spacing:0 7px;font-variant-numeric:tabular-nums}
+.stbl th{font-size:clamp(11px,1.1vw,14px);color:var(--mut);font-weight:700;text-align:center;padding:2px 10px}
+.stbl th:first-child,.stbl td:first-child{text-align:left}
+.stbl td{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:clamp(9px,1.4vh,14px) 12px;text-align:center;font-size:clamp(12px,1.25vw,16px);box-shadow:var(--shadow)}
+.stbl td:first-child{border-left:1px solid var(--line);border-radius:10px 0 0 10px}
+.stbl td:last-child{border-right:1px solid var(--line);border-radius:0 10px 10px 0;font-family:var(--mono);font-weight:700}
+.stbl td b{font-size:1.05em}
+.stbl td small{display:block;color:var(--mut);font-size:.72em;font-weight:500}
+.stbl td:nth-child(2){font-family:var(--mono);font-size:clamp(10.5px,1.05vw,13px);color:var(--mut)}
+.stbl td:nth-child(3){font-family:var(--mono);font-weight:700}
+.stbl .cs{font-family:var(--mono);font-weight:800;font-size:clamp(13px,1.5vw,19px)}
+.stbl .stref td{background:transparent;box-shadow:none;border-color:transparent;color:var(--mut);font-weight:500}
+.stbl .stref td:first-child,.stbl .stref td:nth-child(3){font-weight:700;color:var(--ink)}
 
 /* RAIL + CHROME */
 .rail{position:fixed;right:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:11px;z-index:20}
@@ -456,43 +471,53 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
   var hint=document.getElementById('hint');
   setTimeout(function(){hint.style.opacity='0';},4200);
 
-  /* ---- intelligence ladder (SVG) ---- */
+  /* ---- fit map: score (x) vs model size (y) with VRAM capacity lines ---- */
   (function(){
-    var svg=document.getElementById('ladder'); if(!svg) return;
-    var NSL='http://www.w3.org/2000/svg';
-    function E(t,at,txt){var e=document.createElementNS(NSL,t);for(var k in at)e.setAttribute(k,at[k]);if(txt)e.textContent=txt;return e;}
-    var TY=95;
-    function X(p){return 30+(p-62)/(92-62)*940;}
-    // track
-    var grad=E('linearGradient',{id:'lg1',x1:0,y1:0,x2:1,y2:0});
-    grad.appendChild(E('stop',{offset:'0%','stop-color':'var(--line)'}));
-    grad.appendChild(E('stop',{offset:'100%','stop-color':'var(--teal)'}));
-    var defs=E('defs',{});defs.appendChild(grad);svg.appendChild(defs);
-    svg.appendChild(E('rect',{x:20,y:TY-3,width:960,height:6,rx:3,fill:'url(#lg1)'}));
-    // faint scale ticks
-    [65,70,75,80,85,90].forEach(function(v){
-      svg.appendChild(E('line',{x1:X(v),y1:TY-7,x2:X(v),y2:TY+7,stroke:'var(--mut)','stroke-width':1,opacity:.35}));
+    var svg=document.getElementById('fitmap'); if(!svg) return;
+    var NS='http://www.w3.org/2000/svg';
+    function E(t,at,txt){var e=document.createElementNS(NS,t);for(var k in at)e.setAttribute(k,at[k]);if(txt!=null)e.textContent=txt;return e;}
+    var L=78,R=962,T=22,B=292;           // plot box
+    var X0=70,X1=92, Y0=0,Y1=1150;        // data ranges: score %, GB
+    function X(v){return L+(v-X0)/(X1-X0)*(R-L);}
+    function Y(v){return B-(v-Y0)/(Y1-Y0)*(B-T);}
+
+    // axes
+    svg.appendChild(E('line',{x1:L,y1:B,x2:R,y2:B,stroke:'var(--mut)','stroke-width':1.5}));
+    svg.appendChild(E('line',{x1:L,y1:T,x2:L,y2:B,stroke:'var(--mut)','stroke-width':1.5}));
+    [70,74,78,82,86,90].forEach(function(v){
+      svg.appendChild(E('line',{x1:X(v),y1:B,x2:X(v),y2:B+5,stroke:'var(--mut)','stroke-width':1}));
+      svg.appendChild(E('text',{x:X(v),y:B+20,'text-anchor':'middle','font-size':12,fill:'var(--mut)','font-family':'var(--mono)'},v+'%'));
     });
-    var pts=[
-      {p:68, name:'单卡 ~68%', model:'Qwen3.5-122B-A10B', c:'var(--amber)', up:false},
-      {p:76, name:'双卡 ~76%', model:'MiniMax-M3', c:'var(--blue)', up:true},
-      {p:85, name:'四卡 85%*', model:'GLM-5.2', c:'var(--teal)', up:false},
-      {p:88.6, name:'云端 88.6%', model:'Opus 4.8（参照）', c:'var(--blue)', up:true, hollow:true}
+    svg.appendChild(E('text',{x:(L+R)/2,y:B+44,'text-anchor':'middle','font-size':13,fill:'var(--mut)'},'SWE-bench Verified（int4 折后估）→ 越右越聪明'));
+    [0,256,512,768,1024].forEach(function(v){
+      svg.appendChild(E('text',{x:L-10,y:Y(v)+4,'text-anchor':'end','font-size':11.5,fill:'var(--mut)','font-family':'var(--mono)'},v+'G'));
+    });
+    svg.appendChild(E('text',{x:18,y:(T+B)/2,'text-anchor':'middle','font-size':13,fill:'var(--mut)',transform:'rotate(-90 20 '+((T+B)/2)+')'},'模型体积（int4 权重, GB）'));
+
+    // capacity bands + lines
+    var caps=[{g:256,n:'单卡 256G',c:'var(--amber)'},{g:512,n:'双卡 512G',c:'var(--blue)'},{g:1024,n:'四卡 1T',c:'var(--teal)'}];
+    caps.forEach(function(cp){
+      svg.appendChild(E('line',{x1:L,y1:Y(cp.g),x2:R,y2:Y(cp.g),stroke:cp.c,'stroke-width':2,'stroke-dasharray':'7 5',opacity:.9}));
+      svg.appendChild(E('text',{x:R-4,y:Y(cp.g)-8,'text-anchor':'end','font-size':12.5,'font-weight':800,fill:cp.c,'font-family':'var(--mono)'},cp.n));
+    });
+
+    // models: score, size GB, label, tier color, label offset
+    var ms=[
+      {s:72,  g:61,  n:'Qwen3.5-122B-A10B', c:'var(--mut)',   dx:10, dy:4},
+      {s:75,  g:180, n:'DS-V4-Flash',       c:'var(--amber)', dx:10, dy:4},
+      {s:76,  g:225, n:'Qwen3.5-397B-A17B', c:'var(--amber)', dx:10, dy:-8},
+      {s:79,  g:130, n:'MiniMax-M3',        c:'var(--blue)',  dx:10, dy:4},
+      {s:84,  g:380, n:'Kimi-K3 Q2_K_XL',   c:'var(--teal)',  dx:-10,dy:-10, anchor:'end'},
+      {s:85,  g:368, n:'GLM-5.2',           c:'var(--teal)',  dx:10, dy:14},
+      {s:86,  g:500, n:'DS-V4-Pro',         c:'var(--teal)',  dx:10, dy:4}
     ];
-    pts.forEach(function(d){
-      var x=X(d.p);
-      var y1=d.up?TY-14:TY+14, y2=d.up?TY-52:TY+52;
-      svg.appendChild(E('line',{x1:x,y1:y1,x2:x,y2:y2,stroke:'var(--mut)','stroke-width':1.2,opacity:.5}));
-      if(d.hollow){
-        svg.appendChild(E('circle',{cx:x,cy:TY,r:8,fill:'var(--surface)',stroke:d.c,'stroke-width':4}));
-      }else{
-        svg.appendChild(E('circle',{cx:x,cy:TY,r:8,fill:d.c,stroke:'var(--surface)','stroke-width':3}));
-      }
-      var ny=d.up?TY-64:TY+70, my=d.up?TY-46:TY+88;
-      var nm=E('text',{x:x,y:ny,'text-anchor':'middle','font-size':17,'font-weight':800,fill:'var(--ink)','font-family':'var(--mono)'},d.name);
-      var md=E('text',{x:x,y:my,'text-anchor':'middle','font-size':12.5,fill:'var(--mut)'},d.model);
-      svg.appendChild(nm);svg.appendChild(md);
+    ms.forEach(function(d){
+      svg.appendChild(E('circle',{cx:X(d.s),cy:Y(d.g),r:7,fill:d.c,stroke:'var(--surface)','stroke-width':2}));
+      svg.appendChild(E('text',{x:X(d.s)+d.dx,y:Y(d.g)+d.dy,'text-anchor':d.anchor||'start','font-size':12.5,'font-weight':700,fill:'var(--ink)','font-family':'var(--mono)'},d.n));
     });
+    // cloud reference (vertical)
+    svg.appendChild(E('line',{x1:X(88.6),y1:T,x2:X(88.6),y2:B,stroke:'var(--ink)','stroke-width':1.5,'stroke-dasharray':'3 4',opacity:.5}));
+    svg.appendChild(E('text',{x:X(88.6)+6,y:T+14,'font-size':12,'font-weight':700,fill:'var(--ink)',opacity:.75},'云端 Opus 4.8 · 88.6%'));
   })();
 
   /* ---- personified scenes ---- */
@@ -571,12 +596,21 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
     c.appendChild(val); if(note) c.appendChild(nt);
   });
 
+  /* ---- master table savings tint ---- */
+  document.querySelectorAll('.stbl .cs').forEach(function(c){
+    var v=parseFloat(c.dataset.s);
+    var a=Math.min(v/100*0.9+0.08,0.95);
+    c.style.background='color-mix(in srgb, var(--teal) '+Math.round(a*100)+'%, var(--surface))';
+    if(v>=55){c.style.color='#fff';}
+    var sm=c.querySelector('small'); if(sm&&v>=55){sm.style.color='#ffffffcc';}
+  });
+
   /* ---- break-even line chart ---- */
   var FX=7.2;
   var tiers=[
-    {n:'单卡 ¥20k',rmb:20000,s:0.68,c:'var(--amber)',a:'end',dx:-9},
-    {n:'双卡 ¥40k',rmb:40000,s:0.83,c:'var(--blue)',a:'start',dx:9},
-    {n:'四卡 ¥80k',rmb:80000,s:0.90,c:'var(--teal)',a:'start',dx:9}
+    {n:'单卡 ¥20k',rmb:20000,s:0.83,c:'var(--amber)',a:'end',dx:-9},
+    {n:'双卡 ¥40k',rmb:40000,s:0.92,c:'var(--blue)',a:'start',dx:9},
+    {n:'四卡 ¥80k',rmb:80000,s:0.98,c:'var(--teal)',a:'start',dx:9}
   ];
   var X0=64,X1=812,Y0=34,Y1=402,MX0=100,MX1=3000,YMAX=6;
   function px(m){return X0+(m-MX0)/(MX1-MX0)*(X1-X0);}
@@ -593,13 +627,9 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
   [300,600,1000,1500,2000,2500,3000].forEach(function(m){
     var t=el('text',{x:px(m),y:Y1+22,'text-anchor':'middle',fill:'var(--mut)','font-size':12,'font-family':'var(--mono)'});
     t.textContent='$'+m;svg.appendChild(t);
-    if(m%150===0){
-      var u=el('text',{x:px(m),y:Y1+38,'text-anchor':'middle',fill:'var(--teal)','font-size':11,'font-family':'var(--mono)'});
-      u.textContent='≈'+(m/150)+'人';svg.appendChild(u);
-    }
   });
-  var xl=el('text',{x:(X0+X1)/2,y:Y1+56,'text-anchor':'middle',fill:'var(--mut)','font-size':13});
-  xl.textContent='云端月消耗 (USD) · 绿色 = 折合人数 × $150/月 订阅';svg.appendChild(xl);
+  var xl=el('text',{x:(X0+X1)/2,y:Y1+46,'text-anchor':'middle',fill:'var(--mut)','font-size':13});
+  xl.textContent='云端月消耗 (USD)';svg.appendChild(xl);
   [{y:2,l:'2 年回本'},{y:1,l:'1 年回本'}].forEach(function(r){
     svg.appendChild(el('line',{x1:X0,y1:py(r.y),x2:X1,y2:py(r.y),stroke:'var(--ink)','stroke-width':1,'stroke-dasharray':'5 5',opacity:.45}));
     var t=el('text',{x:X1-4,y:py(r.y)-7,'text-anchor':'end',fill:'var(--ink)','font-size':11.5,opacity:.7});
@@ -619,24 +649,6 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
       }
     });
   });
-  // ideal inset: full-local, multi-user
-  var SUB=150, USERS=[1,2,4];
-  var bx=430,by=50,bw=376,bh=182;
-  svg.appendChild(el('rect',{x:bx,y:by,width:bw,height:bh,rx:12,fill:'var(--surface)',stroke:'var(--line)','stroke-width':1}));
-  var bt=el('text',{x:bx+18,y:by+30,fill:'var(--ink)','font-size':14,'font-weight':700});
-  bt.textContent='理想上限：全部本地做完（−100%）';svg.appendChild(bt);
-  var bs=el('text',{x:bx+18,y:by+50,fill:'var(--mut)','font-size':12});
-  bs.textContent='多用户共享 · 每人 $'+SUB+'/月 订阅被完全替代';svg.appendChild(bs);
-  tiers.forEach(function(t,i){
-    var yy=by+76+i*26, n=USERS[i], yrs=(t.rmb/FX)/(SUB*n*12);
-    svg.appendChild(el('circle',{cx:bx+24,cy:yy-4,r:5,fill:t.c}));
-    var r1=el('text',{x:bx+38,y:yy,fill:'var(--ink)','font-size':13});
-    r1.textContent=t.n+' · '+n+' 人';svg.appendChild(r1);
-    var r2=el('text',{x:bx+bw-18,y:yy,'text-anchor':'end',fill:'var(--ink)','font-size':13,'font-weight':700,'font-family':'var(--mono)'});
-    r2.textContent=yrs.toFixed(1)+' 年 ✅';svg.appendChild(r2);
-  });
-  var bp=el('text',{x:bx+18,y:by+bh-14,fill:'var(--teal)','font-size':12.5,'font-weight':700});
-  bp.textContent='价格 ×2 → 共享人数 ×2，回本不变';svg.appendChild(bp);
   var lg=document.getElementById('legend');
   tiers.forEach(function(t){
     var d=document.createElement('div');d.className='lg';
@@ -644,7 +656,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
     lg.appendChild(d);
   });
   var d0=document.createElement('div');d0.className='lg';
-  d0.innerHTML='<i style="background:var(--mut);height:2px"></i>混合负载迭代流估 · 右上框 = 全部本地·多用户';
+  d0.innerHTML='<i style="background:var(--mut);height:2px"></i>混合负载 80/20 · 迭代流口径';
   lg.appendChild(d0);
 })();
 </script>
