@@ -1,0 +1,612 @@
+<section class="deck" id="deck">
+
+<!-- 1 · TITLE -->
+<section class="slide slide--title" data-title="封面">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="title-wrap">
+    <p class="eyebrow">端云协同 · 省 Token 实验与盈利分析</p>
+    <h1>AI Station<span class="tld">：本地免费算力 × 云端前沿模型</span></h1>
+    <p class="lede">按任务形态可省 <b class="hl">23%–95%</b> 云端 token，<b>且不掉解题率</b>。</p>
+    <div class="title-metrics">
+      <div class="tm"><span class="tm-num">−88%</span><span class="tm-lab">可验证任务实测</span></div>
+      <div class="tm"><span class="tm-num">−23%</span><span class="tm-lab">难 bug 修复实测</span></div>
+      <div class="tm"><span class="tm-num">0%</span><span class="tm-lab">路由地板 · 绝不亏</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · TWO PREMISES -->
+<section class="slide" data-title="两个前提">
+  <h2>读表前，两个前提</h2>
+  <div class="two-col">
+    <article class="premise premise--asset">
+      <div class="pico" aria-hidden="true">◍</div>
+      <h3>核心资产 = 端云协同 Agent</h3>
+      <p>护城河不是硬件，是跑在端侧的 <b>路由 + 上下文引擎 Agent</b>：决定每题上云还是本地、并在上云前把探索压缩打包。</p>
+    </article>
+    <article class="premise premise--floor">
+      <div class="pico" aria-hidden="true">▤</div>
+      <h3>路由地板 = 系统绝不亏钱</h3>
+      <p>本地免费先试，搞不定就让云端<b>从干净状态接手</b> → 最坏 = 纯云端 baseline（省 0%），<b>永不为负</b>。</p>
+    </article>
+  </div>
+  <p class="foot">文中任何"更贵"的数字，都是<b>没有路由地板的裸架构</b>——反面教材。</p>
+</section>
+
+<!-- 3 · ACCOUNTING -->
+<section class="slide" data-title="核算口径">
+  <h2>核算口径：<span class="mut">本地免费，只算云端 token</span></h2>
+  <div class="acct">
+    <div class="acct-box acct-box--free">
+      <span class="acct-tag">端侧 · 自有 AI Station</span>
+      <span class="acct-big">免费</span>
+      <span class="acct-sub">探索 / 读代码 / 试解 / 跑测试<br>算力 & 电费忽略不计</span>
+    </div>
+    <div class="acct-flow" aria-hidden="true">
+      <span class="flow-line"></span><span class="flow-dot"></span><span class="flow-arrow">▶</span>
+    </div>
+    <div class="acct-box acct-box--paid">
+      <span class="acct-tag">云端 · Claude Opus 4.8</span>
+      <span class="acct-big">$5 <span class="slash">/</span> $25</span>
+      <span class="acct-sub">每 Mtok 输入 / 输出<br>input·cache·output 四类精确计量</span>
+    </div>
+  </div>
+  <p class="foot">判分用<b>第三方隐藏测试</b>客观判定（SWE-bench F2P+P2P / HumanEval+ EvalPlus），非自评。</p>
+</section>
+
+<!-- 4 · TIERS -->
+<section class="slide" data-title="三档硬件">
+  <h2>三档真实硬件 × 端侧模型</h2>
+  <div class="tiers">
+    <article class="tier tier--1">
+      <header><span class="tier-name">单卡</span><span class="tier-price">¥20k</span></header>
+      <div class="tier-model">Qwen3.5-122B-A10B</div>
+      <div class="cap"><span class="cap-bar" style="--v:68%"></span><span class="cap-num">~68%</span></div>
+      <p class="tier-use">预算型个人 · 走量主力</p>
+    </article>
+    <article class="tier tier--2">
+      <header><span class="tier-name">双卡</span><span class="tier-price">¥40k</span></header>
+      <div class="tier-model">MiniMax-M3</div>
+      <div class="cap"><span class="cap-bar" style="--v:76%"></span><span class="cap-num">~76%</span></div>
+      <p class="tier-use">小团队 · 顶级个人</p>
+    </article>
+    <article class="tier tier--3">
+      <header><span class="tier-name">四卡</span><span class="tier-price">¥80k</span></header>
+      <div class="tier-model">GLM-5.2</div>
+      <div class="cap"><span class="cap-bar" style="--v:85%"></span><span class="cap-num">85%<sup>*</sup></span></div>
+      <p class="tier-use">团队 / CI 共享设备</p>
+    </article>
+  </div>
+  <p class="foot"><span class="mono">能力 = SWE-bench Verified（int4）。</span> <sup>*</sup>四卡按 85% <b>反推·偏保守</b>，实机很可能更强。</p>
+</section>
+
+<!-- 5 · TWO BENCHMARKS / VERIFIABILITY AXIS -->
+<section class="slide" data-title="两个基准">
+  <h2>省多少，取决于<span class="hl">本地能否自证正确</span></h2>
+  <div class="axis">
+    <div class="axis-line" aria-hidden="true"></div>
+    <div class="axis-pole axis-pole--left">
+      <span class="pole-tag">弱自证 · 探索密集</span>
+      <h3>SWE-bench Lite</h3>
+      <p>真实 GitHub issue bug 修复<br>成本大头 = <b>诊断 / 探索</b></p>
+      <span class="pole-method">→ context-engine</span>
+    </div>
+    <div class="axis-pole axis-pole--right">
+      <span class="pole-tag">强自证 · 生成密集</span>
+      <h3>HumanEval+</h3>
+      <p>照签名+docstring 写函数<br>成本大头 = <b>求解本身</b></p>
+      <span class="pole-method">→ escalate</span>
+    </div>
+  </div>
+  <p class="foot">两个公开学术基准卡住"可验证性"这根轴的两端，隐藏测试判分 = 硬证据。</p>
+</section>
+
+<!-- 6 · RESULTS -->
+<section class="slide" data-title="实测结果">
+  <h2>实测：两端都省，且不掉解题率</h2>
+  <div class="results">
+    <figure class="res">
+      <figcaption><b>HumanEval+</b> · 可验证 · escalate</figcaption>
+      <div class="barpair">
+        <div class="barrow"><span class="brlab">baseline</span><span class="brtrack"><span class="brfill brfill--base" style="width:100%"></span></span><span class="brval">$0.103</span></div>
+        <div class="barrow"><span class="brlab">端云</span><span class="brtrack"><span class="brfill brfill--win" style="width:11.5%"></span></span><span class="brval">$0.012</span></div>
+      </div>
+      <div class="res-big">−88%<span class="res-note">31/31 解题 · 29/31 本地自解</span></div>
+    </figure>
+    <figure class="res">
+      <figcaption><b>SWE-bench</b> · 难 bug 修复 · context-engine</figcaption>
+      <div class="barpair">
+        <div class="barrow"><span class="brlab">baseline</span><span class="brtrack"><span class="brfill brfill--base" style="width:100%"></span></span><span class="brval">$3.05</span></div>
+        <div class="barrow"><span class="brlab">端云</span><span class="brtrack"><span class="brfill brfill--win" style="width:76.7%"></span></span><span class="brval">$2.34</span></div>
+      </div>
+      <div class="res-big">−23%<span class="res-note">7/11 解题（=baseline）· 输入 −23% 输出 −24%</span></div>
+    </figure>
+  </div>
+</section>
+
+<!-- 7 · UNIFIED THEORY -->
+<section class="slide slide--theory" data-title="统一原理">
+  <p class="eyebrow">统一原理</p>
+  <h2 class="theory-line">把「<span class="hl">不需要云端顶级智能、却烧 token</span>」的活，<br>搬到<b>免费</b>的本地。</h2>
+  <div class="theory-map">
+    <div class="tmap-card"><span class="tmap-task">可验证生成</span><span class="tmap-out">整个求解（本地自证）</span><span class="tmap-m">escalate</span><span class="tmap-v">−88%</span></div>
+    <div class="tmap-card"><span class="tmap-task">难 bug 修复</span><span class="tmap-out">代码探索 / 定位</span><span class="tmap-m">context-engine</span><span class="tmap-v">−23%</span></div>
+  </div>
+  <p class="foot">本地当云端"免费的眼睛和手"，云端当大脑。</p>
+</section>
+
+<!-- 8 · ROUTING AGENT / FLOOR -->
+<section class="slide" data-title="路由 Agent">
+  <h2>端侧路由 Agent：<span class="mut">先试 → 自证 → 干净升级</span></h2>
+  <div class="flow">
+    <div class="fnode fnode--start">任务进来</div>
+    <span class="fedge" aria-hidden="true">▶</span>
+    <div class="fnode fnode--local">本地免费尝试<br><small>探索 / 试解 / 跑测试</small></div>
+    <span class="fedge" aria-hidden="true">▶</span>
+    <div class="fdecision">自证通过？</div>
+    <div class="fbranch">
+      <div class="fb fb--yes"><span class="fb-tag">是</span> 本地交付 · <b>云端 $0</b></div>
+      <div class="fb fb--no"><span class="fb-tag">否</span> 云端<b>干净接手</b>（丢弃半成品）→ 最坏 = baseline</div>
+    </div>
+  </div>
+  <p class="foot"><b>关键</b>：升级时不要把本地失败产物硬塞给云端消化——那正是裸架构 +71% / +12% 的根因。</p>
+</section>
+
+<!-- 9 · COMPLETION RATES -->
+<section class="slide" data-title="完成度反推">
+  <h2>完成度（本地自解率）驱动省钱率</h2>
+  <div class="comp">
+    <div class="comp-group">
+      <h4>容易任务 · 自解率</h4>
+      <div class="cbar"><span class="cbl">单卡</span><span class="ct"><span class="cf cf--easy" style="width:83%"></span></span><span class="cv">83%</span></div>
+      <div class="cbar"><span class="cbl">双卡</span><span class="ct"><span class="cf cf--easy" style="width:94%"></span></span><span class="cv">94%</span></div>
+      <div class="cbar"><span class="cbl">四卡</span><span class="ct"><span class="cf cf--easy" style="width:98%"></span></span><span class="cv">~98%</span></div>
+    </div>
+    <div class="comp-group">
+      <h4>难任务 · 自解率</h4>
+      <div class="cbar"><span class="cbl">单卡</span><span class="ct"><span class="cf cf--hard" style="width:2%"></span></span><span class="cv">~0%</span></div>
+      <div class="cbar"><span class="cbl">双卡</span><span class="ct"><span class="cf cf--hard" style="width:9%"></span></span><span class="cv">~9%</span></div>
+      <div class="cbar"><span class="cbl">四卡</span><span class="ct"><span class="cf cf--hard" style="width:40%"></span></span><span class="cv">~40%</span></div>
+    </div>
+  </div>
+  <p class="foot"><span class="mono">省钱率 ≈ 1 − 2×(1 − 完成度)</span> · 单/双卡实测锚点 → 四卡反推。</p>
+</section>
+
+<!-- 10 · 2D MATRIX -->
+<section class="slide" data-title="省钱矩阵">
+  <h2>省钱率 = 档位 × 负载 的二维矩阵</h2>
+  <div class="matrix" id="matrix">
+    <div class="mcell mhead"></div>
+    <div class="mcell mhead">难任务</div>
+    <div class="mcell mhead">一般混合</div>
+    <div class="mcell mhead">偏可验证</div>
+    <div class="mcell mhead">纯可验证</div>
+
+    <div class="mcell mrow">单卡<small>68%</small></div>
+    <div class="mcell" data-v="0"></div>
+    <div class="mcell" data-v="20"></div>
+    <div class="mcell" data-v="45"></div>
+    <div class="mcell" data-v="63"></div>
+
+    <div class="mcell mrow">双卡<small>76%</small></div>
+    <div class="mcell" data-v="23"></div>
+    <div class="mcell" data-v="40"></div>
+    <div class="mcell" data-v="65"></div>
+    <div class="mcell" data-v="88"></div>
+
+    <div class="mcell mrow">四卡<small>85%</small></div>
+    <div class="mcell" data-v="40"></div>
+    <div class="mcell" data-v="60"></div>
+    <div class="mcell" data-v="80"></div>
+    <div class="mcell" data-v="95"></div>
+  </div>
+  <div class="mkey">
+    <span>下有 <b>0% 地板</b>（绝不亏）</span>
+    <span class="mkey-scale" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+    <span>可验证列 <b>无封顶 → 趋近 −100%</b></span>
+  </div>
+</section>
+
+<!-- 11 · BREAK-EVEN CHART -->
+<section class="slide" data-title="回本折线">
+  <h2>回本周期 vs 云端月消耗<span class="mut"> · 混合负载 80/20</span></h2>
+  <div class="chartwrap">
+    <svg id="chart" viewBox="0 0 840 470" role="img" aria-label="回本折线图"></svg>
+  </div>
+  <div class="legend" id="legend"></div>
+</section>
+
+<!-- 12 · BUSINESS -->
+<section class="slide" data-title="商业建议">
+  <h2>商业建议：<span class="mut">卖场景，不只卖机器</span></h2>
+  <div class="tiers tiers--biz">
+    <article class="tier tier--1">
+      <header><span class="tier-name">单卡 ¥20k</span></header>
+      <p class="biz-h">可验证工作流盒子</p>
+      <ul><li>难任务 <b>持平不亏</b></li><li>可验证 <b>−63%</b></li><li>≥$600/月 · ~0.6 年回本</li></ul>
+    </article>
+    <article class="tier tier--2">
+      <header><span class="tier-name">双卡 ¥40k</span></header>
+      <p class="biz-h">难任务转正门槛档</p>
+      <ul><li>难任务 <b>−23%</b></li><li>可验证 <b>−88%</b></li><li>小团队 / 顶级个人</li></ul>
+    </article>
+    <article class="tier tier--3">
+      <header><span class="tier-name">四卡 ¥80k</span></header>
+      <p class="biz-h">团队 / CI 共享</p>
+      <ul><li>难任务 <b>−40%</b></li><li>可验证 <b>−95%</b></li><li>绝不单人卖</li></ul>
+    </article>
+  </div>
+  <p class="foot"><b>共同放大器</b>：把负载引导到可验证工作流（省钱率翻倍）+ 私有化合规（与价格无关的硬价值）。</p>
+</section>
+
+<!-- 13 · LIMITS / CLOSE -->
+<section class="slide slide--close" data-title="局限与下一步">
+  <p class="eyebrow">诚实的局限 · 下一步</p>
+  <h2>已验证 3 格实测，四卡整行为反推</h2>
+  <div class="close-grid">
+    <div class="cg"><span class="cg-k">✓ 硬证据</span>单/双卡 难任务 & 纯可验证共 3 格实测</div>
+    <div class="cg"><span class="cg-k">~ 反推</span>四卡（85%）完成度→省钱率，偏保守</div>
+    <div class="cg"><span class="cg-k">→ 下一步</span>用 ~85% worker 实跑，验证 −40% / −95%</div>
+    <div class="cg"><span class="cg-k">→ 下一步</span>事中路由调参，逼近 oracle −35%</div>
+  </div>
+  <p class="close-line">本地免费的活越多，省得越多；<b class="hl">系统永不亏钱</b>。</p>
+</section>
+
+</section>
+
+<!-- progress rail + counter -->
+<nav class="rail" id="rail" aria-label="幻灯片导航"></nav>
+<div class="counter"><span id="cur">1</span> / <span id="tot">13</span></div>
+<div class="hint" id="hint">← → 翻页</div>
+
+<style>
+:root{
+  --paper:#eef1f5; --surface:#ffffff; --ink:#16202e; --mut:#5b6b7d; --line:#d5dce4;
+  --teal:#0b9c78; --teal-soft:#0b9c7822; --blue:#3b6fb0; --amber:#d5842a; --loss:#c2543f;
+  --shadow:0 1px 2px #16202e0d,0 8px 30px #16202e12;
+  --disp:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#0d1420; --surface:#16202e; --ink:#e7edf3; --mut:#93a4b6; --line:#26333f;
+  --teal:#28c39a; --teal-soft:#28c39a26; --blue:#6aa0dc; --amber:#e0a052; --loss:#e07a63;
+  --shadow:0 1px 2px #0007,0 10px 34px #0006;
+}}
+:root[data-theme="light"]{
+  --paper:#eef1f5; --surface:#ffffff; --ink:#16202e; --mut:#5b6b7d; --line:#d5dce4;
+  --teal:#0b9c78; --teal-soft:#0b9c7822; --blue:#3b6fb0; --amber:#d5842a; --loss:#c2543f;
+  --shadow:0 1px 2px #16202e0d,0 8px 30px #16202e12;
+}
+:root[data-theme="dark"]{
+  --paper:#0d1420; --surface:#16202e; --ink:#e7edf3; --mut:#93a4b6; --line:#26333f;
+  --teal:#28c39a; --teal-soft:#28c39a26; --blue:#6aa0dc; --amber:#e0a052; --loss:#e07a63;
+  --shadow:0 1px 2px #0007,0 10px 34px #0006;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
+  -webkit-font-smoothing:antialiased;line-height:1.5}
+.mono{font-family:var(--mono)}
+.mut{color:var(--mut)}
+.hl{color:var(--teal)}
+b{font-weight:700}
+
+.deck{scroll-snap-type:y mandatory;height:100vh;overflow-y:auto;scroll-behavior:smooth}
+.deck::-webkit-scrollbar{width:0}
+.slide{scroll-snap-align:start;min-height:100vh;display:flex;flex-direction:column;
+  justify-content:center;gap:clamp(18px,3vh,40px);
+  padding:clamp(32px,6vw,96px) clamp(28px,7vw,120px);position:relative}
+.slide h2{font-size:clamp(23px,3.2vw,44px);line-height:1.15;margin:0;font-weight:800;
+  letter-spacing:-.01em;text-wrap:balance;max-width:30ch}
+.eyebrow{font-family:var(--mono);text-transform:uppercase;letter-spacing:.22em;
+  font-size:clamp(11px,1vw,13px);color:var(--teal);margin:0}
+.foot{color:var(--mut);font-size:clamp(12px,1.15vw,15.5px);margin:0;max-width:70ch;border-top:1px solid var(--line);padding-top:14px}
+
+/* TITLE */
+.slide--title{justify-content:center}
+.grid-bg{position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background:
+   linear-gradient(var(--line) 1px,transparent 1px) 0 0/100% 46px,
+   linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/46px 100%;
+  -webkit-mask:radial-gradient(120% 80% at 20% 0%,#000,transparent 75%);
+  mask:radial-gradient(120% 80% at 20% 0%,#000,transparent 75%)}
+.title-wrap{position:relative;z-index:1;display:flex;flex-direction:column;gap:clamp(14px,2vh,20px);max-width:min(92%,1060px)}
+.title-wrap h1{font-size:clamp(34px,5.6vw,66px);line-height:1.03;margin:0;font-weight:850;letter-spacing:-.025em}
+.title-wrap .tld{color:var(--mut);font-weight:650;font-size:.5em;display:block;margin-top:.4em;letter-spacing:-.01em}
+.lede{font-size:clamp(16px,1.9vw,24px);color:var(--ink);margin:0;max-width:32ch}
+.title-metrics{display:flex;gap:clamp(20px,4vw,64px);margin-top:14px;flex-wrap:wrap}
+.tm{display:flex;flex-direction:column;gap:4px}
+.tm-num{font-family:var(--mono);font-size:clamp(30px,4.4vw,58px);font-weight:700;color:var(--teal);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.tm:nth-child(3) .tm-num{color:var(--amber)}
+.tm-lab{font-size:clamp(11px,1vw,14px);color:var(--mut)}
+
+/* TWO PREMISES */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.5vw,32px)}
+.premise{background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  padding:clamp(22px,2.6vw,38px);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+.premise{border-top:4px solid var(--teal)}
+.premise--floor{border-top-color:var(--amber)}
+.pico{font-size:34px;line-height:1;color:var(--teal)}
+.premise--floor .pico{color:var(--amber)}
+.premise h3{margin:0;font-size:clamp(17px,1.8vw,24px);font-weight:750}
+.premise p{margin:0;color:var(--mut);font-size:clamp(13px,1.25vw,16.5px)}
+.premise b{color:var(--ink)}
+
+/* ACCOUNTING */
+.acct{display:flex;align-items:stretch;gap:clamp(10px,2vw,26px);flex-wrap:wrap}
+.acct-box{flex:1 1 260px;border-radius:16px;padding:clamp(22px,2.6vw,40px);display:flex;
+  flex-direction:column;gap:10px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.acct-box--free{background:var(--teal-soft);border-color:var(--teal)}
+.acct-box--paid{background:var(--surface)}
+.acct-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.acct-big{font-family:var(--mono);font-size:clamp(38px,6vw,74px);font-weight:750;letter-spacing:-.02em;line-height:1}
+.acct-box--free .acct-big{color:var(--teal)}
+.acct-box--paid .acct-big{color:var(--blue)}
+.acct-big .slash{color:var(--mut);font-weight:400}
+.acct-sub{color:var(--mut);font-size:clamp(12px,1.1vw,15px)}
+.acct-flow{display:flex;align-items:center;color:var(--mut);align-self:center}
+.acct-flow .flow-arrow{font-size:22px;color:var(--teal)}
+.acct-flow .flow-line{width:26px;height:2px;background:var(--line)}
+.acct-flow .flow-dot{width:8px;height:8px;border-radius:50%;background:var(--teal)}
+
+/* TIERS */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px)}
+.tier{background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  padding:clamp(20px,2.2vw,32px);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px;
+  border-top:4px solid var(--tc)}
+.tier--1{--tc:var(--amber)} .tier--2{--tc:var(--blue)} .tier--3{--tc:var(--teal)}
+.tier header{display:flex;justify-content:space-between;align-items:baseline}
+.tier-name{font-size:clamp(18px,1.9vw,24px);font-weight:800}
+.tier-price{font-family:var(--mono);font-size:clamp(18px,2vw,26px);font-weight:700;color:var(--tc)}
+.tier-model{font-family:var(--mono);font-size:clamp(12px,1.15vw,15px);color:var(--mut)}
+.cap{display:flex;align-items:center;gap:10px}
+.cap-bar{height:10px;border-radius:5px;background:var(--tc);width:var(--v);min-width:20%}
+.cap-num{font-family:var(--mono);font-weight:700;font-size:clamp(13px,1.3vw,17px)}
+.cap-num sup{color:var(--mut)}
+.tier-use{margin:0;color:var(--mut);font-size:clamp(12px,1.2vw,15px)}
+
+/* AXIS */
+.axis{position:relative;display:flex;justify-content:space-between;gap:24px;padding:40px 0 8px}
+.axis-line{position:absolute;top:24px;left:4%;right:4%;height:3px;
+  background:linear-gradient(90deg,var(--blue),var(--mut),var(--teal));border-radius:2px}
+.axis-line::before,.axis-line::after{content:"";position:absolute;top:50%;transform:translateY(-50%);
+  width:12px;height:12px;border-radius:50%}
+.axis-line::before{left:-2px;background:var(--blue)} .axis-line::after{right:-2px;background:var(--teal)}
+.axis-pole{flex:1 1 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  padding:clamp(20px,2.4vw,34px);box-shadow:var(--shadow);max-width:46%}
+.axis-pole--left{border-left:4px solid var(--blue)}
+.axis-pole--right{border-left:4px solid var(--teal)}
+.pole-tag{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
+.axis-pole h3{margin:6px 0 8px;font-size:clamp(18px,2vw,26px);font-weight:800}
+.axis-pole p{margin:0;color:var(--mut);font-size:clamp(13px,1.2vw,16px)}
+.axis-pole b{color:var(--ink)}
+.pole-method{display:inline-block;margin-top:14px;font-family:var(--mono);font-weight:700;font-size:14px}
+.axis-pole--left .pole-method{color:var(--blue)} .axis-pole--right .pole-method{color:var(--teal)}
+
+/* RESULTS */
+.results{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,40px)}
+.res{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  padding:clamp(20px,2.4vw,36px);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:16px}
+.res figcaption{font-size:clamp(13px,1.3vw,16px);color:var(--mut)}
+.res figcaption b{color:var(--ink)}
+.barpair{display:flex;flex-direction:column;gap:10px}
+.barrow{display:flex;align-items:center;gap:12px}
+.brlab{width:56px;font-size:13px;color:var(--mut);text-align:right;font-family:var(--mono)}
+.brtrack{flex:1;height:22px;background:var(--line);border-radius:6px;overflow:hidden}
+.brfill{display:block;height:100%;border-radius:6px}
+.brfill--base{background:var(--mut);opacity:.55}
+.brfill--win{background:var(--teal)}
+.brval{width:64px;font-family:var(--mono);font-weight:700;font-size:14px;font-variant-numeric:tabular-nums}
+.res-big{font-family:var(--mono);font-size:clamp(40px,5.5vw,72px);font-weight:800;color:var(--teal);
+  letter-spacing:-.03em;line-height:1;display:flex;flex-direction:column;gap:8px}
+.res-note{font-family:var(--disp);font-size:clamp(12px,1.1vw,14.5px);font-weight:500;color:var(--mut);letter-spacing:0}
+
+/* THEORY */
+.slide--theory{gap:clamp(24px,4vh,52px)}
+.theory-line{font-size:clamp(24px,3.6vw,50px);max-width:24ch;line-height:1.18}
+.theory-map{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,30px);max-width:900px}
+.tmap-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);
+  padding:clamp(18px,2.2vw,30px);display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center}
+.tmap-task{font-weight:800;font-size:clamp(15px,1.6vw,20px)}
+.tmap-v{font-family:var(--mono);font-weight:800;font-size:clamp(24px,3vw,40px);color:var(--teal);grid-row:span 3;align-self:center}
+.tmap-out{color:var(--mut);font-size:clamp(12px,1.15vw,15px)}
+.tmap-m{font-family:var(--mono);font-size:13px;color:var(--blue)}
+
+/* FLOW */
+.flow{display:flex;align-items:center;gap:clamp(8px,1.4vw,18px);flex-wrap:wrap}
+.fnode{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 20px;
+  box-shadow:var(--shadow);font-weight:700;font-size:clamp(13px,1.3vw,17px);text-align:center}
+.fnode small{display:block;color:var(--mut);font-weight:500;font-size:12px;margin-top:4px}
+.fnode--local{border-left:4px solid var(--teal)}
+.fedge{color:var(--teal);font-size:18px}
+.fdecision{background:var(--amber);color:#fff;border-radius:14px;padding:16px 20px;font-weight:800;
+  box-shadow:var(--shadow);font-size:clamp(13px,1.3vw,17px)}
+.fbranch{display:flex;flex-direction:column;gap:10px;flex:1 1 260px;min-width:240px}
+.fb{border-radius:12px;padding:13px 16px;font-size:clamp(12.5px,1.2vw,16px);border:1px solid var(--line);background:var(--surface)}
+.fb b{color:var(--ink)}
+.fb--yes{border-left:4px solid var(--teal)} .fb--no{border-left:4px solid var(--mut)}
+.fb-tag{font-family:var(--mono);font-weight:700;font-size:12px;padding:2px 8px;border-radius:6px;margin-right:8px;color:#fff}
+.fb--yes .fb-tag{background:var(--teal)} .fb--no .fb-tag{background:var(--mut)}
+
+/* COMPLETION */
+.comp{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,44px)}
+.comp-group{display:flex;flex-direction:column;gap:14px;background:var(--surface);border:1px solid var(--line);
+  border-radius:16px;padding:clamp(18px,2.2vw,30px);box-shadow:var(--shadow)}
+.comp-group h4{margin:0 0 4px;font-size:clamp(14px,1.4vw,18px);color:var(--mut);font-weight:700}
+.cbar{display:flex;align-items:center;gap:12px}
+.cbl{width:40px;font-size:14px;color:var(--mut)}
+.ct{flex:1;height:24px;background:var(--line);border-radius:6px;overflow:hidden}
+.cf{display:block;height:100%;border-radius:6px}
+.cf--easy{background:var(--teal)} .cf--hard{background:var(--amber)}
+.cv{width:48px;font-family:var(--mono);font-weight:700;font-variant-numeric:tabular-nums}
+
+/* MATRIX */
+.matrix{display:grid;grid-template-columns:auto repeat(4,1fr);gap:8px;max-width:960px}
+.mcell{border-radius:10px;padding:clamp(12px,1.6vw,22px) 10px;text-align:center;font-family:var(--mono);
+  font-weight:700;font-size:clamp(14px,1.7vw,24px);font-variant-numeric:tabular-nums;
+  display:flex;align-items:center;justify-content:center;min-height:52px;color:#0a1a15}
+.mhead{background:transparent;color:var(--mut);font-family:var(--disp);font-weight:700;font-size:clamp(12px,1.3vw,16px)}
+.mrow{background:transparent;color:var(--ink);font-family:var(--disp);justify-content:flex-start;gap:6px;text-align:left}
+.mrow small{color:var(--mut);font-family:var(--mono);font-weight:600}
+.mkey{display:flex;align-items:center;gap:16px;color:var(--mut);font-size:clamp(12px,1.15vw,15px);flex-wrap:wrap}
+.mkey b{color:var(--ink)}
+.mkey-scale{display:flex;gap:3px}
+.mkey-scale i{width:22px;height:12px;border-radius:2px;display:block}
+
+/* CHART */
+.chartwrap{width:100%;max-width:960px;margin:0 auto}
+#chart{width:100%;height:auto;display:block}
+.legend{display:flex;gap:clamp(16px,3vw,40px);justify-content:center;flex-wrap:wrap}
+.lg{display:flex;align-items:center;gap:8px;font-size:clamp(12px,1.2vw,15px);color:var(--mut)}
+.lg i{width:22px;height:4px;border-radius:2px;display:block}
+.lg b{color:var(--ink);font-family:var(--mono)}
+
+/* BIZ */
+.tiers--biz .tier{gap:10px}
+.biz-h{margin:0;font-weight:750;font-size:clamp(14px,1.5vw,19px);color:var(--tc)}
+.tiers--biz ul{margin:4px 0 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+.tiers--biz li{font-size:clamp(12.5px,1.2vw,15.5px);color:var(--mut);border-bottom:1px dashed var(--line);padding-bottom:6px}
+.tiers--biz li b{color:var(--ink);font-family:var(--mono)}
+
+/* CLOSE */
+.slide--close{gap:clamp(20px,3vh,40px)}
+.close-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:860px}
+.cg{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 22px;
+  box-shadow:var(--shadow);font-size:clamp(13px,1.25vw,16.5px);color:var(--mut)}
+.cg-k{display:block;font-family:var(--mono);font-weight:700;color:var(--ink);margin-bottom:6px;font-size:13px}
+.close-line{font-size:clamp(18px,2.4vw,32px);font-weight:750;margin:0;text-wrap:balance}
+
+/* RAIL + CHROME */
+.rail{position:fixed;right:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;
+  gap:11px;z-index:20}
+.rail button{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--mut);background:transparent;
+  padding:0;cursor:pointer;transition:all .2s;opacity:.55}
+.rail button:hover{opacity:1}
+.rail button[aria-current="true"]{background:var(--teal);border-color:var(--teal);opacity:1;height:22px;border-radius:5px}
+.counter{position:fixed;left:22px;bottom:20px;font-family:var(--mono);font-size:13px;color:var(--mut);z-index:20;font-variant-numeric:tabular-nums}
+.counter #cur{color:var(--teal);font-weight:700}
+.hint{position:fixed;right:22px;bottom:20px;font-family:var(--mono);font-size:12px;color:var(--mut);z-index:20;opacity:.7;transition:opacity .4s}
+@media (max-width:720px){
+  .two-col,.results,.comp,.theory-map,.close-grid{grid-template-columns:1fr}
+  .tiers{grid-template-columns:1fr}
+  .matrix{grid-template-columns:auto repeat(4,1fr);gap:5px}
+  .rail{display:none}
+  .axis{flex-direction:column} .axis-line{display:none} .axis-pole{max-width:100%}
+}
+@media (prefers-reduced-motion:reduce){html,.deck{scroll-behavior:auto}}
+</style>
+
+<script>
+(function(){
+  var deck=document.getElementById('deck');
+  var slides=Array.prototype.slice.call(deck.querySelectorAll('.slide'));
+  var rail=document.getElementById('rail');
+  var cur=document.getElementById('cur'), tot=document.getElementById('tot');
+  tot.textContent=slides.length;
+  var idx=0;
+
+  slides.forEach(function(s,i){
+    var b=document.createElement('button');
+    b.setAttribute('aria-label',(s.dataset.title||('第'+(i+1)+'页')));
+    b.addEventListener('click',function(){slides[i].scrollIntoView();});
+    rail.appendChild(b);
+  });
+  var dots=Array.prototype.slice.call(rail.children);
+
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        idx=slides.indexOf(e.target);
+        cur.textContent=idx+1;
+        dots.forEach(function(d,i){d.setAttribute('aria-current', i===idx?'true':'false');});
+      }
+    });
+  },{root:deck,threshold:.55});
+  slides.forEach(function(s){io.observe(s);});
+
+  function go(n){n=Math.max(0,Math.min(slides.length-1,n));slides[n].scrollIntoView();}
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '||e.key==='PageDown'){e.preventDefault();go(idx+1);}
+    else if(e.key==='ArrowLeft'||e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();go(idx-1);}
+    else if(e.key==='Home'){e.preventDefault();go(0);}
+    else if(e.key==='End'){e.preventDefault();go(slides.length-1);}
+  });
+  var hint=document.getElementById('hint');
+  setTimeout(function(){hint.style.opacity='0';},4200);
+
+  /* ---- matrix cell coloring (bar-in-cell number + tint) ---- */
+  var cells=document.querySelectorAll('.matrix .mcell[data-v]');
+  cells.forEach(function(c){
+    var v=+c.dataset.v;
+    var alpha=(v/100)*0.9+0.06;
+    c.style.background='color-mix(in srgb, var(--teal) '+Math.round(alpha*100)+'%, var(--surface))';
+    c.textContent = v===0 ? '持平' : ('−'+v+'%');
+    if(v===0){c.style.color='var(--mut)';c.style.fontSize='clamp(12px,1.3vw,17px)';}
+    else if(v>=55){c.style.color='#fff';}
+    else{c.style.color='var(--ink)';}
+    c.style.border='1px solid var(--line)';
+  });
+  var scale=document.querySelector('.mkey-scale');
+  if(scale){[10,30,55,75,95].forEach(function(v){
+    var i=document.createElement('i');
+    i.style.background='color-mix(in srgb, var(--teal) '+Math.round(((v/100)*0.9+0.06)*100)+'%, var(--surface))';
+    i.style.border='1px solid var(--line)';scale.appendChild(i);});}
+
+  /* ---- break-even line chart (SVG) ---- */
+  var FX=7.2;
+  var tiers=[
+    {n:'单卡 ¥20k',rmb:20000,s:0.50,c:'var(--amber)',a:'end',dx:-9},
+    {n:'双卡 ¥40k',rmb:40000,s:0.75,c:'var(--blue)',a:'start',dx:9},
+    {n:'四卡 ¥80k',rmb:80000,s:0.84,c:'var(--teal)',a:'start',dx:9}
+  ];
+  var X0=64,X1=812,Y0=34,Y1=402,MX0=100,MX1=3000,YMAX=6;
+  function px(m){return X0+(m-MX0)/(MX1-MX0)*(X1-X0);}
+  function py(y){return Y1-(Math.min(y,YMAX)/YMAX)*(Y1-Y0);}
+  function pay(rmb,m,s){return (rmb/FX)/(m*12*s);}
+  var NS='http://www.w3.org/2000/svg';
+  var svg=document.getElementById('chart');
+  function el(t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);return e;}
+  // grid + y labels
+  [0,1,2,3,4,5,6].forEach(function(y){
+    svg.appendChild(el('line',{x1:X0,y1:py(y),x2:X1,y2:py(y),stroke:'var(--line)','stroke-width':y%2?0.5:1}));
+    var t=el('text',{x:X0-10,y:py(y)+4,'text-anchor':'end',fill:'var(--mut)','font-size':12,'font-family':'var(--mono)'});
+    t.textContent=y+'y';svg.appendChild(t);
+  });
+  // x labels
+  [300,600,1000,1500,2000,2500,3000].forEach(function(m){
+    var t=el('text',{x:px(m),y:Y1+22,'text-anchor':'middle',fill:'var(--mut)','font-size':12,'font-family':'var(--mono)'});
+    t.textContent='$'+m;svg.appendChild(t);
+  });
+  var xl=el('text',{x:(X0+X1)/2,y:Y1+44,'text-anchor':'middle',fill:'var(--mut)','font-size':13});
+  xl.textContent='云端月消耗 (USD)';svg.appendChild(xl);
+  // break-even reference lines
+  [{y:2,l:'2 年回本'},{y:1,l:'1 年回本'}].forEach(function(r){
+    svg.appendChild(el('line',{x1:X0,y1:py(r.y),x2:X1,y2:py(r.y),stroke:'var(--ink)','stroke-width':1,'stroke-dasharray':'5 5',opacity:.45}));
+    var t=el('text',{x:X1-4,y:py(r.y)-7,'text-anchor':'end',fill:'var(--ink)','font-size':11.5,opacity:.7});
+    t.textContent=r.l;svg.appendChild(t);
+  });
+  // shade good zone (<2yr)
+  svg.appendChild(el('rect',{x:X0,y:py(2),width:X1-X0,height:Y1-py(2),fill:'var(--teal)',opacity:.05}));
+  // curves + markers
+  tiers.forEach(function(t){
+    var d='';
+    for(var m=MX0;m<=MX1;m+=15){var y=pay(t.rmb,m,t.s);if(y>YMAX+1)continue;d+=(d?'L':'M')+px(m).toFixed(1)+' '+py(y).toFixed(1)+' ';}
+    svg.appendChild(el('path',{d:d,fill:'none',stroke:t.c,'stroke-width':3,'stroke-linecap':'round'}));
+    [2,1].forEach(function(yr){
+      var m=(t.rmb/FX)/(yr*12*t.s);
+      if(m<MX1){
+        svg.appendChild(el('circle',{cx:px(m),cy:py(yr),r:6,fill:t.c,stroke:'var(--surface)','stroke-width':2}));
+        var lt=el('text',{x:px(m)+t.dx,y:py(yr)-11,'text-anchor':t.a,fill:t.c,'font-size':12.5,'font-weight':700,'font-family':'var(--mono)'});
+        lt.textContent='$'+Math.round(m);svg.appendChild(lt);
+      }
+    });
+  });
+  // legend
+  var lg=document.getElementById('legend');
+  tiers.forEach(function(t){
+    var d=document.createElement('div');d.className='lg';
+    d.innerHTML='<i style="background:'+t.c+'"></i>'+t.n+' <b>&minus;'+Math.round(t.s*100)+'%</b>';
+    lg.appendChild(d);
+  });
+})();
+</script>
