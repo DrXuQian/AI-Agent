@@ -123,7 +123,7 @@
   <div class="mx">
     <div class="mxc mxh"></div>
     <div class="mxc mxh">简单 · HumanEval+<br><small>31 题</small></div>
-    <div class="mxc mxh">困难 · SWE-bench<br><small>11 实例</small></div>
+    <div class="mxc mxh">困难 · SWE-bench Lite<br><small>11 实例 · 真实仓库 bug</small></div>
 
     <div class="mxc mxr">baseline<small>纯云端对照</small></div>
     <div class="mxc" data-v="0"></div>
@@ -131,11 +131,11 @@
 
     <div class="mxc mxr">hybrid<small>云→端 · S 拆任务 J 写码</small></div>
     <div class="mxc" data-v="" data-note="适合批量样板（内部 ~−26%）"></div>
-    <div class="mxc" data-v="33" data-note="协调循环反噬"></div>
+    <div class="mxc" data-v="33" data-note="裸跑·协调循环（带地板后 ≈0%）"></div>
 
     <div class="mxc mxr">escalate<small>端→云 · J 自测过即交付</small></div>
     <div class="mxc" data-v="-88" data-note="29/31 本地自解 ✅"></div>
-    <div class="mxc" data-v="71" data-note="裸跑·脏交接"></div>
+    <div class="mxc" data-v="71" data-note="裸跑·脏交接（干净交接后 0%）"></div>
 
     <div class="mxc mxr">context-engine<small>端→云 · J 探索递包</small></div>
     <div class="mxc" data-v="" data-note="小题打包反是开销"></div>
@@ -146,7 +146,7 @@
     <div class="mxc" data-v="-23" data-note="走 context-engine · 迭代流估 −45%"></div>
   </div>
   <p class="foot"><b>没有一种方法两边都赢</b>——escalate 简单 −88% ↔ 困难 +71%（同一套代码！），context-engine 反之。
-  <b class="hl">只有按难度分诊的路由 Agent 能吃满两列</b>。数字为一次性判分保守实测；真实工作流可免费迭代，困难列更高。</p>
+  <b class="hl">只有按难度分诊的路由 Agent 能吃满两列</b>。红格是<b>裸跑</b>成本（坏 harness 的产物，见下页）；一次性判分保守实测，真实工作流可免费迭代、困难列更省。</p>
 </section>
 
 <!-- 6 · NO GOOD HARNESS -->
