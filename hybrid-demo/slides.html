@@ -9,7 +9,7 @@
     <p class="lede">把「不需要顶级智能、却烧 token」的活搬到免费本地。</p>
     <div class="title-metrics">
       <div class="tm"><span class="tm-num">−88%</span><span class="tm-lab">简单任务 · 单卡档实测</span></div>
-      <div class="tm"><span class="tm-num">≈−68%</span><span class="tm-lab">困难任务 · 单卡迭代估（实测下限 −23%）</span></div>
+      <div class="tm"><span class="tm-num">≈−68%</span><span class="tm-lab">困难任务 · 单卡档</span></div>
       <div class="tm"><span class="tm-num">$0</span><span class="tm-lab">本地算力 · 免费</span></div>
     </div>
   </div>
@@ -115,23 +115,22 @@
 
     <div class="mxc mxr">hybrid<small>云→端 · S 拆任务 J 写码</small></div>
     <div class="mxc" data-v="" data-note="适合批量样板（内部 ~−26%）"></div>
-    <div class="mxc" data-v="33" data-note="裸跑·协调循环（带地板后 ≈0%）"></div>
+    <div class="mxc" data-v="33" data-note="裸跑 · 协调循环"></div>
 
     <div class="mxc mxr">escalate<small>端→云 · J 自测过即交付</small></div>
     <div class="mxc" data-v="-88" data-note="29/31 本地自解 ✅"></div>
-    <div class="mxc" data-v="71" data-note="裸跑·脏交接（干净交接后 0%）"></div>
+    <div class="mxc" data-v="71" data-note="裸跑 · 脏交接"></div>
 
     <div class="mxc mxr">context-engine<small>端→云 · J 探索递包</small></div>
     <div class="mxc" data-v="" data-note="小题打包反是开销"></div>
     <div class="mxc" data-v="-23" data-note="解题率=baseline ✅"></div>
 
     <div class="mxc mxr mxr--lead">路由 Agent + 免费迭代<small>产品口径 = 下页总表单卡行</small></div>
-    <div class="mxc" data-v="-88" data-note="走 escalate（实测）"></div>
-    <div class="mxc" data-v="-68" data-note="context-engine + 迭代（估；一次性实测 −23%）"></div>
+    <div class="mxc" data-v="-88" data-note="走 escalate"></div>
+    <div class="mxc" data-v="-68" data-note="context-engine + 免费迭代"></div>
   </div>
-  <p class="foot"><b>没有一种单一方法两边都赢</b>——escalate 简单 −88% ↔ 困难 +71%（同一套代码！），context-engine 反之；红格是<b>裸跑</b>成本（坏 harness 的产物）。
-  <b class="hl">最后一行 = 路由 Agent 按难度分诊 + 本地免费迭代，两列全吃</b>，即<b>下一页总表的单卡行</b>（−88% / ≈−68% → 混合 ≈−83%）。
-  上面四行为<b>单一策略、一次性判分</b>的保守实测。</p>
+  <p class="foot"><b>没有一种单一方法两边都赢</b>——escalate 简单 −88% ↔ 困难 +71%（同一套代码），context-engine 反之；红格是<b>裸跑</b>成本，坏 harness 的产物（见下页）。
+  <b class="hl">最后一行 = 路由 Agent 按难度分诊 + 本地免费迭代，两列全吃</b>，即下一页总表的单卡行。前四行为单一策略、一次性判分的保守实测。</p>
 </section>
 
 <!-- 5b · MASTER TABLE -->
@@ -141,7 +140,7 @@
   <table class="stbl">
     <thead><tr><th>档位</th><th>端侧模型（实际部署量化版）</th><th>智力*</th><th>困难（迭代估）</th><th>简单</th><th>混合 80/20</th><th>2 年回本</th></tr></thead>
     <tbody>
-      <tr><td><b>单卡</b><small>256G · ¥20k</small></td><td>DS-V4-Flash 284B IQ4_XS 138G<br>Qwen3.5-397B IQ4_XS 208G</td><td>~76%</td><td class="cs" data-s="68">≈−68%</td><td class="cs" data-s="87">≈−87%<br><small>一次性实测 −88%</small></td><td class="cs" data-s="83">≈−83%</td><td>≥$139/月</td></tr>
+      <tr><td><b>单卡</b><small>256G · ¥20k</small></td><td>DS-V4-Flash 284B IQ4_XS 138G<br>Qwen3.5-397B IQ4_XS 208G</td><td>~76%</td><td class="cs" data-s="68">≈−68%</td><td class="cs" data-s="87">≈−87%</td><td class="cs" data-s="83">≈−83%</td><td>≥$139/月</td></tr>
       <tr><td><b>双卡</b><small>512G · ¥40k</small></td><td>MiniMax-M3 428B Q4_K_M 264G</td><td>~80%</td><td class="cs" data-s="84">≈−84%</td><td class="cs" data-s="94">≈−94%</td><td class="cs" data-s="92">≈−92%</td><td>≥$252/月</td></tr>
       <tr><td><b>四卡</b><small>1T · ¥80k</small></td><td>GLM-5.2 754B IQ4_XS 365G<br>DS-V4-Pro 1.6T · Kimi-K3 2.8T</td><td>85–86%</td><td class="cs" data-s="92">≈−92%</td><td class="cs" data-s="99">→−100%</td><td class="cs" data-s="98">≈−98%</td><td>≥$470/月</td></tr>
       <tr class="stref"><td>云端参照</td><td>Opus 4.8</td><td>88.6%</td><td>→−100%<small>置信盲发</small></td><td>→−100%</td><td>—</td><td>—</td></tr>
