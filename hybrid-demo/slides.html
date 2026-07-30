@@ -9,7 +9,7 @@
     <p class="lede">按任务形态可省 <b class="hl">23%–95%</b> 云端 token，<b>且不掉解题率</b>。</p>
     <div class="title-metrics">
       <div class="tm"><span class="tm-num">−88%</span><span class="tm-lab">可验证任务 · 双卡档实测</span></div>
-      <div class="tm"><span class="tm-num">−23%</span><span class="tm-lab">难 bug 修复 · 双卡档实测</span></div>
+      <div class="tm"><span class="tm-num">≈−65%</span><span class="tm-lab">难 bug 修复 · 双卡迭代流（估）</span></div>
       <div class="tm"><span class="tm-num">1.5 年</span><span class="tm-lab">四卡 · 4 人团队回本</span></div>
     </div>
   </div>
@@ -218,7 +218,7 @@
         <div class="barrow"><span class="brlab">baseline</span><span class="brtrack"><span class="brfill brfill--base" style="width:100%"></span></span><span class="brval">$3.05</span></div>
         <div class="barrow"><span class="brlab">端云</span><span class="brtrack"><span class="brfill brfill--win" style="width:76.7%"></span></span><span class="brval">$2.34</span></div>
       </div>
-      <div class="res-big">−23%<span class="res-note">7/11 解题（=baseline）· 输入 −23% 输出 −24%</span></div>
+      <div class="res-big">−23%<span class="res-note">7/11 解题（=baseline）· 一次性判分的<b>保守下限</b>——真实迭代流（修→验→再修）估 ≈−65%</span></div>
     </figure>
   </div>
 </section>
@@ -292,21 +292,21 @@
     <div class="mcell mhead">纯可验证</div>
 
     <div class="mcell mrow">单卡<small>68%</small></div>
-    <div class="mcell" data-v="0"></div>
-    <div class="mcell" data-v="20"></div>
-    <div class="mcell" data-v="45"></div>
+    <div class="mcell" data-v="50"></div>
+    <div class="mcell" data-v="55"></div>
+    <div class="mcell" data-v="59"></div>
     <div class="mcell" data-v="63"></div>
 
     <div class="mcell mrow">双卡<small>76%</small></div>
-    <div class="mcell" data-v="23"></div>
-    <div class="mcell" data-v="40"></div>
     <div class="mcell" data-v="65"></div>
+    <div class="mcell" data-v="75"></div>
+    <div class="mcell" data-v="82"></div>
     <div class="mcell" data-v="88"></div>
 
     <div class="mcell mrow">四卡<small>85%</small></div>
-    <div class="mcell" data-v="40"></div>
-    <div class="mcell" data-v="60"></div>
     <div class="mcell" data-v="80"></div>
+    <div class="mcell" data-v="85"></div>
+    <div class="mcell" data-v="90"></div>
     <div class="mcell" data-v="95"></div>
   </div>
   <div class="mkey">
@@ -314,16 +314,15 @@
     <span class="mkey-scale" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
     <span>可验证列 <b>无封顶 → 趋近 −100%</b></span>
   </div>
-  <p class="foot">驱动变量 = <b>本地自解率</b>（实测锚点：易 83%→94%→~98%，难 ~0%→9%→~40%）；
-  <span class="mono">简单省钱率 ≈ 1−2×(1−自解率)</span>，四卡整行按 85% 能力反推（偏保守）。<br>
-  <b>云端的边际价值 = 能力差距 × 定位差距的能力</b>——本地≈云端时可<b>置信盲发</b>（同模型盲发 = baseline 质量、云端 $0），难任务列渐近线也是 −100%。
-  且难任务列为一次性判分下的<b>下限</b>——真实 bug 可免费迭代（修→验→再修），放开迭代预算（批量/过夜）后估计为
-  <b class="hl">≈−50% / −65% / −80%</b>（省钱率≈带裁判的 pass@k 自解率；未实测，待验证），混合负载随之 ≈−60%/−83%/−92%。</p>
+  <p class="foot"><b>口径：真实迭代工作流</b>（bug 自带复现、本地免费迭代：修→验→再修，烧时间不烧 token）——
+  难任务列 = <b>带裁判的 pass@k 自解率估计</b>（待实测）；纯可验证列 = 实测（单 −63 / 双 −88）。
+  <span class="mono">省钱率 ≈ 自解率（escalate）</span>；<b>云端的边际价值 = 能力差距 × 定位差距的能力</b>，两列渐近线都是 −100%。<br>
+  方法学下限（一次性隐藏判分 + 20 轮 + 二元自评的保守实验）：难任务列仅 0/−23/−40——细节见报告，不作为产品口径。</p>
 </section>
 
 <!-- 11 · BREAK-EVEN CHART -->
 <section class="slide" data-title="回本折线">
-  <h2>回本周期 vs 云端月消耗<span class="mut"> · 混合负载 80/20</span></h2>
+  <h2>回本周期 vs 云端月消耗<span class="mut"> · 混合负载 80/20 · 迭代流口径</span></h2>
   <div class="chartwrap">
     <svg id="chart" viewBox="0 0 840 470" role="img" aria-label="回本折线图"></svg>
   </div>
@@ -360,17 +359,17 @@
     <article class="tier tier--1">
       <header><span class="tier-name">单卡 ¥20k</span></header>
       <p class="biz-h">可验证工作流盒子</p>
-      <ul><li>难任务 <b>持平不亏</b></li><li>可验证 <b>−63%</b></li><li>≥$600/月 · ~0.6 年回本</li></ul>
+      <ul><li>难任务 <b>≈−50%</b>（迭代流,估）</li><li>可验证 <b>−63%</b>（实测）</li><li>≥$600/月 · ~0.6 年回本</li></ul>
     </article>
     <article class="tier tier--2">
       <header><span class="tier-name">双卡 ¥40k</span></header>
       <p class="biz-h">难任务转正门槛档</p>
-      <ul><li>难任务 <b>−23%</b></li><li>可验证 <b>−88%</b></li><li>小团队 / 顶级个人</li></ul>
+      <ul><li>难任务 <b>≈−65%</b>（迭代流,估）</li><li>可验证 <b>−88%</b>（实测）</li><li>小团队 / 顶级个人</li></ul>
     </article>
     <article class="tier tier--3">
       <header><span class="tier-name">四卡 ¥80k</span></header>
       <p class="biz-h">团队 / CI 共享</p>
-      <ul><li>难任务 <b>−40%</b></li><li>可验证 <b>−95%</b></li><li>绝不单人卖</li></ul>
+      <ul><li>难任务 <b>≈−80%</b>（迭代流,估）</li><li>可验证 <b>−95%</b>（反推）</li><li>绝不单人卖</li></ul>
     </article>
   </div>
   <p class="foot"><b>共同放大器</b>：把负载引导到可验证工作流（省钱率翻倍）+ 私有化合规（与价格无关的硬价值）。</p>
@@ -800,9 +799,9 @@ b{font-weight:700}
   /* ---- break-even line chart (SVG) ---- */
   var FX=7.2;
   var tiers=[
-    {n:'单卡 ¥20k',rmb:20000,s:0.50,c:'var(--amber)',a:'end',dx:-9},
-    {n:'双卡 ¥40k',rmb:40000,s:0.75,c:'var(--blue)',a:'start',dx:9},
-    {n:'四卡 ¥80k',rmb:80000,s:0.84,c:'var(--teal)',a:'start',dx:9}
+    {n:'单卡 ¥20k',rmb:20000,s:0.60,c:'var(--amber)',a:'end',dx:-9},
+    {n:'双卡 ¥40k',rmb:40000,s:0.83,c:'var(--blue)',a:'start',dx:9},
+    {n:'四卡 ¥80k',rmb:80000,s:0.92,c:'var(--teal)',a:'start',dx:9}
   ];
   var X0=64,X1=812,Y0=34,Y1=402,MX0=100,MX1=3000,YMAX=6;
   function px(m){return X0+(m-MX0)/(MX1-MX0)*(X1-X0);}
