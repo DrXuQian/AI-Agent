@@ -4,85 +4,88 @@
 <section class="slide slide--title" data-title="封面">
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="title-wrap">
-    <p class="eyebrow">端云协同 · 省 Token 实验与盈利分析</p>
-    <h1>AI Station<span class="tld">：本地免费算力 × 云端前沿模型</span></h1>
-    <p class="lede">按任务形态可省 <b class="hl">23%–95%</b> 云端 token，<b>且不掉解题率</b>。</p>
+    <p class="eyebrow">端云协同 AI Station · 省 Token 实验</p>
+    <h1>本地免费算力 × 云端前沿模型</h1>
+    <p class="lede">把「不需要顶级智能、却烧 token」的活搬到免费本地。</p>
     <div class="title-metrics">
-      <div class="tm"><span class="tm-num">−88%</span><span class="tm-lab">简单任务 · 双卡档实测</span></div>
-      <div class="tm"><span class="tm-num">≈−65%</span><span class="tm-lab">难 bug 修复 · 双卡迭代流（估）</span></div>
-      <div class="tm"><span class="tm-num">1.5 年</span><span class="tm-lab">四卡 · 4 人团队回本</span></div>
+      <div class="tm"><span class="tm-num">−88%</span><span class="tm-lab">简单任务 · 实测</span></div>
+      <div class="tm"><span class="tm-num">−23%</span><span class="tm-lab">困难任务 · 实测</span></div>
+      <div class="tm"><span class="tm-num">$0</span><span class="tm-lab">本地算力 · 免费</span></div>
     </div>
   </div>
+  <p class="foot">口径：本地算力免费，只计云端 token（Opus 4.8 $5/$25 per Mtok）；判分 = 第三方隐藏测试，非自评。</p>
 </section>
 
-<!-- 2 · TWO PREMISES -->
-<section class="slide" data-title="前提与口径">
-  <h2>读表前：两个前提 + 核算口径</h2>
-  <div class="two-col">
-    <article class="premise premise--asset">
-      <div class="pico" aria-hidden="true">◍</div>
-      <h3>核心资产 = 端云协同 Agent</h3>
-      <p>护城河不是硬件，是跑在端侧的 <b>路由 + 上下文引擎 Agent</b>：决定每题上云还是本地、并在上云前把探索压缩打包。</p>
-    </article>
-    <article class="premise premise--floor">
-      <div class="pico" aria-hidden="true">▤</div>
-      <h3>统一流程：先试 → 自证 → 干净升级</h3>
-      <p>本地免费先试；搞不定让云端<b>从干净状态接手</b>，最坏也只是回到纯云端 baseline。文中"更贵"的数字均来自无此流程的裸架构（反面教材）。</p>
-    </article>
+<!-- 2 · TIERS × MODEL INTELLIGENCE -->
+<section class="slide" data-title="硬件与模型">
+  <h2>三档硬件 × 能跑的模型 × 智力水平</h2>
+  <div class="ladder">
+    <div class="ladder-track" aria-hidden="true"></div>
+    <div class="ldot" style="--p:68%;--c:var(--amber)"><i></i><b>单卡 ~68%</b><small>Qwen3.5-122B-A10B</small></div>
+    <div class="ldot ldot--up" style="--p:76%;--c:var(--blue)"><i></i><b>双卡 ~76%</b><small>MiniMax-M3</small></div>
+    <div class="ldot" style="--p:85%;--c:var(--teal)"><i></i><b>四卡 85%*</b><small>GLM-5.2</small></div>
+    <div class="ldot ldot--up ldot--cloud" style="--p:88.6%;--c:var(--ink)"><i></i><b>云端 88.6%</b><small>Opus 4.8（参照）</small></div>
   </div>
-  <div class="acct acct--slim">
-    <div class="acct-box acct-box--free">
-      <span class="acct-tag">端侧 · 自有 AI Station</span>
-      <span class="acct-big">免费</span>
-    </div>
-    <div class="acct-flow" aria-hidden="true">
-      <span class="flow-line"></span><span class="flow-dot"></span><span class="flow-arrow">▶</span>
-    </div>
-    <div class="acct-box acct-box--paid">
-      <span class="acct-tag">云端 · Claude Opus 4.8</span>
-      <span class="acct-big">$5 <span class="slash">/</span> $25 <span class="acct-unit">/Mtok</span></span>
-    </div>
-  </div>
-  <p class="foot">只计云端 token（input·cache·output 精确计量）；判分 = <b>第三方隐藏测试</b>（SWE-bench F2P+P2P / HumanEval+ EvalPlus），非自评。</p>
-</section>
-
-<!-- 4 · TIERS -->
-<section class="slide" data-title="三档硬件">
-  <h2>三档真实硬件 × 端侧模型</h2>
   <div class="tiers">
     <article class="tier tier--1">
       <header><span class="tier-name">单卡</span><span class="tier-price">¥20k</span></header>
-      <div class="tier-model">Qwen3.5-122B-A10B</div>
-      <div class="cap"><span class="cap-bar" style="--v:68%"></span><span class="cap-num">~68%</span></div>
+      <div class="tier-model">Qwen3.5-122B-A10B-int4 · 122B/10B</div>
       <p class="tier-use">预算型个人 · 走量主力</p>
     </article>
     <article class="tier tier--2">
       <header><span class="tier-name">双卡</span><span class="tier-price">¥40k</span></header>
-      <div class="tier-model">MiniMax-M3</div>
-      <div class="cap"><span class="cap-bar" style="--v:76%"></span><span class="cap-num">~76%</span></div>
+      <div class="tier-model">MiniMax-M3-int4 · 230B/10B</div>
       <p class="tier-use">小团队 · 顶级个人</p>
     </article>
     <article class="tier tier--3">
       <header><span class="tier-name">四卡</span><span class="tier-price">¥80k</span></header>
-      <div class="tier-model">GLM-5.2</div>
-      <div class="cap"><span class="cap-bar" style="--v:85%"></span><span class="cap-num">85%<sup>*</sup></span></div>
-      <p class="tier-use">团队 / CI 共享设备</p>
+      <div class="tier-model">GLM-5.2-int4 · ~735B/40B</div>
+      <p class="tier-use">团队 / CI 共享 · 多用户</p>
     </article>
   </div>
-  <p class="foot"><span class="mono">能力 = SWE-bench Verified（int4）。</span> <sup>*</sup>四卡按 85% <b>反推·偏保守</b>，实机很可能更强。</p>
+  <p class="foot"><span class="mono">智力 = SWE-bench Verified（int4 会略降）。</span> *四卡 85% 为设定值（同代 GLM-5 综合榜开源第一作旁证）。
+  本地越逼近云端，可外包的活越多、省得越多。</p>
 </section>
 
-<!-- 5 · BENCHMARKS (axis + detail merged) -->
-<section class="slide" data-title="两个基准">
-  <h2>两个基准：卡住<span class="hl">「可验证性」</span>轴的两端</h2>
-  <div class="axis-strip" aria-hidden="true">
-    <span class="as-tag as-tag--l">弱自证 · 探索密集 → context-engine</span>
-    <span class="as-line"></span>
-    <span class="as-tag as-tag--r">强自证 · 生成密集 → escalate</span>
+<!-- 3 · ARCHITECTURES (personified) -->
+<section class="slide" data-title="协同方案">
+  <h2>端云协同方案：<span class="chip-s">云端 = Senior（贵）</span> <span class="chip-j">端侧 = Junior（免费）</span></h2>
+  <div class="team team--5">
+    <article class="tcard">
+      <h4>baseline <span class="tc-use">对照组</span></h4>
+      <div class="scene" data-scene="baseline"></div>
+      <p class="tc-note">Senior 单干，一切云端价</p>
+    </article>
+    <article class="tcard">
+      <h4>hybrid <span class="tc-use">云→端</span></h4>
+      <div class="scene" data-scene="hybrid"></div>
+      <p class="tc-note">S 动脑拆任务，J 动手写码，S 组装</p>
+    </article>
+    <article class="tcard tcard--win">
+      <h4>escalate <span class="tc-use">端→云 · 兜底</span></h4>
+      <div class="scene" data-scene="escalate"></div>
+      <p class="tc-note">J 做完自测，通过即交付（$0）；失败 S 干净接手</p>
+    </article>
+    <article class="tcard tcard--win">
+      <h4>context-engine <span class="tc-use">端→云 · 递包</span></h4>
+      <div class="scene" data-scene="ce"></div>
+      <p class="tc-note">J 当侦察兵探索打包，S 拿包定方案、亲自写修复</p>
+    </article>
+    <article class="tcard tcard--lead">
+      <h4>路由 Agent <span class="tc-use">= Tech Lead</span></h4>
+      <div class="scene" data-scene="lead"></div>
+      <p class="tc-note">按难度/裁判/延迟分诊——这套编排逻辑是核心资产</p>
+    </article>
   </div>
+  <p class="foot">原 local-first（J 全做 + S 逐一审查）已并入 escalate：任务可自证时审查是多余动作（实测同解题率、审查≈重做）。</p>
+</section>
+
+<!-- 4 · BENCHMARKS -->
+<section class="slide" data-title="两个基准">
+  <h2>两个公开基准：难度两端，隐藏测试判分</h2>
   <div class="bm2">
     <article class="bm bm--swe">
-      <header><h3>SWE-bench Lite</h3><span class="bm-kind">真实仓库 bug 修复</span></header>
+      <header><h3>SWE-bench Lite</h3><span class="bm-kind">困难 · 真实仓库 bug 修复</span></header>
       <div class="pipe">
         <span class="pstep"><b>输入</b>真实 GitHub issue<br>+ 整个代码库</span>
         <span class="parrow" aria-hidden="true">▶</span>
@@ -91,13 +94,13 @@
         <span class="pstep"><b>判分</b>隐藏测试<br>F2P + P2P</span>
       </div>
       <ul class="bm-facts">
-        <li>普林斯顿 · 2,294 真实 issue → Verified 500 → 用 <b>Lite 子集</b></li>
-        <li>考：陌生大仓库里<b>定位 · 理解 · 修改</b>（探索密集，产出代码量小）</li>
-        <li>本地<b>看不到判分测试</b> → 弱自证</li>
+        <li>普林斯顿 · 2,294 真实 issue，本实验用 Lite 子集（11 实例）</li>
+        <li>考：陌生大仓库里<b>定位 · 理解 · 修改</b>——成本大头是探索/诊断</li>
+        <li>修好 bug（F2P）且不破坏别的（P2P）才得分，二元判定</li>
       </ul>
     </article>
     <article class="bm bm--he">
-      <header><h3>HumanEval+</h3><span class="bm-kind">函数级代码生成</span></header>
+      <header><h3>HumanEval+</h3><span class="bm-kind">简单 · 函数级代码生成</span></header>
       <div class="pipe">
         <span class="pstep"><b>输入</b>函数签名<br>+ docstring</span>
         <span class="parrow" aria-hidden="true">▶</span>
@@ -106,293 +109,130 @@
         <span class="pstep"><b>判分</b>~764 条<br>隐藏测试/题</span>
       </div>
       <ul class="bm-facts">
-        <li>OpenAI 164 题；EvalPlus 把测试 <b>9.6 → ~764 条/题（~80×）</b>，全集 ~12.5 万条</li>
-        <li>考：<b>照规格写对一个函数</b>（纯生成、零仓库探索）</li>
-        <li>docstring 自带示例 → 本地能跑测试自证 → <b>强自证</b></li>
+        <li>OpenAI 164 题；EvalPlus 把测试扩 ~80 倍（全集 ~12.5 万条）</li>
+        <li>考：<b>照规格写对一个函数</b>——纯生成、零仓库探索</li>
+        <li>docstring 自带示例 → 本地能自己跑测试验证</li>
       </ul>
     </article>
   </div>
-  <p class="foot">F2P = 修复前必失败·修复后必过（真修好了）；P2P = 修复前后都过（没改坏）。二元判定、无部分分。</p>
 </section>
 
-<!-- 5b2 · FAQ VERIFIABILITY -->
-<section class="slide" data-title="统一原理">
-  <p class="eyebrow">统一原理：把「不需要顶级智能、却烧 token」的活搬到免费本地 · 常见疑问</p>
-  <h2>"云端不也看不到判分测试吗？"<br><span class="mut">对——「可验证」指任务<b class="hl">自带裁判</b>，不是谁能判卷</span></h2>
-  <div class="two-col">
-    <article class="premise">
-      <h3>有裁判 · 可验证任务</h3>
-      <div class="tflow"><span class="pj">J 写解</span><i>▶</i><span class="pok">跑测试 = 客观裁判</span><i>▶</i><span class="pj">✓ 敢停 · 云端 $0</span></div>
-      <p>跑测试不需要智商，<b>弱模型也能当庭举证</b>。实测：双卡自证 31/31 零假阳性；弱单卡 2/30 漏（自写测试越全越可靠）。</p>
-    </article>
-    <article class="premise premise--floor">
-      <h3>没裁判 · 不可验证任务</h3>
-      <div class="tflow"><span class="pj">J："我觉得修好了"</span><i>=</i><span class="pbad">意见 · 假阳性风险</span><i>▶</i><span class="ps">S 拍板 = 质量基准</span></div>
-      <p><b>判断力成了唯一质量来源</b>，云端亲自做 = 基准（baseline）。复查也不便宜：无测试时审查 ≈ 重做（local-first 实测 −2.5%）。
-      难任务里<b>自带裁判的子集</b>（可复现 / 有现成测试）照样走左边——四卡实测 3/11 自解、零假阳性。</p>
-    </article>
+<!-- 5 · METHOD COMPARISON MATRIX -->
+<section class="slide" data-title="方法对比">
+  <h2>方法 × 难度：云端 token 相对 baseline<span class="mut"> · 双卡档代理实测</span></h2>
+  <div class="mx">
+    <div class="mxc mxh"></div>
+    <div class="mxc mxh">简单 · HumanEval+<br><small>31 题</small></div>
+    <div class="mxc mxh">困难 · SWE-bench<br><small>11 实例</small></div>
+
+    <div class="mxc mxr">baseline<small>纯云端对照</small></div>
+    <div class="mxc" data-v="0"></div>
+    <div class="mxc" data-v="0"></div>
+
+    <div class="mxc mxr">hybrid<small>云→端 · S 拆任务 J 写码</small></div>
+    <div class="mxc" data-v="" data-note="适合批量样板（内部 ~−26%）"></div>
+    <div class="mxc" data-v="33" data-note="协调循环反噬"></div>
+
+    <div class="mxc mxr">escalate<small>端→云 · J 自测过即交付</small></div>
+    <div class="mxc" data-v="-88" data-note="29/31 本地自解 ✅"></div>
+    <div class="mxc" data-v="71" data-note="裸跑·脏交接"></div>
+
+    <div class="mxc mxr">context-engine<small>端→云 · J 探索递包</small></div>
+    <div class="mxc" data-v="" data-note="小题打包反是开销"></div>
+    <div class="mxc" data-v="-23" data-note="解题率=baseline ✅"></div>
+
+    <div class="mxc mxr mxr--lead">路由 Agent<small>按难度组合以上</small></div>
+    <div class="mxc" data-v="-88" data-note="走 escalate"></div>
+    <div class="mxc" data-v="-23" data-note="走 context-engine · 迭代流估 −45%"></div>
   </div>
-  <p class="foot">可验证性决定的是<b>免费阶段敢不敢停</b>：有裁判 → 整题外包给免费本地（escalate 双卡实测 <b class="good">−88%</b>）；
-  没裁判 → 只外包探索体力活、云端拍板（context-engine 双卡实测 <b class="good">−23%</b>）——本地当"免费的眼睛和手"，云端当大脑。
-  <b class="hl">给任务装裁判（TDD / 先写测试）= 把负载搬进左边 = 最强省钱杠杆。</b><br>
-  <b>再进一步</b>：真实 bug 自带症状复现、可<b>免费迭代</b>（修→验→再修，烧时间不烧 token，错了还有外层反馈兜底）
-  → 两端都趋向可本地验证，真正的轴是<b>迭代时间 × 验证完备度</b>；一次性隐藏判分实测因此是<b>下限</b>。</p>
+  <p class="foot"><b>没有一种方法两边都赢</b>——escalate 简单 −88% ↔ 困难 +71%（同一套代码！），context-engine 反之。
+  <b class="hl">只有按难度分诊的路由 Agent 能吃满两列</b>。数字为一次性判分保守实测；真实工作流可免费迭代，困难列更高。</p>
 </section>
 
-<!-- 5c · FIVE ARCHITECTURES -->
-<section class="slide" data-title="五种架构">
-  <h2>五种架构<b class="hl">单独裸跑</b>的成本<span class="mut"> · 难任务 SWE-bench · 双卡档代理</span></h2>
-  <div class="methods" id="methods">
-    <div class="meth" data-pct="-23">
-      <span class="meth-lab"><span class="meth-name">context-engine ✅</span><span class="meth-desc">本地探索打包 · 云端只决策</span></span>
-      <span class="meth-track"></span><span class="meth-val"></span></div>
-    <div class="meth" data-pct="-2.5">
-      <span class="meth-lab"><span class="meth-name">local-first</span><span class="meth-desc">本地做完 · 云端逐一审查</span></span>
-      <span class="meth-track"></span><span class="meth-val"></span></div>
-    <div class="meth" data-pct="0">
-      <span class="meth-lab"><span class="meth-name">baseline</span><span class="meth-desc">纯云端 · 自己探索+修复</span></span>
-      <span class="meth-track"></span><span class="meth-val"></span></div>
-    <div class="meth" data-pct="33">
-      <span class="meth-lab"><span class="meth-name">hybrid（云端编排）</span><span class="meth-desc">云端派子任务 · 本地写样板</span></span>
-      <span class="meth-track"></span><span class="meth-val"></span></div>
-    <div class="meth" data-pct="71">
-      <span class="meth-lab"><span class="meth-name">escalate</span><span class="meth-desc">本地先试 · 失败才升级云端</span></span>
-      <span class="meth-track"></span><span class="meth-val"></span></div>
-  </div>
-  <p class="foot"><span class="good">◀ 省</span> · <span class="bad">费 ▶</span>（相对 baseline，<b>单一策略从头跑到底</b>）。+33% / +71% 是<b>裸跑、无路由地板</b>的成本——
-  产品不裸跑任何一种：<b>路由 Agent 按题选策略</b>（见下一页）。第六种（未列）：本地≈云端时的<b class="hl">置信盲发</b>——有把握直接交付 → 渐近 −100%（见矩阵页）。</p>
-</section>
-
-<!-- 5d · TEAM ANALOGY -->
-<section class="slide" data-title="团队配合">
-  <h2>像一个工程团队：<span class="chip-s">云端 = Senior</span> <span class="chip-j">端侧 = Junior（免费）</span></h2>
-  <div class="team">
-    <article class="tcard">
-      <h4>baseline <span class="tc-use">对照组</span></h4>
-      <div class="tflow"><span class="ps">S 独自探索 + 修复</span></div>
-      <p class="tc-note">Senior 单干——一切云端价</p>
-    </article>
-    <article class="tcard">
-      <h4>hybrid <span class="tc-use">批量样板</span></h4>
-      <div class="tflow"><span class="ps">S 拆任务</span><i>▶</i><span class="pj">J 写样板</span><i>▶</i><span class="ps">S 组装</span></div>
-      <p class="tc-note">Senior 派活；难任务上协调开销反噬</p>
-    </article>
-    <article class="tcard">
-      <h4>local-first <span class="tc-use">中等难度</span></h4>
-      <div class="tflow"><span class="pj">J 全部做完</span><i>▶</i><span class="ps">S 逐一审查</span></div>
-      <p class="tc-note">Junior 全做；审查费接近自己做</p>
-    </article>
-    <article class="tcard tcard--win">
-      <h4>escalate <span class="tc-use">可验证 · −88%</span></h4>
-      <div class="tflow"><span class="pj">J 做 + 自测</span><i>▶</i><span class="pok">✓ 交付 $0</span><i>/</i><span class="ps">✗ S 干净接手</span></div>
-      <p class="tc-note">Junior 能自证时，Senior 几乎不出场</p>
-    </article>
-    <article class="tcard tcard--win">
-      <h4>context-engine <span class="tc-use">难任务 · −23%</span></h4>
-      <div class="tflow"><span class="pj">J 探索 · 打包</span><i>▶</i><span class="ps">S 只决策 + 修复</span></div>
-      <p class="tc-note">Junior 当眼睛和手，Senior 当大脑</p>
-    </article>
-    <article class="tcard tcard--lead">
-      <h4>路由 Agent <span class="tc-use">= Tech Lead</span></h4>
-      <div class="tflow"><span class="pl">按任务形态分诊</span></div>
-      <p class="tc-note">可验证→escalate · 难→context-engine · J 够强(四卡)时难任务也先试+自证（−40%）· 帮不上→S 单干（地板 0%）</p>
-    </article>
-  </div>
-</section>
-
-<!-- 6 · RESULTS -->
-<section class="slide" data-title="实测结果">
-  <h2>实测：两端都省，且不掉解题率<span class="mut" style="font-size:.55em"> · 双卡档代理（Sonnet）× 云端 Opus 4.8（$5/$25）</span></h2>
-  <div class="results">
-    <figure class="res">
-      <figcaption><b>HumanEval+</b> · 简单（函数级） · escalate</figcaption>
-      <div class="barpair">
-        <div class="barrow"><span class="brlab">baseline</span><span class="brtrack"><span class="brfill brfill--base" style="width:100%"></span></span><span class="brval">$0.103</span></div>
-        <div class="barrow"><span class="brlab">端云</span><span class="brtrack"><span class="brfill brfill--win" style="width:11.5%"></span></span><span class="brval">$0.012</span></div>
-      </div>
-      <div class="res-big">−88%<span class="res-note">31/31 解题 · 29/31 本地自解</span></div>
-    </figure>
-    <figure class="res">
-      <figcaption><b>SWE-bench</b> · 难 bug 修复 · context-engine</figcaption>
-      <div class="barpair">
-        <div class="barrow"><span class="brlab">baseline</span><span class="brtrack"><span class="brfill brfill--base" style="width:100%"></span></span><span class="brval">$3.05</span></div>
-        <div class="barrow"><span class="brlab">端云</span><span class="brtrack"><span class="brfill brfill--win" style="width:76.7%"></span></span><span class="brval">$2.34</span></div>
-      </div>
-      <div class="res-big">−23%<span class="res-note">7/11 解题（=baseline）· 一次性判分的<b>保守下限</b>——真实迭代流（修→验→再修）估 ≈−65%</span></div>
-    </figure>
-  </div>
-</section>
-
-<!-- 8 · ROUTING AGENT + HANDOFF COST (merged) -->
-<section class="slide" data-title="路由 Agent">
-  <h2>端侧路由 Agent：<span class="mut">先试 → 自证 → </span><b class="hl">干净</b><span class="mut">升级</span></h2>
-  <div class="flow">
-    <div class="fnode fnode--start">任务进来</div>
-    <span class="fedge" aria-hidden="true">▶</span>
-    <div class="fnode fnode--local">本地免费尝试<br><small>探索 / 试解 / 跑测试</small></div>
-    <span class="fedge" aria-hidden="true">▶</span>
-    <div class="fdecision">自证通过？</div>
-    <div class="fbranch">
-      <div class="fb fb--yes"><span class="fb-tag">是</span> 本地交付 · <b>云端 $0</b></div>
-      <div class="fb fb--no"><span class="fb-tag">否</span> 云端<b>干净接手</b>（丢弃半成品）→ 最坏 = baseline</div>
-    </div>
-  </div>
+<!-- 6 · NO GOOD HARNESS -->
+<section class="slide" data-title="Harness 决定成败">
+  <p class="eyebrow">同样的模型组合，结果从 +71% 到 −88%</p>
+  <h2>没有好的 Agent harness，端云协同<b class="bad">反而更贵</b></h2>
   <div class="two-col">
     <article class="premise premise--bad">
-      <h3>为什么必须"干净"：脏交接实测 <span class="hand-num bad" style="font-size:clamp(22px,2.6vw,34px)">+71%</span></h3>
-      <div class="tflow"><span class="pj">J 失败</span><i>▶</i><span class="pbad">笔记 3K + 半成品 diff 15K + 脏工作区</span><i>▶</i><span class="ps">S 消化 · 被带偏</span></div>
-      <p>解题率 <b>11/11 没降</b>——钱全花在消化失败现场（大输入 · 清理回滚 · <b>错误锚定</b>）。</p>
+      <h3>坏 harness · 裸跑实测</h3>
+      <ul class="hlist">
+        <li><b class="bad">+71%</b> 脏交接：失败笔记+半成品 diff 硬塞给云端消化、被错误锚定</li>
+        <li><b class="bad">+33%</b> 协调循环：云端拆任务/审集成的开销 &gt; 样板节省</li>
+        <li><b class="bad">+12%</b> 坏上下文包：弱本地的错误定位误导云端（解题率也掉）</li>
+        <li><b class="bad">+59%</b> 多余审查：任务可自证还让云端逐一复核（审查≈重做）</li>
+      </ul>
     </article>
     <article class="premise">
-      <h3>干净交接 = 地板 <span class="hand-num good" style="font-size:clamp(22px,2.6vw,34px)">0%</span></h3>
-      <div class="tflow"><span class="pj">J 失败</span><i>▶</i><span class="pok">checkout 丢弃半成品</span><i>▶</i><span class="ps">S 干净状态做 = baseline</span></div>
-      <p>交接内容<b>随能力分档</b>：单卡 = 干净现场（笔记也会误导）；双/四卡 = <b>总结问题</b>（试了什么、为何失败）→ 省掉云端探索（−23%）。</p>
+      <h3>好 harness 的四件事</h3>
+      <ul class="hlist">
+        <li><b class="good">按难度路由</b>：简单→escalate；困难→context-engine；本地够强→先试自证</li>
+        <li><b class="good">裁判自证</b>：跑测试当客观裁判，通过才敢交付（$0）</li>
+        <li><b class="good">干净交接</b>：失败就丢弃半成品；强本地只递压缩包</li>
+        <li><b class="good">免费迭代</b>：修→验→再修烧时间不烧 token，失败不是终局</li>
+      </ul>
     </article>
   </div>
-  <p class="foot">同样的分工，只改交接协议：<b class="bad">+71%</b> ↔ <b class="good">0%</b> ↔ 总结包 <b class="good">−23%</b>——<b>交接协议是 Agent 设计的核心变量</b>。本地先试花的是<b>时间</b>不是 token：CI/批量/过夜等延迟不敏感负载应全部 local-first；实测用"不确定即升级"的保守自评 → 难任务省钱率是<b>下限</b>（真实流程 = 修完→复现验证→失败才升级）。</p>
+  <p class="foot"><b>Harness 本身是核心资产、也是最值得深挖的方向</b>：路由信号实测（事前读题面 +10% ❌ · 事中先试卡住才升级 −41% ✅ · oracle −35% 仍有空间）。</p>
 </section>
 
-<!-- 8b · AGENT DESIGN = DEEP DIRECTION -->
-<section class="slide" data-title="Agent 可深挖">
-  <p class="eyebrow">Agent 设计 = 值得深挖的方向</p>
-  <h2>同一套代码，设计一变，结果天差地别</h2>
-  <div class="swing">
-    <div class="sw sw--good"><span class="sw-num">−88%</span><span class="sw-lab">escalate · HumanEval+（可验证）</span></div>
-    <div class="sw-vs" aria-hidden="true">同一套<br>escalate<br>代码</div>
-    <div class="sw sw--bad"><span class="sw-num">+71%</span><span class="sw-lab">裸 escalate · SWE-bench 难任务<br>（无路由地板 · 产品不会这样跑）</span></div>
+<!-- 7 · WHERE THE MONEY COMES FROM -->
+<section class="slide" data-title="钱从哪里来">
+  <h2>省下的钱从哪里来：<span class="mut">看云端怎么计费</span></h2>
+  <div class="tiers">
+    <article class="tier tier--3">
+      <header><span class="tier-name">API 按量</span><span class="tier-price">主攻</span></header>
+      <div class="tier-model">团队 / CI / agent 重度用户</div>
+      <p class="tier-use"><b>省 token = 省美元</b>，一一对应；回本图直接适用。</p>
+    </article>
+    <article class="tier tier--2">
+      <header><span class="tier-name">云端订阅</span><span class="tier-price">兑现×3</span></header>
+      <div class="tier-model">个人 Pro / Max 类</div>
+      <p class="tier-use">账单不自动变少，但订阅本质是<b>限额</b>：<b>降档</b>（Max $200→Pro $20）· <b>减座位</b>（10→3）· <b>不撞限流</b>。</p>
+    </article>
+    <article class="tier tier--1">
+      <header><span class="tier-name">端上订阅</span><span class="tier-price">新收入</span></header>
+      <div class="tier-model">机器不只卖断</div>
+      <p class="tier-use">硬件分期 + 端侧服务费（模型更新/Agent 升级），与云端 credits 合成<b>一张账单</b>。</p>
+    </article>
   </div>
-  <div class="deep">
-    <div class="deep-card">
-      <h4>路由信号怎么选 · 实测</h4>
-      <div class="rsig"><span>事前 · 读题面预判难易</span><b class="bad">+10%</b><span>❌ 判不出</span></div>
-      <div class="rsig"><span>事中 · 先试卡住才升级</span><b class="good">−41%</b><span>✅ 有效</span></div>
-      <div class="rsig"><span>oracle · 上帝视角路由</span><b class="good">−35%</b><span>↑ 仍有 headroom</span></div>
-    </div>
-    <div class="deep-card">
-      <h4>待挖方向</h4>
-      <ul>
-        <li>事中路由调参 → 逼近 oracle</li>
-        <li>预算自适应 / 混合策略</li>
-        <li>多 Agent 编排 · 并行探索</li>
-        <li>更强端侧模型 → 解封难任务</li>
-      </ul>
-    </div>
-  </div>
-  <p class="foot">微小设计差异把结果从 <b class="bad">+71%</b> 甩到 <b class="good">−88%</b> —— <b>Agent 编排本身值得当作核心课题深挖</b>。</p>
+  <p class="foot"><b>诚实的风险</b>：token 补贴期省下的美元缩水。对冲：①云端涨价时机器价值线性放大 ②主攻 API 客户
+  ③隐私腿——context-engine 天然"仓库不上云、只上压缩包"，与计费模式无关。</p>
 </section>
 
-<!-- 10 · 2D MATRIX (completion rates folded into foot) -->
-<section class="slide" data-title="省钱矩阵">
-  <h2>省钱率 = 档位 × 任务难度 的二维矩阵</h2>
-  <div class="matrix" id="matrix">
-    <div class="mcell mhead"></div>
-    <div class="mcell mhead">困难<br><small>仓库级 bug</small></div>
-    <div class="mcell mhead">中等</div>
-    <div class="mcell mhead">较易</div>
-    <div class="mcell mhead">简单<br><small>函数级 · TDD</small></div>
-
-    <div class="mcell mrow">单卡<small>68%</small></div>
-    <div class="mcell" data-v="50"></div>
-    <div class="mcell" data-v="55"></div>
-    <div class="mcell" data-v="59"></div>
-    <div class="mcell" data-v="63"></div>
-
-    <div class="mcell mrow">双卡<small>76%</small></div>
-    <div class="mcell" data-v="65"></div>
-    <div class="mcell" data-v="75"></div>
-    <div class="mcell" data-v="82"></div>
-    <div class="mcell" data-v="88"></div>
-
-    <div class="mcell mrow">四卡<small>85%</small></div>
-    <div class="mcell" data-v="80"></div>
-    <div class="mcell" data-v="85"></div>
-    <div class="mcell" data-v="90"></div>
-    <div class="mcell" data-v="95"></div>
-  </div>
-  <div class="mkey">
-    <span>两列渐近线都是 <b>−100%</b>（随本地↑）</span>
-    <span class="mkey-scale" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-    <span>越简单越省，<b>趋近 −100%</b></span>
-  </div>
-  <p class="foot"><b>口径：真实迭代工作流</b>（bug 自带复现、本地免费迭代：修→验→再修，烧时间不烧 token）——
-  难度 = 所需迭代深度（决定本地自解率）。困难列 = <b>带裁判的 pass@k 自解率估计</b>（待实测）；简单列 = 实测（单 −63 / 双 −88）。
-  <span class="mono">省钱率 ≈ 自解率（escalate）</span>；<b>云端的边际价值 = 能力差距 × 定位差距的能力</b>，两列渐近线都是 −100%。<br>
-  方法学下限（一次性隐藏判分 + 20 轮 + 二元自评的保守实验）：困难列仅 0/−23/−40——细节见报告，不作为产品口径。</p>
-</section>
-
-<!-- 11 · BREAK-EVEN CHART -->
-<section class="slide" data-title="回本折线">
-  <h2>回本周期 vs 云端月消耗<span class="mut"> · 混合负载 80/20 · 迭代流口径</span></h2>
+<!-- 8 · BREAK-EVEN CHART -->
+<section class="slide" data-title="回本图">
+  <h2>成本核算：回本周期 vs 云端月消耗<span class="mut"> · 混合负载 80/20</span></h2>
   <div class="chartwrap">
     <svg id="chart" viewBox="0 0 840 470" role="img" aria-label="回本折线图"></svg>
   </div>
   <div class="legend" id="legend"></div>
 </section>
 
-<!-- 11b · BILLING MODE -->
-<section class="slide" data-title="订阅怎么办">
-  <p class="eyebrow">必须正面回答的质疑</p>
-  <h2>"云端还是要订阅啊？"<span class="mut">——对，省钱的兑现方式看计费</span></h2>
-  <div class="two-col">
-    <article class="premise">
-      <h3>API 按量计费 <span class="mut">· 团队 / CI / agent 重度</span></h3>
-      <div class="hand-num good" style="font-size:clamp(22px,2.8vw,38px)">省 token = 省美元</div>
-      <p>一一对应，本报告全部回本表<b>直接成立</b>。这是"省钱"故事的<b>主攻市场</b>。</p>
-    </article>
-    <article class="premise premise--floor">
-      <h3>包月订阅 <span class="mut">· 个人 Pro/Max 类</span></h3>
-      <div class="tflow"><span class="pok">降档 Max $200 → Pro $20</span><span class="pok">减座位 10 → 3</span><span class="pok">不撞限额</span></div>
-      <p>账单不自动变少——但订阅本质是<b>限额</b>：省 token = 同档干 5–20 倍的活。
-      兑现<b>打折但不归零</b>：货币从 $/token 变成"档位 × 座位数"。</p>
-    </article>
+<!-- 9 · NEW SUBSCRIPTION PROPOSAL -->
+<section class="slide" data-title="新订阅 Proposal">
+  <p class="eyebrow">Proposal · 与云厂商联合出一档新订阅</p>
+  <h2>「端云协同版」Coding Plan</h2>
+  <div class="prop">
+    <div class="prop-price">
+      <div class="pp pp--old"><span class="pp-name">纯云端 Max</span><span class="pp-num">$200<small>/月</small></span><span class="pp-sub">全部 token 云端算力扛</span></div>
+      <div class="pp-vs" aria-hidden="true">→</div>
+      <div class="pp pp--new"><span class="pp-name">端云协同版<sup>示意</sup></span><span class="pp-num">$49<small>/月</small></span><span class="pp-sub">机器当入场券 · 云端只接升级题（量少且都是真难题）</span></div>
+    </div>
+    <div class="prop-wins">
+      <div class="pw"><b>用户</b>总成本降：订阅降档 + 机器随时间摊薄 + 隐私（仓库不上云）</div>
+      <div class="pw"><b>云厂商</b>获客（买机器的都是重度用户）· 算力减压（~80% token 端侧消化）· 留存（工作流锁定）</div>
+      <div class="pw"><b>机器厂商</b>硬件收入 + 订阅分成 + Agent harness 的持续价值</div>
+    </div>
   </div>
-  <p class="foot"><b>进阶产品</b>：与云厂商联合推<b class="hl">「端云协同版 coding plan」</b>——机器当入场券、云端只接升级题，
-  订阅价可以低一档（云厂商也乐意：获客 + 算力减压）；或机器捆绑云 credits 一体化订阅。<br>
-  <b>诚实的风险</b>：token 补贴期省下的美元缩水。对冲：①涨价期权 ②主攻 API 客户
-  ③隐私腿——context-engine 天然"仓库不上云、只上压缩包"，省 token 的机制 = 缩小数据暴露面的机制。</p>
-</section>
-
-<!-- 12 · BUSINESS -->
-<section class="slide" data-title="商业建议">
-  <h2>商业建议：<span class="mut">卖场景，不只卖机器</span></h2>
-  <div class="tiers tiers--biz">
-    <article class="tier tier--1">
-      <header><span class="tier-name">单卡 ¥20k</span></header>
-      <p class="biz-h">可验证工作流盒子</p>
-      <ul><li>困难任务 <b>≈−50%</b>（迭代流,估）</li><li>简单任务 <b>−63%</b>（实测）</li><li>≥$600/月 · ~0.6 年回本</li></ul>
-    </article>
-    <article class="tier tier--2">
-      <header><span class="tier-name">双卡 ¥40k</span></header>
-      <p class="biz-h">难任务转正门槛档</p>
-      <ul><li>困难任务 <b>≈−65%</b>（迭代流,估）</li><li>简单任务 <b>−88%</b>（实测）</li><li>小团队 / 顶级个人</li></ul>
-    </article>
-    <article class="tier tier--3">
-      <header><span class="tier-name">四卡 ¥80k</span></header>
-      <p class="biz-h">团队 / CI 共享</p>
-      <ul><li>困难任务 <b>≈−80%</b>（迭代流,估）</li><li>简单任务 <b>−95%</b>（反推）</li><li>绝不单人卖</li></ul>
-    </article>
-  </div>
-  <p class="foot"><b>共同放大器</b>：把负载引导到可验证工作流（省钱率翻倍）+ 私有化合规（与价格无关的硬价值）。</p>
-</section>
-
-<!-- 13 · LIMITS / CLOSE -->
-<section class="slide slide--close" data-title="局限与下一步">
-  <p class="eyebrow">诚实的局限 · 下一步</p>
-  <h2>已验证 3 格实测，四卡整行为反推</h2>
-  <div class="close-grid">
-    <div class="cg"><span class="cg-k">✓ 硬证据</span>单/双卡 难任务 & 纯可验证共 3 格实测</div>
-    <div class="cg"><span class="cg-k">~ 反推</span>四卡（85%）完成度→省钱率，偏保守</div>
-    <div class="cg"><span class="cg-k">→ 下一步</span>用 ~85% worker 实跑，验证 −40% / −95%</div>
-    <div class="cg"><span class="cg-k">→ 下一步</span>事中路由调参，逼近 oracle −35%</div>
-  </div>
-  <p class="close-line">本地免费的活越多，省得越多；<b class="hl">系统永不亏钱</b>。</p>
+  <p class="foot">把"还要订阅"从劣势翻成<b>三赢的渠道合作</b>；价格为示意，实际取决于分成谈判。替代形态：机器捆绑云端 credits 一体化订阅。</p>
 </section>
 
 </section>
 
 <!-- progress rail + counter -->
 <nav class="rail" id="rail" aria-label="幻灯片导航"></nav>
-<div class="counter"><span id="cur">1</span> / <span id="tot">13</span></div>
+<div class="counter"><span id="cur">1</span> / <span id="tot">9</span></div>
 <div class="hint" id="hint">← → 翻页</div>
 
 <style>
@@ -422,287 +262,165 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
   -webkit-font-smoothing:antialiased;line-height:1.5}
-.mono{font-family:var(--mono)}
-.mut{color:var(--mut)}
-.hl{color:var(--teal)}
-b{font-weight:700}
+.mono{font-family:var(--mono)} .mut{color:var(--mut)} .hl{color:var(--teal)}
+.good{color:var(--teal)} .bad{color:var(--loss)} b{font-weight:700}
 
 .deck{scroll-snap-type:y mandatory;height:100vh;overflow-y:auto;scroll-behavior:smooth}
 .deck::-webkit-scrollbar{width:0}
 .slide{scroll-snap-align:start;min-height:100vh;display:flex;flex-direction:column;
-  justify-content:center;gap:clamp(18px,3vh,40px);
-  padding:clamp(32px,6vw,96px) clamp(28px,7vw,120px);position:relative}
-.slide h2{font-size:clamp(23px,3.2vw,44px);line-height:1.15;margin:0;font-weight:800;
-  letter-spacing:-.01em;text-wrap:balance;max-width:30ch}
-.eyebrow{font-family:var(--mono);text-transform:uppercase;letter-spacing:.22em;
+  justify-content:center;gap:clamp(16px,2.6vh,34px);
+  padding:clamp(30px,5.5vw,88px) clamp(26px,6.5vw,110px);position:relative}
+.slide h2{font-size:clamp(22px,3vw,42px);line-height:1.15;margin:0;font-weight:800;
+  letter-spacing:-.01em;text-wrap:balance;max-width:32ch}
+.eyebrow{font-family:var(--mono);text-transform:uppercase;letter-spacing:.2em;
   font-size:clamp(11px,1vw,13px);color:var(--teal);margin:0}
-.foot{color:var(--mut);font-size:clamp(12px,1.15vw,15.5px);margin:0;max-width:70ch;border-top:1px solid var(--line);padding-top:14px}
+.foot{color:var(--mut);font-size:clamp(12px,1.15vw,15.5px);margin:0;max-width:78ch;border-top:1px solid var(--line);padding-top:13px}
 
 /* TITLE */
-.slide--title{justify-content:center}
 .grid-bg{position:absolute;inset:0;opacity:.5;pointer-events:none;
-  background:
-   linear-gradient(var(--line) 1px,transparent 1px) 0 0/100% 46px,
+  background:linear-gradient(var(--line) 1px,transparent 1px) 0 0/100% 46px,
    linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/46px 100%;
   -webkit-mask:radial-gradient(120% 80% at 20% 0%,#000,transparent 75%);
   mask:radial-gradient(120% 80% at 20% 0%,#000,transparent 75%)}
-.title-wrap{position:relative;z-index:1;display:flex;flex-direction:column;gap:clamp(14px,2vh,20px);max-width:min(92%,1060px)}
-.title-wrap h1{font-size:clamp(34px,5.6vw,66px);line-height:1.03;margin:0;font-weight:850;letter-spacing:-.025em}
-.title-wrap .tld{color:var(--mut);font-weight:650;font-size:.5em;display:block;margin-top:.4em;letter-spacing:-.01em}
-.lede{font-size:clamp(16px,1.9vw,24px);color:var(--ink);margin:0;max-width:32ch}
-.title-metrics{display:flex;gap:clamp(20px,4vw,64px);margin-top:14px;flex-wrap:wrap}
+.title-wrap{position:relative;z-index:1;display:flex;flex-direction:column;gap:clamp(14px,2vh,22px);max-width:min(92%,1000px)}
+.title-wrap h1{font-size:clamp(32px,5.2vw,62px);line-height:1.05;margin:0;font-weight:850;letter-spacing:-.02em}
+.lede{font-size:clamp(15px,1.8vw,22px);color:var(--mut);margin:0}
+.title-metrics{display:flex;gap:clamp(20px,4vw,60px);margin-top:8px;flex-wrap:wrap}
 .tm{display:flex;flex-direction:column;gap:4px}
-.tm-num{font-family:var(--mono);font-size:clamp(30px,4.4vw,58px);font-weight:700;color:var(--teal);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.tm-num{font-family:var(--mono);font-size:clamp(30px,4.2vw,54px);font-weight:750;color:var(--teal);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .tm:nth-child(3) .tm-num{color:var(--amber)}
 .tm-lab{font-size:clamp(11px,1vw,14px);color:var(--mut)}
 
-/* TWO PREMISES */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.5vw,32px)}
-.premise{background:var(--surface);border:1px solid var(--line);border-radius:16px;
-  padding:clamp(22px,2.6vw,38px);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
-.premise{border-top:4px solid var(--teal)}
-.premise--floor{border-top-color:var(--amber)}
-.pico{font-size:34px;line-height:1;color:var(--teal)}
-.premise--floor .pico{color:var(--amber)}
-.premise h3{margin:0;font-size:clamp(17px,1.8vw,24px);font-weight:750}
-.premise p{margin:0;color:var(--mut);font-size:clamp(13px,1.25vw,16.5px)}
-.premise b{color:var(--ink)}
-
-/* ACCOUNTING */
-.acct{display:flex;align-items:stretch;gap:clamp(10px,2vw,26px);flex-wrap:wrap}
-.acct-box{flex:1 1 260px;border-radius:16px;padding:clamp(22px,2.6vw,40px);display:flex;
-  flex-direction:column;gap:10px;box-shadow:var(--shadow);border:1px solid var(--line)}
-.acct-box--free{background:var(--teal-soft);border-color:var(--teal)}
-.acct-box--paid{background:var(--surface)}
-.acct-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
-.acct-big{font-family:var(--mono);font-size:clamp(38px,6vw,74px);font-weight:750;letter-spacing:-.02em;line-height:1}
-.acct-box--free .acct-big{color:var(--teal)}
-.acct-box--paid .acct-big{color:var(--blue)}
-.acct-big .slash{color:var(--mut);font-weight:400}
-.acct-sub{color:var(--mut);font-size:clamp(12px,1.1vw,15px)}
-.acct-flow{display:flex;align-items:center;color:var(--mut);align-self:center}
-.acct-flow .flow-arrow{font-size:22px;color:var(--teal)}
-.acct-flow .flow-line{width:26px;height:2px;background:var(--line)}
-.acct-flow .flow-dot{width:8px;height:8px;border-radius:50%;background:var(--teal)}
-
-/* slim accounting row (merged into premises slide) */
-.acct--slim .acct-box{padding:14px 24px;flex-direction:row;align-items:baseline;gap:18px;flex-wrap:wrap}
-.acct--slim .acct-big{font-size:clamp(22px,2.8vw,38px)}
-.acct-unit{font-size:.45em;color:var(--mut);font-weight:500}
-
-/* compact verifiability axis strip */
-.axis-strip{display:flex;align-items:center;gap:14px}
-.as-line{flex:1;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--mut),var(--teal))}
-.as-tag{font-family:var(--mono);font-size:clamp(11px,1.05vw,13.5px);font-weight:700;white-space:nowrap}
-.as-tag--l{color:var(--blue)} .as-tag--r{color:var(--teal)}
+/* LADDER */
+.ladder{position:relative;height:150px;margin:6px 0 2px}
+.ladder-track{position:absolute;left:0;right:0;top:72px;height:6px;border-radius:3px;
+  background:linear-gradient(90deg,var(--line),var(--teal))}
+.ldot{position:absolute;left:var(--p);top:72px;transform:translate(-50%,-50%);text-align:center;width:150px}
+.ldot i{display:block;width:16px;height:16px;border-radius:50%;background:var(--c);
+  border:3px solid var(--surface);box-shadow:var(--shadow);margin:0 auto}
+.ldot b{display:block;margin-top:8px;font-size:clamp(12px,1.25vw,16px);font-family:var(--mono)}
+.ldot small{color:var(--mut);font-size:clamp(10px,1vw,12.5px)}
+.ldot--up b{margin-top:0;position:absolute;bottom:26px;left:0;right:0}
+.ldot--up small{position:absolute;bottom:8px;left:0;right:0}
+.ldot--up i{position:relative;top:0}
+.ldot--cloud i{background:var(--surface);border:4px solid var(--blue)}
 
 /* TIERS */
-.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px)}
-.tier{background:var(--surface);border:1px solid var(--line);border-radius:16px;
-  padding:clamp(20px,2.2vw,32px);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px;
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.8vw,24px)}
+.tier{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:clamp(16px,1.9vw,26px);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:9px;
   border-top:4px solid var(--tc)}
 .tier--1{--tc:var(--amber)} .tier--2{--tc:var(--blue)} .tier--3{--tc:var(--teal)}
 .tier header{display:flex;justify-content:space-between;align-items:baseline}
-.tier-name{font-size:clamp(18px,1.9vw,24px);font-weight:800}
-.tier-price{font-family:var(--mono);font-size:clamp(18px,2vw,26px);font-weight:700;color:var(--tc)}
-.tier-model{font-family:var(--mono);font-size:clamp(12px,1.15vw,15px);color:var(--mut)}
-.cap{display:flex;align-items:center;gap:10px}
-.cap-bar{height:10px;border-radius:5px;background:var(--tc);width:var(--v);min-width:20%}
-.cap-num{font-family:var(--mono);font-weight:700;font-size:clamp(13px,1.3vw,17px)}
-.cap-num sup{color:var(--mut)}
-.tier-use{margin:0;color:var(--mut);font-size:clamp(12px,1.2vw,15px)}
+.tier-name{font-size:clamp(16px,1.8vw,22px);font-weight:800}
+.tier-price{font-family:var(--mono);font-size:clamp(17px,1.9vw,24px);font-weight:700;color:var(--tc)}
+.tier-model{font-family:var(--mono);font-size:clamp(11px,1.1vw,14px);color:var(--mut)}
+.tier-use{margin:0;color:var(--mut);font-size:clamp(11.5px,1.15vw,14.5px)}
 
-/* AXIS */
-.axis{position:relative;display:flex;justify-content:space-between;gap:24px;padding:40px 0 8px}
-.axis-line{position:absolute;top:24px;left:4%;right:4%;height:3px;
-  background:linear-gradient(90deg,var(--blue),var(--mut),var(--teal));border-radius:2px}
-.axis-line::before,.axis-line::after{content:"";position:absolute;top:50%;transform:translateY(-50%);
-  width:12px;height:12px;border-radius:50%}
-.axis-line::before{left:-2px;background:var(--blue)} .axis-line::after{right:-2px;background:var(--teal)}
-.axis-pole{flex:1 1 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;
-  padding:clamp(20px,2.4vw,34px);box-shadow:var(--shadow);max-width:46%}
-.axis-pole--left{border-left:4px solid var(--blue)}
-.axis-pole--right{border-left:4px solid var(--teal)}
-.pole-tag{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
-.axis-pole h3{margin:6px 0 8px;font-size:clamp(18px,2vw,26px);font-weight:800}
-.axis-pole p{margin:0;color:var(--mut);font-size:clamp(13px,1.2vw,16px)}
-.axis-pole b{color:var(--ink)}
-.pole-method{display:inline-block;margin-top:14px;font-family:var(--mono);font-weight:700;font-size:14px}
-.axis-pole--left .pole-method{color:var(--blue)} .axis-pole--right .pole-method{color:var(--teal)}
+/* TEAM (personified) */
+.chip-s,.chip-j{display:inline-block;font-size:.55em;font-weight:700;padding:4px 12px;border-radius:999px;vertical-align:middle}
+.chip-s{background:var(--blue);color:#fff} .chip-j{background:var(--teal);color:#fff}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(11px,1.5vw,18px)}
+.tcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:clamp(12px,1.5vw,20px);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px}
+.tcard--win{border-top:4px solid var(--teal)}
+.tcard--lead{border-top:4px solid var(--amber)}
+.tcard h4{margin:0;font-family:var(--mono);font-size:clamp(13px,1.35vw,17px);display:flex;justify-content:space-between;align-items:baseline;gap:6px}
+.tc-use{font-family:var(--disp);font-size:11px;color:var(--mut);font-weight:600;white-space:nowrap}
+.scene{height:clamp(72px,10vh,96px)}
+.scene svg{display:block}
+.tc-note{margin:0;font-size:clamp(11px,1.05vw,13.5px);color:var(--mut)}
 
-/* RESULTS */
-.results{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,40px)}
-.res{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;
-  padding:clamp(20px,2.4vw,36px);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:16px}
-.res figcaption{font-size:clamp(13px,1.3vw,16px);color:var(--mut)}
-.res figcaption b{color:var(--ink)}
-.barpair{display:flex;flex-direction:column;gap:10px}
-.barrow{display:flex;align-items:center;gap:12px}
-.brlab{width:56px;font-size:13px;color:var(--mut);text-align:right;font-family:var(--mono)}
-.brtrack{flex:1;height:22px;background:var(--line);border-radius:6px;overflow:hidden}
-.brfill{display:block;height:100%;border-radius:6px}
-.brfill--base{background:var(--mut);opacity:.55}
-.brfill--win{background:var(--teal)}
-.brval{width:64px;font-family:var(--mono);font-weight:700;font-size:14px;font-variant-numeric:tabular-nums}
-.res-big{font-family:var(--mono);font-size:clamp(40px,5.5vw,72px);font-weight:800;color:var(--teal);
-  letter-spacing:-.03em;line-height:1;display:flex;flex-direction:column;gap:8px}
-.res-note{font-family:var(--disp);font-size:clamp(12px,1.1vw,14.5px);font-weight:500;color:var(--mut);letter-spacing:0}
-
-/* THEORY */
-.slide--theory{gap:clamp(24px,4vh,52px)}
-.theory-line{font-size:clamp(24px,3.6vw,50px);max-width:24ch;line-height:1.18}
-.theory-map{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,30px);max-width:900px}
-.tmap-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);
-  padding:clamp(18px,2.2vw,30px);display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center}
-.tmap-task{font-weight:800;font-size:clamp(15px,1.6vw,20px)}
-.tmap-v{font-family:var(--mono);font-weight:800;font-size:clamp(24px,3vw,40px);color:var(--teal);grid-row:span 3;align-self:center}
-.tmap-out{color:var(--mut);font-size:clamp(12px,1.15vw,15px)}
-.tmap-m{font-family:var(--mono);font-size:13px;color:var(--blue)}
-
-/* FLOW */
-.flow{display:flex;align-items:center;gap:clamp(8px,1.4vw,18px);flex-wrap:wrap}
-.fnode{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 20px;
-  box-shadow:var(--shadow);font-weight:700;font-size:clamp(13px,1.3vw,17px);text-align:center}
-.fnode small{display:block;color:var(--mut);font-weight:500;font-size:12px;margin-top:4px}
-.fnode--local{border-left:4px solid var(--teal)}
-.fedge{color:var(--teal);font-size:18px}
-.fdecision{background:var(--amber);color:#fff;border-radius:14px;padding:16px 20px;font-weight:800;
-  box-shadow:var(--shadow);font-size:clamp(13px,1.3vw,17px)}
-.fbranch{display:flex;flex-direction:column;gap:10px;flex:1 1 260px;min-width:240px}
-.fb{border-radius:12px;padding:13px 16px;font-size:clamp(12.5px,1.2vw,16px);border:1px solid var(--line);background:var(--surface)}
-.fb b{color:var(--ink)}
-.fb--yes{border-left:4px solid var(--teal)} .fb--no{border-left:4px solid var(--mut)}
-.fb-tag{font-family:var(--mono);font-weight:700;font-size:12px;padding:2px 8px;border-radius:6px;margin-right:8px;color:#fff}
-.fb--yes .fb-tag{background:var(--teal)} .fb--no .fb-tag{background:var(--mut)}
-
-/* COMPLETION */
-.comp{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,44px)}
-.comp-group{display:flex;flex-direction:column;gap:14px;background:var(--surface);border:1px solid var(--line);
-  border-radius:16px;padding:clamp(18px,2.2vw,30px);box-shadow:var(--shadow)}
-.comp-group h4{margin:0 0 4px;font-size:clamp(14px,1.4vw,18px);color:var(--mut);font-weight:700}
-.cbar{display:flex;align-items:center;gap:12px}
-.cbl{width:40px;font-size:14px;color:var(--mut)}
-.ct{flex:1;height:24px;background:var(--line);border-radius:6px;overflow:hidden}
-.cf{display:block;height:100%;border-radius:6px}
-.cf--easy{background:var(--teal)} .cf--hard{background:var(--amber)}
-.cv{width:48px;font-family:var(--mono);font-weight:700;font-variant-numeric:tabular-nums}
-
-/* MATRIX */
-.matrix{display:grid;grid-template-columns:auto repeat(4,1fr);gap:8px;max-width:960px}
-.mcell{border-radius:10px;padding:clamp(12px,1.6vw,22px) 10px;text-align:center;font-family:var(--mono);
-  font-weight:700;font-size:clamp(14px,1.7vw,24px);font-variant-numeric:tabular-nums;
-  display:flex;align-items:center;justify-content:center;min-height:52px;color:#0a1a15}
-.mhead{background:transparent;color:var(--mut);font-family:var(--disp);font-weight:700;font-size:clamp(12px,1.3vw,16px)}
-.mrow{background:transparent;color:var(--ink);font-family:var(--disp);justify-content:flex-start;gap:6px;text-align:left}
-.mrow small{color:var(--mut);font-family:var(--mono);font-weight:600}
-.mkey{display:flex;align-items:center;gap:16px;color:var(--mut);font-size:clamp(12px,1.15vw,15px);flex-wrap:wrap}
-.mkey b{color:var(--ink)}
-.mkey-scale{display:flex;gap:3px}
-.mkey-scale i{width:22px;height:12px;border-radius:2px;display:block}
-
-/* CHART */
-.chartwrap{width:100%;max-width:960px;margin:0 auto}
-#chart{width:100%;height:auto;display:block}
-.legend{display:flex;gap:clamp(16px,3vw,40px);justify-content:center;flex-wrap:wrap}
-.lg{display:flex;align-items:center;gap:8px;font-size:clamp(12px,1.2vw,15px);color:var(--mut)}
-.lg i{width:22px;height:4px;border-radius:2px;display:block}
-.lg b{color:var(--ink);font-family:var(--mono)}
-
-/* BIZ */
-.tiers--biz .tier{gap:10px}
-.biz-h{margin:0;font-weight:750;font-size:clamp(14px,1.5vw,19px);color:var(--tc)}
-.tiers--biz ul{margin:4px 0 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:7px}
-.tiers--biz li{font-size:clamp(12.5px,1.2vw,15.5px);color:var(--mut);border-bottom:1px dashed var(--line);padding-bottom:6px}
-.tiers--biz li b{color:var(--ink);font-family:var(--mono)}
-
-/* CLOSE */
-.slide--close{gap:clamp(20px,3vh,40px)}
-.close-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:860px}
-.cg{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 22px;
-  box-shadow:var(--shadow);font-size:clamp(13px,1.25vw,16.5px);color:var(--mut)}
-.cg-k{display:block;font-family:var(--mono);font-weight:700;color:var(--ink);margin-bottom:6px;font-size:13px}
-.close-line{font-size:clamp(18px,2.4vw,32px);font-weight:750;margin:0;text-wrap:balance}
-
-/* BENCHMARK DETAIL */
-.bm2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,30px)}
-.bm{background:var(--surface);border:1px solid var(--line);border-radius:16px;
-  padding:clamp(18px,2.3vw,32px);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:16px;--tc:var(--teal)}
+/* BENCHMARKS */
+.bm2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2.2vw,28px)}
+.bm{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:clamp(16px,2vw,28px);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:13px;--tc:var(--teal)}
 .bm--swe{border-top:4px solid var(--blue);--tc:var(--blue)}
 .bm--he{border-top:4px solid var(--teal);--tc:var(--teal)}
 .bm header{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
-.bm h3{margin:0;font-size:clamp(18px,2vw,26px);font-weight:800}
-.bm-kind{font-size:12.5px;color:var(--mut);font-family:var(--mono)}
-.pipe{display:flex;align-items:stretch;gap:8px}
+.bm h3{margin:0;font-size:clamp(17px,1.9vw,24px);font-weight:800}
+.bm-kind{font-size:12px;color:var(--mut);font-family:var(--mono)}
+.pipe{display:flex;align-items:stretch;gap:7px}
 .pstep{flex:1 1 0;min-width:0;background:var(--paper);border:1px solid var(--line);border-radius:10px;
-  padding:11px 12px;font-size:clamp(11.5px,1.05vw,13.5px);line-height:1.35;display:flex;flex-direction:column;gap:4px}
-.pstep b{font-family:var(--mono);font-size:10.5px;color:var(--tc);text-transform:uppercase;letter-spacing:.07em}
-.parrow{align-self:center;color:var(--mut);font-size:13px}
-.bm-facts{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
-.bm-facts li{font-size:clamp(12px,1.15vw,15px);color:var(--mut);padding-left:16px;position:relative}
+  padding:10px 11px;font-size:clamp(11px,1vw,13px);line-height:1.35;display:flex;flex-direction:column;gap:3px}
+.pstep b{font-family:var(--mono);font-size:10px;color:var(--tc);text-transform:uppercase;letter-spacing:.07em}
+.parrow{align-self:center;color:var(--mut);font-size:12px}
+.bm-facts{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.bm-facts li{font-size:clamp(11.5px,1.1vw,14.5px);color:var(--mut);padding-left:15px;position:relative}
 .bm-facts li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--tc)}
 .bm-facts b{color:var(--ink)}
 
-/* FIVE ARCHITECTURES (diverging bars) */
-.methods{display:flex;flex-direction:column;gap:clamp(9px,1.5vh,14px);max-width:1000px}
-.meth{display:grid;grid-template-columns:minmax(180px,270px) 1fr 62px;align-items:center;gap:clamp(10px,1.6vw,20px)}
-.meth-lab{display:flex;flex-direction:column;gap:2px;min-width:0}
-.meth-name{font-family:var(--mono);font-weight:700;font-size:clamp(13px,1.35vw,17px)}
-.meth-desc{font-size:clamp(11px,1.05vw,13px);color:var(--mut)}
-.meth-track{position:relative;height:clamp(22px,3vh,28px);background:var(--line);border-radius:6px}
+/* SAVINGS BARS */
+.bench2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.6vw,36px)}
+.bcol{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:clamp(16px,2vw,26px);box-shadow:var(--shadow)}
+.bcol h3{margin:0 0 14px;font-size:clamp(15px,1.6vw,20px);font-weight:800}
+.bcol h3 .mut{font-size:.75em;font-weight:500}
+.methods{display:flex;flex-direction:column;gap:clamp(10px,1.7vh,16px)}
+.meth{display:grid;grid-template-columns:minmax(120px,170px) 1fr 56px;align-items:center;gap:clamp(8px,1.2vw,14px)}
+.meth-lab{display:flex;flex-direction:column;gap:1px;min-width:0}
+.meth-name{font-family:var(--mono);font-weight:700;font-size:clamp(12px,1.2vw,15px)}
+.meth-desc{font-size:clamp(10px,.95vw,12px);color:var(--mut)}
+.meth-track{position:relative;height:clamp(20px,2.8vh,26px);background:var(--line);border-radius:6px}
 .meth-track::before{content:"";position:absolute;left:50%;top:-4px;bottom:-4px;width:2px;background:var(--mut);opacity:.5;transform:translateX(-50%)}
 .meth-fill{position:absolute;top:0;height:100%;border-radius:5px}
-.meth-val{font-family:var(--mono);font-weight:700;text-align:right;font-variant-numeric:tabular-nums;font-size:clamp(13px,1.3vw,16px)}
+.meth-val{font-family:var(--mono);font-weight:700;text-align:right;font-variant-numeric:tabular-nums;font-size:clamp(12px,1.2vw,15px)}
 
-/* TEAM ANALOGY */
-.chip-s,.chip-j{display:inline-block;font-size:.55em;font-weight:700;padding:.28em .7em;border-radius:999px;vertical-align:.35em;color:#fff}
-.chip-s{background:var(--blue)} .chip-j{background:var(--teal)}
-.team{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,20px)}
-.tcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
-  padding:clamp(14px,1.7vw,24px);display:flex;flex-direction:column;gap:10px}
-.tcard--win{border-top:3px solid var(--teal)}
-.tcard--lead{border-top:3px solid var(--amber);background:color-mix(in srgb,var(--amber) 6%,var(--surface))}
-.tcard h4{margin:0;font-family:var(--mono);font-size:clamp(13px,1.35vw,17px);display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
-.tc-use{font-family:var(--disp);font-size:11.5px;color:var(--mut);font-weight:600}
-.tcard--win .tc-use{color:var(--teal)}
-.tflow{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.tflow i{font-style:normal;color:var(--mut);font-size:11px}
-.pj,.ps,.pok,.pl,.pbad{font-size:clamp(11px,1.05vw,13px);font-weight:700;padding:5px 10px;border-radius:999px;white-space:nowrap}
-.pj{background:var(--teal);color:#fff}
-.ps{background:var(--blue);color:#fff}
-.pok{background:var(--teal-soft);color:var(--teal);border:1px solid var(--teal)}
-.pl{background:var(--amber);color:#fff}
-.pbad{background:var(--loss);color:#fff}
+/* HARNESS */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,30px)}
+.premise{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:clamp(18px,2.2vw,30px);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;
+  border-top:4px solid var(--teal)}
 .premise--bad{border-top-color:var(--loss)}
-.hand-num{font-family:var(--mono);font-weight:800;font-size:clamp(34px,4.5vw,56px);letter-spacing:-.03em;line-height:1}
-.hand-num.bad{color:var(--loss)} .hand-num.good{color:var(--teal)}
-.tc-note{margin:0;font-size:clamp(11px,1.05vw,13.5px);color:var(--mut)}
+.premise h3{margin:0;font-size:clamp(15px,1.7vw,21px);font-weight:750}
+.hlist{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+.hlist li{font-size:clamp(12px,1.2vw,15px);color:var(--mut);padding-left:0}
+.hlist li b{font-family:var(--mono);margin-right:6px}
+.hlist li .good{font-family:var(--disp)}
 
-/* AGENT DEEP */
-.swing{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(12px,2.5vw,40px);max-width:900px}
-.sw{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);
-  padding:clamp(16px,2.2vw,32px);text-align:center;display:flex;flex-direction:column;gap:8px}
-.sw--good{border-top:4px solid var(--teal)} .sw--bad{border-top:4px solid var(--loss)}
-.sw-num{font-family:var(--mono);font-weight:800;font-size:clamp(36px,5.6vw,72px);letter-spacing:-.03em;line-height:1}
-.sw--good .sw-num{color:var(--teal)} .sw--bad .sw-num{color:var(--loss)}
-.sw-lab{font-size:clamp(11px,1.05vw,14px);color:var(--mut)}
-.sw-vs{font-family:var(--mono);font-size:12.5px;color:var(--mut);text-align:center;line-height:1.35}
-.deep{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,30px);max-width:960px}
-.deep-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;
-  padding:clamp(16px,2vw,28px);box-shadow:var(--shadow)}
-.deep-card h4{margin:0 0 12px;font-size:clamp(13px,1.35vw,17px);font-weight:750;color:var(--mut)}
-.rsig{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:8px 0;
-  border-bottom:1px dashed var(--line);font-size:clamp(12px,1.15vw,15px)}
-.rsig:last-child{border-bottom:0}
-.rsig b{font-family:var(--mono);font-weight:700}
-.rsig span:last-child{color:var(--mut);font-size:12px;text-align:right}
-.deep-card ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
-.deep-card li{font-size:clamp(12.5px,1.2vw,15.5px);padding-left:18px;position:relative;color:var(--ink)}
-.deep-card li::before{content:"→";position:absolute;left:0;color:var(--teal);font-family:var(--mono);font-weight:700}
-.good{color:var(--teal)} .bad{color:var(--loss)}
+/* METHOD MATRIX */
+.mx{display:grid;grid-template-columns:minmax(150px,240px) 1fr 1fr;gap:7px;max-width:980px}
+.mxc{border-radius:10px;padding:clamp(9px,1.3vh,14px) 10px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:46px;
+  border:1px solid var(--line);font-variant-numeric:tabular-nums}
+.mxh{background:transparent;border:none;color:var(--mut);font-weight:700;font-size:clamp(12px,1.25vw,16px);line-height:1.25}
+.mxh small{font-weight:500;font-size:.8em}
+.mxr{background:transparent;border:none;align-items:flex-start;text-align:left;font-weight:800;
+  font-family:var(--mono);font-size:clamp(12px,1.25vw,16px)}
+.mxr small{font-family:var(--disp);font-weight:500;color:var(--mut);font-size:clamp(10px,1vw,12px)}
+.mxr--lead{color:var(--amber)}
+.mx-val{font-family:var(--mono);font-weight:800;font-size:clamp(14px,1.7vw,22px)}
+.mx-note{font-size:clamp(9.5px,.95vw,11.5px);opacity:.85}
+
+/* CHART */
+.chartwrap{width:100%;max-width:940px;margin:0 auto}
+#chart{width:100%;height:auto;display:block}
+.legend{display:flex;gap:clamp(14px,2.6vw,36px);justify-content:center;flex-wrap:wrap}
+.lg{display:flex;align-items:center;gap:8px;font-size:clamp(11.5px,1.15vw,14.5px);color:var(--mut)}
+.lg i{width:22px;height:4px;border-radius:2px;display:block}
+.lg b{color:var(--ink);font-family:var(--mono)}
+
+/* PROPOSAL */
+.prop{display:flex;flex-direction:column;gap:clamp(14px,2.4vh,24px);max-width:1000px}
+.prop-price{display:flex;align-items:stretch;gap:clamp(12px,2vw,26px);flex-wrap:wrap}
+.pp{flex:1 1 240px;background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  box-shadow:var(--shadow);padding:clamp(14px,1.8vw,24px);display:flex;flex-direction:column;gap:6px}
+.pp--old{opacity:.75}
+.pp--new{border-top:4px solid var(--teal)}
+.pp-name{font-weight:750;font-size:clamp(13px,1.4vw,17px)}
+.pp-name sup{color:var(--mut);font-size:.65em}
+.pp-num{font-family:var(--mono);font-weight:800;font-size:clamp(30px,4vw,50px);letter-spacing:-.02em;line-height:1}
+.pp--old .pp-num{color:var(--mut)} .pp--new .pp-num{color:var(--teal)}
+.pp-num small{font-size:.35em;font-weight:500;color:var(--mut)}
+.pp-sub{color:var(--mut);font-size:clamp(11px,1.1vw,13.5px)}
+.pp-vs{align-self:center;font-size:24px;color:var(--teal);font-weight:800}
+.prop-wins{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.6vw,18px)}
+.pw{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--teal);
+  border-radius:10px;padding:12px 14px;font-size:clamp(11.5px,1.15vw,14px);color:var(--mut)}
+.pw b{color:var(--ink);display:block;margin-bottom:3px}
 
 /* RAIL + CHROME */
-.rail{position:fixed;right:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;
-  gap:11px;z-index:20}
+.rail{position:fixed;right:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:11px;z-index:20}
 .rail button{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--mut);background:transparent;
   padding:0;cursor:pointer;transition:all .2s;opacity:.55}
 .rail button:hover{opacity:1}
@@ -711,11 +429,10 @@ b{font-weight:700}
 .counter #cur{color:var(--teal);font-weight:700}
 .hint{position:fixed;right:22px;bottom:20px;font-family:var(--mono);font-size:12px;color:var(--mut);z-index:20;opacity:.7;transition:opacity .4s}
 @media (max-width:720px){
-  .two-col,.results,.comp,.theory-map,.close-grid{grid-template-columns:1fr}
-  .tiers{grid-template-columns:1fr}
-  .matrix{grid-template-columns:auto repeat(4,1fr);gap:5px}
+  .two-col,.bm2,.bench2,.tiers{grid-template-columns:1fr}
+  .team{grid-template-columns:1fr 1fr}
   .rail{display:none}
-  .axis{flex-direction:column} .axis-line{display:none} .axis-pole{max-width:100%}
+  .ladder{display:none}
 }
 @media (prefers-reduced-motion:reduce){html,.deck{scroll-behavior:auto}}
 </style>
@@ -728,7 +445,6 @@ b{font-weight:700}
   var cur=document.getElementById('cur'), tot=document.getElementById('tot');
   tot.textContent=slides.length;
   var idx=0;
-
   slides.forEach(function(s,i){
     var b=document.createElement('button');
     b.setAttribute('aria-label',(s.dataset.title||('第'+(i+1)+'页')));
@@ -736,7 +452,6 @@ b{font-weight:700}
     rail.appendChild(b);
   });
   var dots=Array.prototype.slice.call(rail.children);
-
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){
       if(e.isIntersecting){
@@ -747,7 +462,6 @@ b{font-weight:700}
     });
   },{root:deck,threshold:.55});
   slides.forEach(function(s){io.observe(s);});
-
   function go(n){n=Math.max(0,Math.min(slides.length-1,n));slides[n].scrollIntoView();}
   document.addEventListener('keydown',function(e){
     if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '||e.key==='PageDown'){e.preventDefault();go(idx+1);}
@@ -758,85 +472,117 @@ b{font-weight:700}
   var hint=document.getElementById('hint');
   setTimeout(function(){hint.style.opacity='0';},4200);
 
-  /* ---- matrix cell coloring (bar-in-cell number + tint) ---- */
-  var cells=document.querySelectorAll('.matrix .mcell[data-v]');
-  cells.forEach(function(c){
-    var v=+c.dataset.v;
-    var alpha=(v/100)*0.9+0.06;
-    c.style.background='color-mix(in srgb, var(--teal) '+Math.round(alpha*100)+'%, var(--surface))';
-    c.textContent = v===0 ? '持平' : ('−'+v+'%');
-    if(v===0){c.style.color='var(--mut)';c.style.fontSize='clamp(12px,1.3vw,17px)';}
-    else if(v>=55){c.style.color='#fff';}
-    else{c.style.color='var(--ink)';}
-    c.style.border='1px solid var(--line)';
+  /* ---- personified scenes ---- */
+  function person(x,y,sc,color,tag,op){
+    return '<g transform="translate('+x+','+y+') scale('+sc+')" opacity="'+(op||1)+'">'
+      +'<circle cx="0" cy="-16" r="9" fill="'+color+'"/>'
+      +'<path d="M -13 14 Q -13 -6 0 -6 Q 13 -6 13 14 Z" fill="'+color+'"/>'
+      +(tag?'<text x="0" y="8" text-anchor="middle" font-size="11" font-weight="800" fill="#fff" font-family="var(--mono)">'+tag+'</text>':'')
+      +'</g>';
+  }
+  function arrow(x1,y1,x2,y2,color){
+    var a=Math.atan2(y2-y1,x2-x1), h=7;
+    return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+color+'" stroke-width="2.4" stroke-linecap="round"/>'
+     +'<path d="M '+x2+' '+y2+' L '+(x2-h*Math.cos(a-0.5))+' '+(y2-h*Math.sin(a-0.5))+' L '+(x2-h*Math.cos(a+0.5))+' '+(y2-h*Math.sin(a+0.5))+' Z" fill="'+color+'"/>';
+  }
+  function badge(x,y,txt,color){
+    var w=txt.length*10+16;
+    return '<rect x="'+(x-w/2)+'" y="'+(y-11)+'" width="'+w+'" height="22" rx="11" fill="'+color+'"/>'
+     +'<text x="'+x+'" y="'+(y+4)+'" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff" font-family="var(--mono)">'+txt+'</text>';
+  }
+  function label(x,y,txt){
+    return '<text x="'+x+'" y="'+y+'" text-anchor="middle" font-size="10.5" fill="var(--mut)">'+txt+'</text>';
+  }
+  var S='var(--blue)', J='var(--teal)', M='var(--mut)', A='var(--amber)', R='var(--loss)';
+  var scenes={
+    baseline: function(){ return person(58,48,1.25,S,'S')
+      +arrow(90,42,148,42,M)+badge(186,42,'$$$',R)+label(58,86,'独自探索 + 修复'); },
+    hybrid: function(){ return person(40,48,1.1,S,'S')
+      +arrow(62,32,102,20,M)+arrow(62,52,102,64,M)
+      +person(122,26,0.75,J,'J')+person(122,68,0.75,J,'J')
+      +arrow(140,26,182,38,M)+arrow(140,66,182,52,M)+badge(212,45,'组装',S)
+      +label(40,86,'定方案 · 拆任务'); },
+    escalate: function(){ return person(46,48,1.15,J,'J')
+      +badge(118,30,'自测✓',J)+badge(122,58,'交付 $0',J)
+      +person(206,50,0.9,S,'S',0.35)+label(206,86,'失败才出场')
+      +label(46,86,'做完 + 跑测试'); },
+    ce: function(){ return person(40,48,1.05,J,'J')
+      +'<circle cx="68" cy="24" r="8" fill="none" stroke="'+J+'" stroke-width="2.5"/><line x1="74" y1="30" x2="82" y2="38" stroke="'+J+'" stroke-width="2.5" stroke-linecap="round"/>'
+      +badge(124,50,'上下文包',A)+arrow(158,50,180,50,M)
+      +person(208,48,1.2,S,'S')+label(208,86,'定方案 · 写修复')+label(40,86,'免费探索'); },
+    lead: function(){ return person(38,50,1.0,A,'L')
+      +arrow(58,34,96,18,M)+arrow(60,46,96,46,M)+arrow(58,60,96,76,M)
+      +badge(163,18,'简单→escalate',J)+badge(168,46,'困难→context-eng',S)+badge(158,76,'兜底→S 单干',M)
+      +label(38,88,'按难度分诊'); }
+  };
+  document.querySelectorAll('.scene[data-scene]').forEach(function(el){
+    var fn=scenes[el.dataset.scene]; if(!fn) return;
+    el.innerHTML='<svg viewBox="0 0 250 96" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" role="img">'+fn()+'</svg>';
   });
-  var scale=document.querySelector('.mkey-scale');
-  if(scale){[10,30,55,75,95].forEach(function(v){
-    var i=document.createElement('i');
-    i.style.background='color-mix(in srgb, var(--teal) '+Math.round(((v/100)*0.9+0.06)*100)+'%, var(--surface))';
-    i.style.border='1px solid var(--line)';scale.appendChild(i);});}
 
-  /* ---- five architectures: diverging cost bars ---- */
-  var MAXP=75;
-  document.querySelectorAll('.meth').forEach(function(m){
-    var p=parseFloat(m.dataset.pct);
-    var track=m.querySelector('.meth-track'), val=m.querySelector('.meth-val');
-    var f=document.createElement('span');f.className='meth-fill';
-    var w=Math.min(Math.abs(p),MAXP)/MAXP*50;
-    if(p===0){
-      f.style.left='calc(50% - 3px)';f.style.width='6px';f.style.background='var(--mut)';
-      val.textContent='基准';val.style.color='var(--mut)';
-    }else if(p<0){
-      f.style.right='50%';f.style.width=w+'%';f.style.background='var(--teal)';
-      val.textContent='−'+Math.abs(p)+'%';val.style.color='var(--teal)';
+  /* ---- method-comparison matrix coloring ---- */
+  document.querySelectorAll('.mx .mxc[data-v]').forEach(function(c){
+    var raw=c.dataset.v, note=c.dataset.note||'';
+    var v=raw===''?null:parseFloat(raw);
+    var val=document.createElement('span');val.className='mx-val';
+    var nt=document.createElement('span');nt.className='mx-note';nt.textContent=note;
+    if(v===null){
+      val.textContent='—';val.style.color='var(--mut)';
+      c.style.background='transparent';
+    }else if(v===0){
+      val.textContent='基准';val.style.color='var(--mut)';val.style.fontSize='clamp(12px,1.2vw,15px)';
+      c.style.background='color-mix(in srgb, var(--mut) 8%, var(--surface))';
+    }else if(v<0){
+      var a=Math.min(Math.abs(v)/100*0.9+0.08,0.95);
+      c.style.background='color-mix(in srgb, var(--teal) '+Math.round(a*100)+'%, var(--surface))';
+      val.textContent='−'+Math.abs(v)+'%';
+      val.style.color=Math.abs(v)>=55?'#fff':'var(--ink)';
+      nt.style.color=Math.abs(v)>=55?'#ffffffcc':'var(--mut)';
     }else{
-      f.style.left='50%';f.style.width=w+'%';f.style.background='var(--loss)';
-      val.textContent='+'+p+'%';val.style.color='var(--loss)';
+      var a2=Math.min(v/100*0.75+0.10,0.85);
+      c.style.background='color-mix(in srgb, var(--loss) '+Math.round(a2*100)+'%, var(--surface))';
+      val.textContent='+'+v+'%';
+      val.style.color=v>=45?'#fff':'var(--ink)';
+      nt.style.color=v>=45?'#ffffffcc':'var(--mut)';
     }
-    track.appendChild(f);
+    c.appendChild(val); if(note) c.appendChild(nt);
   });
 
-  /* ---- break-even line chart (SVG) ---- */
+  /* ---- break-even line chart ---- */
   var FX=7.2;
   var tiers=[
-    {n:'单卡 ¥20k',rmb:20000,s:0.60,c:'var(--amber)',a:'end',dx:-9},
+    {n:'单卡 ¥20k',rmb:20000,s:0.68,c:'var(--amber)',a:'end',dx:-9},
     {n:'双卡 ¥40k',rmb:40000,s:0.83,c:'var(--blue)',a:'start',dx:9},
-    {n:'四卡 ¥80k',rmb:80000,s:0.92,c:'var(--teal)',a:'start',dx:9}
+    {n:'四卡 ¥80k',rmb:80000,s:0.90,c:'var(--teal)',a:'start',dx:9}
   ];
   var X0=64,X1=812,Y0=34,Y1=402,MX0=100,MX1=3000,YMAX=6;
   function px(m){return X0+(m-MX0)/(MX1-MX0)*(X1-X0);}
   function py(y){return Y1-(Math.min(y,YMAX)/YMAX)*(Y1-Y0);}
   function pay(rmb,m,s){return (rmb/FX)/(m*12*s);}
-  var NS='http://www.w3.org/2000/svg';
+  var NS2='http://www.w3.org/2000/svg';
   var svg=document.getElementById('chart');
-  function el(t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);return e;}
-  // grid + y labels
+  function el(t,at){var e=document.createElementNS(NS2,t);for(var k in at)e.setAttribute(k,at[k]);return e;}
   [0,1,2,3,4,5,6].forEach(function(y){
     svg.appendChild(el('line',{x1:X0,y1:py(y),x2:X1,y2:py(y),stroke:'var(--line)','stroke-width':y%2?0.5:1}));
     var t=el('text',{x:X0-10,y:py(y)+4,'text-anchor':'end',fill:'var(--mut)','font-size':12,'font-family':'var(--mono)'});
     t.textContent=y+'y';svg.appendChild(t);
   });
-  // x labels + user-count row ($150/mo per user)
   [300,600,1000,1500,2000,2500,3000].forEach(function(m){
     var t=el('text',{x:px(m),y:Y1+22,'text-anchor':'middle',fill:'var(--mut)','font-size':12,'font-family':'var(--mono)'});
     t.textContent='$'+m;svg.appendChild(t);
     if(m%150===0){
       var u=el('text',{x:px(m),y:Y1+38,'text-anchor':'middle',fill:'var(--teal)','font-size':11,'font-family':'var(--mono)'});
-      u.textContent='≈'+(m/150)+'人';
-      svg.appendChild(u);
+      u.textContent='≈'+(m/150)+'人';svg.appendChild(u);
     }
   });
   var xl=el('text',{x:(X0+X1)/2,y:Y1+56,'text-anchor':'middle',fill:'var(--mut)','font-size':13});
   xl.textContent='云端月消耗 (USD) · 绿色 = 折合人数 × $150/月 订阅';svg.appendChild(xl);
-  // break-even reference lines
   [{y:2,l:'2 年回本'},{y:1,l:'1 年回本'}].forEach(function(r){
     svg.appendChild(el('line',{x1:X0,y1:py(r.y),x2:X1,y2:py(r.y),stroke:'var(--ink)','stroke-width':1,'stroke-dasharray':'5 5',opacity:.45}));
     var t=el('text',{x:X1-4,y:py(r.y)-7,'text-anchor':'end',fill:'var(--ink)','font-size':11.5,opacity:.7});
     t.textContent=r.l;svg.appendChild(t);
   });
-  // shade good zone (<2yr)
   svg.appendChild(el('rect',{x:X0,y:py(2),width:X1-X0,height:Y1-py(2),fill:'var(--teal)',opacity:.05}));
-  // curves + markers
   tiers.forEach(function(t){
     var d='';
     for(var m=MX0;m<=MX1;m+=15){var y=pay(t.rmb,m,t.s);if(y>YMAX+1)continue;d+=(d?'L':'M')+px(m).toFixed(1)+' '+py(y).toFixed(1)+' ';}
@@ -850,7 +596,7 @@ b{font-weight:700}
       }
     });
   });
-  // baseline inset: 全部本地做完 (−100%), multi-user @ $150/mo per user
+  // ideal inset: full-local, multi-user
   var SUB=150, USERS=[1,2,4];
   var bx=430,by=50,bw=376,bh=182;
   svg.appendChild(el('rect',{x:bx,y:by,width:bw,height:bh,rx:12,fill:'var(--surface)',stroke:'var(--line)','stroke-width':1}));
@@ -859,9 +605,7 @@ b{font-weight:700}
   var bs=el('text',{x:bx+18,y:by+50,fill:'var(--mut)','font-size':12});
   bs.textContent='多用户共享 · 每人 $'+SUB+'/月 订阅被完全替代';svg.appendChild(bs);
   tiers.forEach(function(t,i){
-    var yy=by+76+i*26;
-    var n=USERS[i];
-    var yrs=(t.rmb/FX)/(SUB*n*12);
+    var yy=by+76+i*26, n=USERS[i], yrs=(t.rmb/FX)/(SUB*n*12);
     svg.appendChild(el('circle',{cx:bx+24,cy:yy-4,r:5,fill:t.c}));
     var r1=el('text',{x:bx+38,y:yy,fill:'var(--ink)','font-size':13});
     r1.textContent=t.n+' · '+n+' 人';svg.appendChild(r1);
@@ -870,7 +614,6 @@ b{font-weight:700}
   });
   var bp=el('text',{x:bx+18,y:by+bh-14,fill:'var(--teal)','font-size':12.5,'font-weight':700});
   bp.textContent='价格 ×2 → 共享人数 ×2，回本不变';svg.appendChild(bp);
-  // legend
   var lg=document.getElementById('legend');
   tiers.forEach(function(t){
     var d=document.createElement('div');d.className='lg';
@@ -878,7 +621,7 @@ b{font-weight:700}
     lg.appendChild(d);
   });
   var d0=document.createElement('div');d0.className='lg';
-  d0.innerHTML='<i style="background:var(--mut);height:2px"></i>右上框 = 全部本地 · 多用户共享 · $150/月·人';
+  d0.innerHTML='<i style="background:var(--mut);height:2px"></i>混合负载迭代流估 · 右上框 = 全部本地·多用户';
   lg.appendChild(d0);
 })();
 </script>
