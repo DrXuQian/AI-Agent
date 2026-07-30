@@ -16,8 +16,8 @@
 </section>
 
 <!-- 2 · TWO PREMISES -->
-<section class="slide" data-title="两个前提">
-  <h2>读表前，两个前提</h2>
+<section class="slide" data-title="前提与口径">
+  <h2>读表前：两个前提 + 核算口径</h2>
   <div class="two-col">
     <article class="premise premise--asset">
       <div class="pico" aria-hidden="true">◍</div>
@@ -27,31 +27,23 @@
     <article class="premise premise--floor">
       <div class="pico" aria-hidden="true">▤</div>
       <h3>路由地板 = 系统绝不亏钱</h3>
-      <p>本地免费先试，搞不定就让云端<b>从干净状态接手</b> → 最坏 = 纯云端 baseline（省 0%），<b>永不为负</b>。</p>
+      <p>本地免费先试，搞不定就让云端<b>从干净状态接手</b> → 最坏 = 纯云端 baseline（省 0%），<b>永不为负</b>。文中"更贵"的数字都是无地板的裸架构（反面教材）。</p>
     </article>
   </div>
-  <p class="foot">文中任何"更贵"的数字，都是<b>没有路由地板的裸架构</b>——反面教材。</p>
-</section>
-
-<!-- 3 · ACCOUNTING -->
-<section class="slide" data-title="核算口径">
-  <h2>核算口径：<span class="mut">本地免费，只算云端 token</span></h2>
-  <div class="acct">
+  <div class="acct acct--slim">
     <div class="acct-box acct-box--free">
       <span class="acct-tag">端侧 · 自有 AI Station</span>
       <span class="acct-big">免费</span>
-      <span class="acct-sub">探索 / 读代码 / 试解 / 跑测试<br>算力 & 电费忽略不计</span>
     </div>
     <div class="acct-flow" aria-hidden="true">
       <span class="flow-line"></span><span class="flow-dot"></span><span class="flow-arrow">▶</span>
     </div>
     <div class="acct-box acct-box--paid">
       <span class="acct-tag">云端 · Claude Opus 4.8</span>
-      <span class="acct-big">$5 <span class="slash">/</span> $25</span>
-      <span class="acct-sub">每 Mtok 输入 / 输出<br>input·cache·output 四类精确计量</span>
+      <span class="acct-big">$5 <span class="slash">/</span> $25 <span class="acct-unit">/Mtok</span></span>
     </div>
   </div>
-  <p class="foot">判分用<b>第三方隐藏测试</b>客观判定（SWE-bench F2P+P2P / HumanEval+ EvalPlus），非自评。</p>
+  <p class="foot">只计云端 token（input·cache·output 精确计量）；判分 = <b>第三方隐藏测试</b>（SWE-bench F2P+P2P / HumanEval+ EvalPlus），非自评。</p>
 </section>
 
 <!-- 4 · TIERS -->
@@ -80,30 +72,14 @@
   <p class="foot"><span class="mono">能力 = SWE-bench Verified（int4）。</span> <sup>*</sup>四卡按 85% <b>反推·偏保守</b>，实机很可能更强。</p>
 </section>
 
-<!-- 5 · TWO BENCHMARKS / VERIFIABILITY AXIS -->
+<!-- 5 · BENCHMARKS (axis + detail merged) -->
 <section class="slide" data-title="两个基准">
-  <h2>省多少，取决于<span class="hl">本地能否自证正确</span></h2>
-  <div class="axis">
-    <div class="axis-line" aria-hidden="true"></div>
-    <div class="axis-pole axis-pole--left">
-      <span class="pole-tag">弱自证 · 探索密集</span>
-      <h3>SWE-bench Lite</h3>
-      <p>真实 GitHub issue bug 修复<br>成本大头 = <b>诊断 / 探索</b></p>
-      <span class="pole-method">→ context-engine</span>
-    </div>
-    <div class="axis-pole axis-pole--right">
-      <span class="pole-tag">强自证 · 生成密集</span>
-      <h3>HumanEval+</h3>
-      <p>照签名+docstring 写函数<br>成本大头 = <b>求解本身</b></p>
-      <span class="pole-method">→ escalate</span>
-    </div>
+  <h2>两个基准：卡住<span class="hl">「可验证性」</span>轴的两端</h2>
+  <div class="axis-strip" aria-hidden="true">
+    <span class="as-tag as-tag--l">弱自证 · 探索密集 → context-engine</span>
+    <span class="as-line"></span>
+    <span class="as-tag as-tag--r">强自证 · 生成密集 → escalate</span>
   </div>
-  <p class="foot">两个公开学术基准卡住"可验证性"这根轴的两端，隐藏测试判分 = 硬证据。</p>
-</section>
-
-<!-- 5b · BENCHMARK DETAIL -->
-<section class="slide" data-title="基准详解">
-  <h2>两个基准分别测什么</h2>
   <div class="bm2">
     <article class="bm bm--swe">
       <header><h3>SWE-bench Lite</h3><span class="bm-kind">真实仓库 bug 修复</span></header>
@@ -140,8 +116,8 @@
 </section>
 
 <!-- 5b2 · FAQ VERIFIABILITY -->
-<section class="slide" data-title="FAQ 可验证">
-  <p class="eyebrow">常见疑问</p>
+<section class="slide" data-title="统一原理">
+  <p class="eyebrow">统一原理：把「不需要顶级智能、却烧 token」的活搬到免费本地 · 常见疑问</p>
   <h2>"云端不也看不到判分测试吗？"<br><span class="mut">对——「可验证」指任务<b class="hl">自带裁判</b>，不是谁能判卷</span></h2>
   <div class="two-col">
     <article class="premise">
@@ -156,7 +132,8 @@
       难任务里<b>自带裁判的子集</b>（可复现 / 有现成测试）照样走左边——四卡实测 3/11 自解、零假阳性。</p>
     </article>
   </div>
-  <p class="foot">可验证性决定的是<b>免费阶段敢不敢停</b>：有裁判 → 整题外包（−88%）；没裁判 → 只外包体力活、云端拍板（−23%）。
+  <p class="foot">可验证性决定的是<b>免费阶段敢不敢停</b>：有裁判 → 整题外包给免费本地（escalate <b class="good">−88%</b>）；
+  没裁判 → 只外包探索体力活、云端拍板（context-engine <b class="good">−23%</b>）——本地当"免费的眼睛和手"，云端当大脑。
   <b class="hl">给任务装裁判（TDD / 先写测试）= 把负载搬进左边 = 最强省钱杠杆。</b></p>
 </section>
 
@@ -244,20 +221,9 @@
   </div>
 </section>
 
-<!-- 7 · UNIFIED THEORY -->
-<section class="slide slide--theory" data-title="统一原理">
-  <p class="eyebrow">统一原理</p>
-  <h2 class="theory-line">把「<span class="hl">不需要云端顶级智能、却烧 token</span>」的活，<br>搬到<b>免费</b>的本地。</h2>
-  <div class="theory-map">
-    <div class="tmap-card"><span class="tmap-task">可验证生成</span><span class="tmap-out">整个求解（本地自证）</span><span class="tmap-m">escalate</span><span class="tmap-v">−88%</span></div>
-    <div class="tmap-card"><span class="tmap-task">难 bug 修复</span><span class="tmap-out">代码探索 / 定位</span><span class="tmap-m">context-engine</span><span class="tmap-v">−23%</span></div>
-  </div>
-  <p class="foot">本地当云端"免费的眼睛和手"，云端当大脑。</p>
-</section>
-
-<!-- 8 · ROUTING AGENT / FLOOR -->
+<!-- 8 · ROUTING AGENT + HANDOFF COST (merged) -->
 <section class="slide" data-title="路由 Agent">
-  <h2>端侧路由 Agent：<span class="mut">先试 → 自证 → 干净升级</span></h2>
+  <h2>端侧路由 Agent：<span class="mut">先试 → 自证 → </span><b class="hl">干净</b><span class="mut">升级</span></h2>
   <div class="flow">
     <div class="fnode fnode--start">任务进来</div>
     <span class="fedge" aria-hidden="true">▶</span>
@@ -269,29 +235,20 @@
       <div class="fb fb--no"><span class="fb-tag">否</span> 云端<b>干净接手</b>（丢弃半成品）→ 最坏 = baseline</div>
     </div>
   </div>
-  <p class="foot"><b>关键</b>：升级时不要把本地失败产物硬塞给云端消化——那正是裸架构 +71% / +12% 的根因（见下页拆解）。</p>
-</section>
-
-<!-- 8a2 · HANDOFF COST -->
-<section class="slide" data-title="交接的代价">
-  <p class="eyebrow">Agent 设计 · 有意思的发现</p>
-  <h2>+71% 不是"升级"的代价，是<b class="bad">脏交接</b>的代价</h2>
   <div class="two-col">
     <article class="premise premise--bad">
-      <h3>脏交接（裸 escalate 实测）</h3>
-      <div class="tflow"><span class="pj">J 失败</span><i>▶</i><span class="pbad">笔记 3K + 半成品 diff 15K + 脏工作区</span><i>▶</i><span class="ps">S 消化 · 清理 · 被带偏</span></div>
-      <div class="hand-num bad">+71%</div>
-      <p>解题率 <b>11/11 没降</b>——钱全花在消化失败现场：每轮背着大输入 · 清理/回滚轮次 · <b>错误锚定（最贵）</b>。</p>
+      <h3>为什么必须"干净"：脏交接实测 <span class="hand-num bad" style="font-size:clamp(22px,2.6vw,34px)">+71%</span></h3>
+      <div class="tflow"><span class="pj">J 失败</span><i>▶</i><span class="pbad">笔记 3K + 半成品 diff 15K + 脏工作区</span><i>▶</i><span class="ps">S 消化 · 被带偏</span></div>
+      <p>解题率 <b>11/11 没降</b>——钱全花在消化失败现场（大输入 · 清理回滚 · <b>错误锚定</b>）。</p>
     </article>
     <article class="premise">
-      <h3>干净交接（路由地板）</h3>
-      <div class="tflow"><span class="pj">J 失败</span><i>▶</i><span class="pok">git checkout 丢弃半成品</span><i>▶</i><span class="ps">S 从干净状态做 = baseline</span></div>
-      <div class="hand-num good">0%</div>
-      <p>本地免费 → 失败重来<b>不多花一分钱</b>；强本地（双卡+）改附<b>压缩上下文包</b>还能再省（−23%）。</p>
+      <h3>干净交接 = 地板 <span class="hand-num good" style="font-size:clamp(22px,2.6vw,34px)">0%</span></h3>
+      <div class="tflow"><span class="pj">J 失败</span><i>▶</i><span class="pok">checkout 丢弃半成品</span><i>▶</i><span class="ps">S 干净状态做 = baseline</span></div>
+      <p>失败重来<b>不多花一分钱</b>；强本地（双卡+）改附<b>压缩包</b>再省（−23%）。</p>
     </article>
   </div>
-  <p class="foot">同样的分工，只改交接协议：<b class="bad">+71%</b> ↔ <b class="good">0%</b> ↔ 压缩包 <b class="good">−23%</b>。
-  <b>交接协议是 Agent 设计的核心变量</b>——质量与成本是两根独立的轴。</p>
+  <p class="foot">同样的分工，只改交接协议：<b class="bad">+71%</b> ↔ <b class="good">0%</b> ↔ 压缩包 <b class="good">−23%</b>——
+  <b>交接协议是 Agent 设计的核心变量</b>；质量与成本是两根独立的轴。</p>
 </section>
 
 <!-- 8b · AGENT DESIGN = DEEP DIRECTION -->
@@ -323,27 +280,7 @@
   <p class="foot">微小设计差异把结果从 <b class="bad">+71%</b> 甩到 <b class="good">−88%</b> —— <b>Agent 编排本身值得当作核心课题深挖</b>。</p>
 </section>
 
-<!-- 9 · COMPLETION RATES -->
-<section class="slide" data-title="完成度反推">
-  <h2>完成度（本地自解率）驱动省钱率</h2>
-  <div class="comp">
-    <div class="comp-group">
-      <h4>容易任务 · 自解率</h4>
-      <div class="cbar"><span class="cbl">单卡</span><span class="ct"><span class="cf cf--easy" style="width:83%"></span></span><span class="cv">83%</span></div>
-      <div class="cbar"><span class="cbl">双卡</span><span class="ct"><span class="cf cf--easy" style="width:94%"></span></span><span class="cv">94%</span></div>
-      <div class="cbar"><span class="cbl">四卡</span><span class="ct"><span class="cf cf--easy" style="width:98%"></span></span><span class="cv">~98%</span></div>
-    </div>
-    <div class="comp-group">
-      <h4>难任务 · 自解率</h4>
-      <div class="cbar"><span class="cbl">单卡</span><span class="ct"><span class="cf cf--hard" style="width:2%"></span></span><span class="cv">~0%</span></div>
-      <div class="cbar"><span class="cbl">双卡</span><span class="ct"><span class="cf cf--hard" style="width:9%"></span></span><span class="cv">~9%</span></div>
-      <div class="cbar"><span class="cbl">四卡</span><span class="ct"><span class="cf cf--hard" style="width:40%"></span></span><span class="cv">~40%</span></div>
-    </div>
-  </div>
-  <p class="foot"><span class="mono">省钱率 ≈ 1 − 2×(1 − 完成度)</span> · 单/双卡实测锚点 → 四卡反推。</p>
-</section>
-
-<!-- 10 · 2D MATRIX -->
+<!-- 10 · 2D MATRIX (completion rates folded into foot) -->
 <section class="slide" data-title="省钱矩阵">
   <h2>省钱率 = 档位 × 负载 的二维矩阵</h2>
   <div class="matrix" id="matrix">
@@ -376,6 +313,8 @@
     <span class="mkey-scale" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
     <span>可验证列 <b>无封顶 → 趋近 −100%</b></span>
   </div>
+  <p class="foot">驱动变量 = <b>本地自解率</b>（实测锚点：易 83%→94%→~98%，难 ~0%→9%→~40%）；
+  <span class="mono">简单省钱率 ≈ 1−2×(1−自解率)</span>，四卡整行按 85% 能力反推（偏保守）。</p>
 </section>
 
 <!-- 11 · BREAK-EVEN CHART -->
@@ -540,6 +479,17 @@ b{font-weight:700}
 .acct-flow .flow-arrow{font-size:22px;color:var(--teal)}
 .acct-flow .flow-line{width:26px;height:2px;background:var(--line)}
 .acct-flow .flow-dot{width:8px;height:8px;border-radius:50%;background:var(--teal)}
+
+/* slim accounting row (merged into premises slide) */
+.acct--slim .acct-box{padding:14px 24px;flex-direction:row;align-items:baseline;gap:18px;flex-wrap:wrap}
+.acct--slim .acct-big{font-size:clamp(22px,2.8vw,38px)}
+.acct-unit{font-size:.45em;color:var(--mut);font-weight:500}
+
+/* compact verifiability axis strip */
+.axis-strip{display:flex;align-items:center;gap:14px}
+.as-line{flex:1;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--mut),var(--teal))}
+.as-tag{font-family:var(--mono);font-size:clamp(11px,1.05vw,13.5px);font-weight:700;white-space:nowrap}
+.as-tag--l{color:var(--blue)} .as-tag--r{color:var(--teal)}
 
 /* TIERS */
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px)}
