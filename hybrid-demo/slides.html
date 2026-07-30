@@ -139,6 +139,26 @@
   <p class="foot">F2P = 修复前必失败·修复后必过（真修好了）；P2P = 修复前后都过（没改坏）。二元判定、无部分分。</p>
 </section>
 
+<!-- 5b2 · FAQ VERIFIABILITY -->
+<section class="slide" data-title="FAQ 可验证">
+  <p class="eyebrow">常见疑问</p>
+  <h2>"云端不也看不到判分测试吗？"<br><span class="mut">对——「可验证」指任务<b class="hl">自带裁判</b>，不是谁能判卷</span></h2>
+  <div class="two-col">
+    <article class="premise">
+      <h3>有裁判 · 可验证任务</h3>
+      <div class="tflow"><span class="pj">J 写解</span><i>▶</i><span class="pok">跑测试 = 客观裁判</span><i>▶</i><span class="pj">✓ 敢停 · 云端 $0</span></div>
+      <p>跑测试不需要智商，<b>弱模型也能当庭举证</b>。实测：双卡自证 31/31 零假阳性；弱单卡 2/30 漏（自写测试越全越可靠）。</p>
+    </article>
+    <article class="premise premise--floor">
+      <h3>没裁判 · 不可验证任务</h3>
+      <div class="tflow"><span class="pj">J："我觉得修好了"</span><i>=</i><span class="pbad">意见 · 假阳性风险</span><i>▶</i><span class="ps">S 拍板 = 质量基准</span></div>
+      <p><b>判断力成了唯一质量来源</b>，云端亲自做 = 基准（baseline）。复查也不便宜：无测试时审查 ≈ 重做（local-first 实测 −2.5%）。</p>
+    </article>
+  </div>
+  <p class="foot">可验证性决定的是<b>免费阶段敢不敢停</b>：有裁判 → 整题外包（−88%）；没裁判 → 只外包体力活、云端拍板（−23%）。
+  <b class="hl">给任务装裁判（TDD / 先写测试）= 把负载搬进左边 = 最强省钱杠杆。</b></p>
+</section>
+
 <!-- 5c · FIVE ARCHITECTURES -->
 <section class="slide" data-title="五种架构">
   <h2>五种架构<b class="hl">单独裸跑</b>的成本<span class="mut"> · 难任务(SWE-bench)</span></h2>
@@ -647,11 +667,12 @@ b{font-weight:700}
 .tcard--win .tc-use{color:var(--teal)}
 .tflow{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .tflow i{font-style:normal;color:var(--mut);font-size:11px}
-.pj,.ps,.pok,.pl{font-size:clamp(11px,1.05vw,13px);font-weight:700;padding:5px 10px;border-radius:999px;white-space:nowrap}
+.pj,.ps,.pok,.pl,.pbad{font-size:clamp(11px,1.05vw,13px);font-weight:700;padding:5px 10px;border-radius:999px;white-space:nowrap}
 .pj{background:var(--teal);color:#fff}
 .ps{background:var(--blue);color:#fff}
 .pok{background:var(--teal-soft);color:var(--teal);border:1px solid var(--teal)}
 .pl{background:var(--amber);color:#fff}
+.pbad{background:var(--loss);color:#fff}
 .tc-note{margin:0;font-size:clamp(11px,1.05vw,13.5px);color:var(--mut)}
 
 /* AGENT DEEP */
