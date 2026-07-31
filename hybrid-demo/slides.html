@@ -32,17 +32,17 @@
       <p class="tc-note">Senior 单干，一切云端价</p>
     </article>
     <article class="tcard">
-      <h4>hybrid <span class="tc-use">云→端</span></h4>
+      <h4>云端派活 <span class="tc-use">云→端 · hybrid</span></h4>
       <div class="scene" data-scene="hybrid"></div>
       <p class="tc-note">S 动脑拆任务，J 动手写码，S 组装</p>
     </article>
     <article class="tcard tcard--win">
-      <h4>escalate <span class="tc-use">端→云 · 兜底</span></h4>
+      <h4>自证交付 <span class="tc-use">端→云 · escalate</span></h4>
       <div class="scene" data-scene="escalate"></div>
       <p class="tc-note">J 做完自测，通过即交付（$0）；失败 S 干净接手</p>
     </article>
     <article class="tcard tcard--win">
-      <h4>context-engine <span class="tc-use">端→云 · 递包</span></h4>
+      <h4>探路递包 <span class="tc-use">端→云 · context-engine</span></h4>
       <div class="scene" data-scene="ce"></div>
       <p class="tc-note">J 当侦察兵探索打包，S 拿包定方案、亲自写修复</p>
     </article>
@@ -52,7 +52,7 @@
       <p class="tc-note">按难度/裁判/延迟分诊——这套编排逻辑是核心资产</p>
     </article>
   </div>
-  <p class="foot">原 local-first（J 全做 + S 逐一审查）已并入 escalate：任务可自证时审查是多余动作（实测同解题率、审查≈重做）。</p>
+  <p class="foot">原「本地全做 + 云端逐一审查」（local-first）已并入<b>自证交付</b>：任务能自证时，审查是多余动作（实测同解题率、审查≈重做）。</p>
 </section>
 
 <!-- 4 · BENCHMARKS -->
@@ -110,24 +110,24 @@
     <div class="mxc" data-v="0"></div>
     <div class="mxc" data-v="0"></div>
 
-    <div class="mxc mxr">hybrid<small>云→端 · S 拆任务 J 写码</small></div>
+    <div class="mxc mxr">云端派活<small>hybrid · S 拆任务 J 写码</small></div>
     <div class="mxc" data-v="-26" data-note="样板可外包"></div>
     <div class="mxc" data-v="0" data-note="7/11 题更便宜，但难题协调失控"></div>
 
-    <div class="mxc mxr">context-engine<small>端→云 · J 探索递包</small></div>
+    <div class="mxc mxr">探路递包<small>context-engine · J 探索 S 决策</small></div>
     <div class="mxc" data-v="" data-note="小题打包反是开销"></div>
     <div class="mxc" data-v="-23" data-note="实测 · pylint-7114: $0.78✗→$0.25✓"></div>
 
-    <div class="mxc mxr">escalate<small>端→云 · J 自测过即交付</small></div>
+    <div class="mxc mxr">自证交付<small>escalate · J 自测过即交付</small></div>
     <div class="mxc" data-v="-88" data-note="实测 · 29/31 零云端成本"></div>
     <div class="mxc" data-v="-60" data-note="自解 60%，升级题全价"></div>
 
-    <div class="mxc mxr mxr--lead">escalate + context-engine<small>路由 Agent 组合 = 产品口径</small></div>
-    <div class="mxc" data-v="-88" data-note="走 escalate"></div>
+    <div class="mxc mxr mxr--lead">自证交付 + 探路递包<small>路由 Agent 组合 = 产品口径</small></div>
+    <div class="mxc" data-v="-88" data-note="走自证交付"></div>
     <div class="mxc" data-v="-68" data-note="自解 60% + 升级题递包再省"></div>
   </div>
-  <p class="foot">全部为<b>好 harness 口径</b>（干净交接 + 本地免费迭代）。<b>escalate 是最强单一方法</b>，但它升级出去的 40% 仍按全价烧云端；
-  <b class="hl">叠加 context-engine 给升级题递包，困难列再从 −60% 推到 −68%</b>——即下一页总表的单卡行。
+  <p class="foot">全部为<b>好 harness 口径</b>（干净交接 + 本地免费迭代）。<b>自证交付是最强单一方法</b>，但它升级出去的 40% 仍按全价烧云端；
+  <b class="hl">叠加探路递包给升级题递上下文，困难列再从 −60% 推到 −68%</b>——即下一页总表的单卡行。
   没有好 harness 时这些方法会反向变贵（+33% / +71% 等），见下页。</p>
 </section>
 
@@ -155,28 +155,28 @@
   <div class="cases">
     <article class="case case--bad">
       <header><span class="case-tag">pylint-7114 · 命名空间包解析</span><b class="bad">$2.28</b></header>
-      <p><b>hybrid 陷入协调循环</b>：云端反复"委派→验证→纠正"，花掉 baseline（$0.92）的 <b>2.5 倍</b>。
-      剔除这一道题 hybrid 就从 +33% 变 −13%——<b>一道难题吞掉一整批节省</b>。</p>
+      <p><b>云端派活陷入协调循环</b>：云端反复"委派→验证→纠正"，花掉 baseline（$0.92）的 <b>2.5 倍</b>。
+      剔除这一道题它就从 +33% 变 −13%——<b>一道难题吞掉一整批节省</b>。</p>
     </article>
     <article class="case case--bad">
       <header><span class="case-tag">flask-4992 · Config.from_file 读 TOML</span><b class="bad">功能对却判错</b></header>
-      <p><b>local-first 的审查拦不住"合理但不合规格"</b>：本地实现用了 <span class="mono">mode=</span>，
+      <p><b>逐一审查拦不住"合理但不合规格"</b>：本地实现用了 <span class="mono">mode=</span>，
       隐藏测试要的是 <span class="mono">text=</span>。云端逐一审查照样放行 → 白花审查费还是失败。</p>
     </article>
     <article class="case case--bad">
-      <header><span class="case-tag">裸 escalate · SWE-bench 11 题</span><b class="bad">+71%</b></header>
+      <header><span class="case-tag">裸跑自证交付 · SWE-bench 11 题</span><b class="bad">+71%</b></header>
       <p><b>脏交接</b>：失败笔记 3K + 半成品 diff 15K 每轮都塞给云端，还被错误假设带偏。
       <b>11/11 全解对、解题率没掉</b>——多花的钱纯粹是"消化失败现场"。</p>
     </article>
     <article class="case case--bad">
       <header><span class="case-tag">事前文本路由 · 读 issue 判难易</span><b class="bad">+10%</b></header>
       <p><b>分诊信号选错</b>：11 题全被判成"局部小修复"→ 全部走纯云端，
-      既丢掉 context-engine 的节省，又白搭一次分诊开销。<b>题面看不出难度</b>。</p>
+      既丢掉探路递包的节省，又白搭一次分诊开销。<b>题面看不出难度</b>。</p>
     </article>
   </div>
   <div class="cases cases--good">
     <article class="case">
-      <header><span class="case-tag">✅ pylint-7114 换 context-engine</span><b class="good">$0.78 → $0.25</b></header>
+      <header><span class="case-tag">✅ pylint-7114 换探路递包</span><b class="good">$0.78 → $0.25</b></header>
       <p>baseline 花 $0.78 <b>还失败</b>；本地免费探索打包后云端 $0.25 <b>解出来了</b>——省钱同时提升定位质量。</p>
     </article>
     <article class="case">
@@ -214,7 +214,7 @@
     </article>
   </div>
   <p class="foot"><b>诚实的风险</b>：token 补贴期省下的美元缩水。对冲：①云端涨价时机器价值线性放大 ②主攻 API 客户
-  ③隐私腿——context-engine 天然"仓库不上云、只上压缩包"，与计费模式无关。</p>
+  ③隐私腿——探路递包天然"仓库不上云、只上压缩包"，与计费模式无关。</p>
 </section>
 
 <!-- 8 · BREAK-EVEN CHART -->
@@ -645,7 +645,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
       +person(208,48,1.2,S,'S')+label(208,86,'定方案 · 写修复')+label(40,86,'免费探索'); },
     lead: function(){ return person(38,50,1.0,A,'L')
       +arrow(58,34,96,18,M)+arrow(60,46,96,46,M)+arrow(58,60,96,76,M)
-      +badge(163,18,'简单→escalate',J)+badge(168,46,'困难→context-eng',S)+badge(158,76,'兜底→S 单干',M)
+      +badge(158,18,'简单→自证交付',J)+badge(158,46,'困难→探路递包',S)+badge(150,76,'兜底→S 单干',M)
       +label(38,88,'按难度分诊'); }
   };
   document.querySelectorAll('.scene[data-scene]').forEach(function(el){
