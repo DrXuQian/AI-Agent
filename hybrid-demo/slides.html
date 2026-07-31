@@ -81,6 +81,9 @@
         <li>考：陌生大仓库里<b>定位 · 理解 · 修改</b>——成本大头是探索/诊断</li>
         <li>修好 bug（F2P）且不破坏别的（P2P）才得分，二元判定</li>
       </ul>
+      <div class="egbox"><span class="eg-h">实例举例</span>
+      <b>flask-4992</b>：<span class="mono">Config.from_file()</span> 不支持二进制模式 → 无法加载 TOML<br>
+      <b>pylint-7114</b>：命名空间包解析（本批最难，云端单题烧到 $0.92）</div>
     </article>
     <article class="bm bm--he">
       <header><h3>HumanEval+</h3><span class="bm-kind">简单 · 函数级代码生成</span></header>
@@ -96,6 +99,9 @@
         <li>考：<b>照规格写对一个函数</b>——纯生成、零仓库探索</li>
         <li>docstring 自带示例 → 本地能自己跑测试验证</li>
       </ul>
+      <div class="egbox"><span class="eg-h">题目形态</span>
+      给 <span class="mono">def sort_third(l: list)</span> + docstring（"下标为 3 的倍数处排序，其余不动"）
+      → 写实现 → 隐藏的 ~764 条边界测试判分</div>
     </article>
   </div>
 </section>
@@ -114,14 +120,14 @@
 
     <div class="mxc mxr">hybrid<small>云→端 · S 拆任务 J 写码</small></div>
     <div class="mxc" data-v="-26" data-note="样板可外包"></div>
-    <div class="mxc" data-v="0" data-note="协调开销抵消节省"></div>
+    <div class="mxc" data-v="0" data-note="7/11 题更便宜，但难题协调失控"></div>
 
     <div class="mxc mxr">context-engine<small>端→云 · J 探索递包</small></div>
     <div class="mxc" data-v="" data-note="小题打包反是开销"></div>
-    <div class="mxc" data-v="-23" data-note="实测 · 解题率=baseline ✅"></div>
+    <div class="mxc" data-v="-23" data-note="实测 · pylint-7114: $0.78✗→$0.25✓"></div>
 
     <div class="mxc mxr">escalate<small>端→云 · J 自测过即交付</small></div>
-    <div class="mxc" data-v="-88" data-note="实测 · 29/31 本地自解 ✅"></div>
+    <div class="mxc" data-v="-88" data-note="实测 · 29/31 零云端成本"></div>
     <div class="mxc" data-v="-60" data-note="自解 60%，升级题全价"></div>
 
     <div class="mxc mxr mxr--lead">escalate + context-engine<small>路由 Agent 组合 = 产品口径</small></div>
@@ -148,34 +154,51 @@
   </table>
   </div>
   <p class="foot">困难列：<span class="mono">省 ≈ 自解率 + (1−自解率)×20%</span>（自解零云端；升级题仍附压缩包）；迭代自解率设定：困难 单 60%/双 80%/四 90%，简单 29/31 · 30/31 · 31/31。
-  实测硬证据（<b>单卡档</b>代理，一次性判分）：简单 −88%、困难 −23%（保守下限）。回本按混合负载，多用户共享再除以人数。</p>
+  实测硬证据（<b>单卡档</b>代理，一次性判分）：简单 −88%、困难 −23%（保守下限）。回本按混合负载，多用户共享再除以人数。<br>具体佐证：<b>HumanEval+ 29/31 零云端</b>（$0.103→$0.012）· <b>SWE-bench pylint-7114 $0.78 失败 → $0.25 解出</b> · 四卡代理 <b>3/11 本地自解零假阳性</b>。</p>
 </section>
 
 <!-- 6 · NO GOOD HARNESS -->
 <section class="slide" data-title="Harness 决定成败">
-  <p class="eyebrow">同样的模型组合，结果从 +71% 到 −88%</p>
-  <h2>没有好的 Agent harness，端云协同<b class="bad">反而更贵</b></h2>
-  <div class="two-col">
-    <article class="premise premise--bad">
-      <h3>坏 harness · 裸跑实测</h3>
-      <ul class="hlist">
-        <li><b class="bad">+71%</b> 脏交接：失败笔记+半成品 diff 硬塞给云端消化、被错误锚定</li>
-        <li><b class="bad">+33%</b> 协调循环：云端拆任务/审集成的开销 &gt; 样板节省</li>
-        <li><b class="bad">+12%</b> 坏上下文包：弱本地的错误定位误导云端（解题率也掉）</li>
-        <li><b class="bad">+59%</b> 多余审查：任务可自证还让云端逐一复核（审查≈重做）</li>
-      </ul>
+  <h2>没有好的 harness，端云协同<b class="bad">反而更贵</b><span class="mut"> · 四个真实翻车案例</span></h2>
+  <div class="cases">
+    <article class="case case--bad">
+      <header><span class="case-tag">pylint-7114 · 命名空间包解析</span><b class="bad">$2.28</b></header>
+      <p><b>hybrid 陷入协调循环</b>：云端反复"委派→验证→纠正"，花掉 baseline（$0.92）的 <b>2.5 倍</b>。
+      剔除这一道题 hybrid 就从 +33% 变 −13%——<b>一道难题吞掉一整批节省</b>。</p>
     </article>
-    <article class="premise">
-      <h3>好 harness 的四件事</h3>
-      <ul class="hlist">
-        <li><b class="good">按难度路由</b>：简单→escalate；困难→context-engine；本地够强→先试自证</li>
-        <li><b class="good">裁判自证</b>：跑测试当客观裁判，通过才敢交付（$0）</li>
-        <li><b class="good">干净交接</b>：失败就丢弃半成品；强本地只递压缩包</li>
-        <li><b class="good">免费迭代</b>：修→验→再修烧时间不烧 token，失败不是终局</li>
-      </ul>
+    <article class="case case--bad">
+      <header><span class="case-tag">flask-4992 · Config.from_file 读 TOML</span><b class="bad">功能对却判错</b></header>
+      <p><b>local-first 的审查拦不住"合理但不合规格"</b>：本地实现用了 <span class="mono">mode=</span>，
+      隐藏测试要的是 <span class="mono">text=</span>。云端逐一审查照样放行 → 白花审查费还是失败。</p>
+    </article>
+    <article class="case case--bad">
+      <header><span class="case-tag">裸 escalate · SWE-bench 11 题</span><b class="bad">+71%</b></header>
+      <p><b>脏交接</b>：失败笔记 3K + 半成品 diff 15K 每轮都塞给云端，还被错误假设带偏。
+      <b>11/11 全解对、解题率没掉</b>——多花的钱纯粹是"消化失败现场"。</p>
+    </article>
+    <article class="case case--bad">
+      <header><span class="case-tag">事前文本路由 · 读 issue 判难易</span><b class="bad">+10%</b></header>
+      <p><b>分诊信号选错</b>：11 题全被判成"局部小修复"→ 全部走纯云端，
+      既丢掉 context-engine 的节省，又白搭一次分诊开销。<b>题面看不出难度</b>。</p>
     </article>
   </div>
-  <p class="foot"><b>Harness 本身是核心资产、也是最值得深挖的方向</b>：路由信号实测（事前读题面 +10% ❌ · 事中先试卡住才升级 −41% ✅ · oracle −35% 仍有空间）。</p>
+  <div class="cases cases--good">
+    <article class="case">
+      <header><span class="case-tag">✅ pylint-7114 换 context-engine</span><b class="good">$0.78 → $0.25</b></header>
+      <p>baseline 花 $0.78 <b>还失败</b>；本地免费探索打包后云端 $0.25 <b>解出来了</b>——省钱同时提升定位质量。</p>
+    </article>
+    <article class="case">
+      <header><span class="case-tag">✅ HumanEval+ 有裁判就敢停</span><b class="good">29/31 零云端</b></header>
+      <p>本地写完自测通过即交付，云端一分钱不花；剩 2 题升级。解题率与 baseline 持平。</p>
+    </article>
+    <article class="case">
+      <header><span class="case-tag">✅ 强本地自解难题</span><b class="good">3/11 零假阳性</b></header>
+      <p>pylint-7993 / pytest-11143 / pytest-9359 本地直接解决且判分全过——<b>恰好都是有现成测试可自证的题</b>。</p>
+    </article>
+  </div>
+  <p class="foot"><b>同样的模型组合，harness 一变结果从 +71% 翻到 −88%</b>。好 harness 的四件事：<b class="good">按难度路由</b> ·
+  <b class="good">跑测试自证</b> · <b class="good">干净交接</b>（失败就丢弃半成品） · <b class="good">本地免费迭代</b>。
+  路由信号实测：事前读题面 +10% ❌ · 事中先试卡住才升级 −41% ✅ · oracle −35% 且多解一题 → <b>仍有 headroom 可挖</b>。</p>
 </section>
 
 <!-- 7 · WHERE THE MONEY COMES FROM -->
@@ -392,6 +415,26 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
 .lg{display:flex;align-items:center;gap:8px;font-size:clamp(11.5px,1.15vw,14.5px);color:var(--mut)}
 .lg i{width:22px;height:4px;border-radius:2px;display:block}
 .lg b{color:var(--ink);font-family:var(--mono)}
+
+/* EXAMPLE BOX */
+.egbox{background:var(--paper);border:1px dashed var(--line);border-radius:9px;padding:9px 12px;
+  font-size:clamp(10.5px,1.05vw,13px);color:var(--mut);line-height:1.5}
+.eg-h{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--tc);margin-bottom:3px}
+.egbox b{color:var(--ink);font-family:var(--mono)}
+.egbox .mono{background:var(--surface);padding:0 4px;border-radius:3px}
+
+/* CASES */
+.cases{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(9px,1.3vw,15px)}
+.cases--good{grid-template-columns:repeat(3,1fr)}
+.case{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--teal);
+  border-radius:11px;padding:clamp(10px,1.3vw,16px);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px}
+.case--bad{border-left-color:var(--loss)}
+.case header{display:flex;flex-direction:column;gap:2px}
+.case-tag{font-family:var(--mono);font-size:clamp(9.5px,.95vw,11.5px);color:var(--mut)}
+.case header b{font-family:var(--mono);font-size:clamp(14px,1.6vw,20px);letter-spacing:-.01em}
+.case p{margin:0;font-size:clamp(10.5px,1.05vw,13px);color:var(--mut);line-height:1.45}
+.case p b{color:var(--ink)}
+.case .mono{background:var(--paper);padding:0 4px;border-radius:3px;font-size:.92em}
 
 /* PAYBACK SLIDE (compact) */
 .slide--pb{gap:clamp(10px,1.4vh,18px)}
