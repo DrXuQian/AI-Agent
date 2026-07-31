@@ -17,17 +17,9 @@
 </section>
 
 <!-- 2 · TIERS × MODEL INTELLIGENCE -->
-<section class="slide" data-title="硬件与模型">
+<section class="slide slide--fit" data-title="硬件与模型">
   <h2>哪些模型能在哪一档跑起来</h2>
-  <div class="fitwrap"><svg id="fitmap" viewBox="0 0 1000 330" role="img" aria-label="模型体积 vs 评分 与显存容量"></svg></div>
-  <div class="pricestrip">
-    <span class="pchip pchip--1"><b>单卡 256G</b> ¥20k · DS-V4-Flash IQ4_XS 138G / Qwen3.5-397B IQ4_XS 208G · 预算个人 <em>实测锚档</em></span>
-    <span class="pchip pchip--2"><b>双卡 512G</b> ¥40k · MiniMax-M3 Q4_K_M 264G（或 GLM-5.2 Q2_K_XL 254G）· 小团队 / 顶级个人</span>
-    <span class="pchip pchip--3"><b>四卡 1T</b> ¥80k · GLM-5.2 IQ4_XS 365G / DS-V4-Pro Q2_K-XL 498G / Kimi-K3 IQ1_S 594G · 团队 CI 共享</span>
-  </div>
-  <p class="foot">虚线 = 各档显存上限；点在线下 = <b>权重装得下</b>；虚连线 = 量化把同一模型从原始精度拉进可跑区间（Kimi-K3 2.8T 即使 1-bit 也要 594G，只有四卡能跑）。
-  分档还要留长上下文 KV 与并发余量，故模型常上挂一档（M3 单卡可装，双卡跑长上下文/多并发才稳）。
-  <b>体积为 HuggingFace / Unsloth GGUF 实际文件大小</b>；<b>评分为估计值</b>。</p>
+  <div class="fitwrap"><svg id="fitmap" viewBox="0 0 1000 470" role="img" aria-label="模型体积 vs 评分 与显存容量"></svg></div>
 </section>
 
 <!-- 3 · ARCHITECTURES (personified) -->
@@ -473,6 +465,10 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
   border-radius:10px;padding:12px 14px;font-size:clamp(11.5px,1.15vw,14px);color:var(--mut)}
 .pw b{color:var(--ink);display:block;margin-bottom:3px}
 
+/* FIT SLIDE: chart only, full bleed */
+.slide--fit{gap:clamp(8px,1.5vh,18px)}
+.slide--fit .fitwrap{max-width:100%;flex:1;display:flex;align-items:center}
+
 /* FIT MAP + PRICE STRIP */
 .fitwrap{width:100%;max-width:1000px;margin:0 auto}
 .fitwrap svg{width:100%;height:auto;display:block}
@@ -558,7 +554,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
     var svg=document.getElementById('fitmap'); if(!svg) return;
     var NS='http://www.w3.org/2000/svg';
     function E(t,at,txt){var e=document.createElementNS(NS,t);for(var k in at)e.setAttribute(k,at[k]);if(txt!=null)e.textContent=txt;return e;}
-    var L=86,R=946,T=24,B=286;
+    var L=92,R=944,T=30,B=404;
     var X0=72,X1=91, YLO=48, YHI=2048;
     function X(v){return L+(v-X0)/(X1-X0)*(R-L);}
     function Y(g){var a=Math.log2(g),lo=Math.log2(YLO),hi=Math.log2(YHI);return B-(a-lo)/(hi-lo)*(B-T);}
@@ -567,46 +563,46 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
     svg.appendChild(E('line',{x1:L,y1:T,x2:L,y2:B,stroke:'var(--mut)','stroke-width':1.5}));
     [70,74,78,82,86,90].forEach(function(v){
       svg.appendChild(E('line',{x1:X(v),y1:B,x2:X(v),y2:B+5,stroke:'var(--mut)','stroke-width':1}));
-      svg.appendChild(E('text',{x:X(v),y:B+19,'text-anchor':'middle','font-size':11.5,fill:'var(--mut)','font-family':'var(--mono)'},v+'%'));
+      svg.appendChild(E('text',{x:X(v),y:B+21,'text-anchor':'middle','font-size':13.5,fill:'var(--mut)','font-family':'var(--mono)'},v+'%'));
     });
-    svg.appendChild(E('text',{x:(L+R)/2,y:B+38,'text-anchor':'middle','font-size':12.5,fill:'var(--mut)'},'SWE-bench Verified（估）→ 越右越聪明'));
+    svg.appendChild(E('text',{x:(L+R)/2,y:B+42,'text-anchor':'middle','font-size':14.5,fill:'var(--mut)'},'SWE-bench Verified（估）→ 越右越聪明'));
     [64,128,256,512,1024,2048].forEach(function(g){
-      svg.appendChild(E('text',{x:L-9,y:Y(g)+4,'text-anchor':'end','font-size':11,fill:'var(--mut)','font-family':'var(--mono)'},(g>=1024?(g/1024)+'T':g+'G')));
+      svg.appendChild(E('text',{x:L-9,y:Y(g)+4,'text-anchor':'end','font-size':12.5,fill:'var(--mut)','font-family':'var(--mono)'},(g>=1024?(g/1024)+'T':g+'G')));
       svg.appendChild(E('line',{x1:L,y1:Y(g),x2:R,y2:Y(g),stroke:'var(--line)','stroke-width':.6,opacity:.7}));
     });
-    svg.appendChild(E('text',{x:20,y:(T+B)/2,'text-anchor':'middle','font-size':12.5,fill:'var(--mut)',transform:'rotate(-90 20 '+((T+B)/2)+')'},'显存占用（权重, 对数轴）'));
+    svg.appendChild(E('text',{x:20,y:(T+B)/2,'text-anchor':'middle','font-size':14,fill:'var(--mut)',transform:'rotate(-90 20 '+((T+B)/2)+')'},'显存占用（权重, 对数轴）'));
 
-    [{g:256,n:'单卡 256G',c:'var(--amber)'},{g:512,n:'双卡 512G',c:'var(--blue)'},{g:1024,n:'四卡 1T',c:'var(--teal)'}].forEach(function(cp){
+    [{g:256,n:'单卡 256G · ¥20k',c:'var(--amber)'},{g:512,n:'双卡 512G · ¥40k',c:'var(--blue)'},{g:1024,n:'四卡 1T · ¥80k',c:'var(--teal)'}].forEach(function(cp){
       svg.appendChild(E('line',{x1:L,y1:Y(cp.g),x2:R,y2:Y(cp.g),stroke:cp.c,'stroke-width':2,'stroke-dasharray':'7 5'}));
-      svg.appendChild(E('text',{x:R-3,y:Y(cp.g)-7,'text-anchor':'end','font-size':12,'font-weight':800,fill:cp.c,'font-family':'var(--mono)'},cp.n));
+      svg.appendChild(E('text',{x:R-3,y:Y(cp.g)-7,'text-anchor':'end','font-size':14,'font-weight':800,fill:cp.c,'font-family':'var(--mono)'},cp.n));
     });
 
     // [score_q, size_q, precision_q, score_full, size_full, precision_full, name, color, label dx/dy/anchor]
     // 真实体积（HuggingFace / Unsloth GGUF 实测文件大小）
     var ms=[
-      {sq:75,gq:138, pq:'IQ4_XS 138G',  sf:76,gf:355, pf:'原生 355G',  fx:8, fy:4,  n:'DS-V4-Flash 284B',  c:'var(--amber)', dx:-8, dy:16, a:'end'},
-      {sq:76,gq:208, pq:'IQ4_XS 208G',  sf:78,gf:794, pf:'BF16 794G',  fx:8, fy:4,  n:'Qwen3.5-397B-A17B', c:'var(--amber)', dx:8,  dy:-10},
-      {sq:80,gq:264, pq:'Q4_K_M 264G',  sf:81,gf:852, pf:'BF16 852G',  fx:8, fy:-6, n:'MiniMax-M3 428B',   c:'var(--blue)',  dx:8,  dy:17},
-      {sq:85,gq:365, pq:'IQ4_XS 365G',  sf:86,gf:1510,pf:'BF16 1.51T', fx:-8,fy:14, n:'GLM-5.2 754B',      c:'var(--teal)',  dx:-8, dy:18, a:'end', fa:'end'},
-      {sq:86,gq:594, pq:'IQ1_S 594G',   sf:87,gf:1400,pf:'MXFP4 1.4T', fx:8, fy:16, n:'Kimi-K3 2.8T',      c:'var(--teal)',  dx:8,  dy:-10},
-      {sq:87,gq:498, pq:'Q2_K-XL 498G', sf:88,gf:1500,pf:'原生 1.5T',  fx:8, fy:-6, n:'DS-V4-Pro 1.6T',    c:'var(--teal)',  dx:8,  dy:18}
+      {sq:75,gq:138, pq:'IQ4_XS 138G',  sf:76,gf:355, pf:'原生 355G',  fx:8, fy:4,  n:'DS-V4-Flash 284B',  c:'var(--amber)', dx:-10, dy:20, a:'end'},
+      {sq:76,gq:208, pq:'IQ4_XS 208G',  sf:78,gf:794, pf:'BF16 794G',  fx:8, fy:4,  n:'Qwen3.5-397B-A17B', c:'var(--amber)', dx:10,  dy:-12},
+      {sq:80,gq:264, pq:'Q4_K_M 264G',  sf:81,gf:852, pf:'BF16 852G',  fx:8, fy:-6, n:'MiniMax-M3 428B',   c:'var(--blue)',  dx:10,  dy:21},
+      {sq:85,gq:365, pq:'IQ4_XS 365G',  sf:86,gf:1510,pf:'BF16 1.51T', fx:-8,fy:14, n:'GLM-5.2 754B',      c:'var(--teal)',  dx:-10, dy:22, a:'end', fa:'end'},
+      {sq:86,gq:594, pq:'IQ1_S 594G',   sf:87,gf:1400,pf:'MXFP4 1.4T', fx:8, fy:16, n:'Kimi-K3 2.8T',      c:'var(--teal)',  dx:10,  dy:-12},
+      {sq:87,gq:498, pq:'Q2_K-XL 498G', sf:88,gf:1500,pf:'原生 1.5T',  fx:8, fy:-6, n:'DS-V4-Pro 1.6T',    c:'var(--teal)',  dx:10,  dy:22}
     ];
     ms.forEach(function(d){
       // link full-precision -> quantized
       svg.appendChild(E('line',{x1:X(d.sf),y1:Y(d.gf),x2:X(d.sq),y2:Y(d.gq),stroke:d.c,'stroke-width':1.2,opacity:.45,'stroke-dasharray':'2 3'}));
       // full precision: hollow
-      svg.appendChild(E('circle',{cx:X(d.sf),cy:Y(d.gf),r:5.5,fill:'var(--surface)',stroke:d.c,'stroke-width':2.2,opacity:.85}));
-      svg.appendChild(E('text',{x:X(d.sf)+d.fx,y:Y(d.gf)+d.fy,'text-anchor':d.fa||'start','font-size':10,fill:'var(--mut)','font-family':'var(--mono)'},d.pf));
+      svg.appendChild(E('circle',{cx:X(d.sf),cy:Y(d.gf),r:7,fill:'var(--surface)',stroke:d.c,'stroke-width':2.6,opacity:.9}));
+      svg.appendChild(E('text',{x:X(d.sf)+d.fx,y:Y(d.gf)+d.fy,'text-anchor':d.fa||'start','font-size':12,fill:'var(--mut)','font-family':'var(--mono)'},d.pf));
       // quantized: filled + name + quant/size
-      svg.appendChild(E('circle',{cx:X(d.sq),cy:Y(d.gq),r:6.5,fill:d.c,stroke:'var(--surface)','stroke-width':2}));
-      svg.appendChild(E('text',{x:X(d.sq)+d.dx,y:Y(d.gq)+d.dy,'text-anchor':d.a||'start','font-size':11.5,'font-weight':700,fill:'var(--ink)','font-family':'var(--mono)'},d.n));
-      svg.appendChild(E('text',{x:X(d.sq)+d.dx,y:Y(d.gq)+d.dy+12,'text-anchor':d.a||'start','font-size':10,fill:d.c,'font-family':'var(--mono)'},d.pq));
+      svg.appendChild(E('circle',{cx:X(d.sq),cy:Y(d.gq),r:8,fill:d.c,stroke:'var(--surface)','stroke-width':2.5}));
+      svg.appendChild(E('text',{x:X(d.sq)+d.dx,y:Y(d.gq)+d.dy,'text-anchor':d.a||'start','font-size':14,'font-weight':700,fill:'var(--ink)','font-family':'var(--mono)'},d.n));
+      svg.appendChild(E('text',{x:X(d.sq)+d.dx,y:Y(d.gq)+d.dy+15,'text-anchor':d.a||'start','font-size':12,fill:d.c,'font-family':'var(--mono)'},d.pq));
     });
     // legend
-    svg.appendChild(E('circle',{cx:L+14,cy:T+10,r:6,fill:'var(--mut)'}));
-    svg.appendChild(E('text',{x:L+25,y:T+14,'font-size':11,fill:'var(--mut)'},'实际部署量化版'));
-    svg.appendChild(E('circle',{cx:L+150,cy:T+10,r:5.5,fill:'var(--surface)',stroke:'var(--mut)','stroke-width':2}));
-    svg.appendChild(E('text',{x:L+161,y:T+14,'font-size':11,fill:'var(--mut)'},'原始精度（放不下）'));
+    svg.appendChild(E('circle',{cx:L+16,cy:T+8,r:7,fill:'var(--mut)'}));
+    svg.appendChild(E('text',{x:L+29,y:T+13,'font-size':13,fill:'var(--mut)'},'实际部署量化版'));
+    svg.appendChild(E('circle',{cx:L+180,cy:T+8,r:6.5,fill:'var(--surface)',stroke:'var(--mut)','stroke-width':2.2}));
+    svg.appendChild(E('text',{x:L+193,y:T+13,'font-size':13,fill:'var(--mut)'},'原始精度（放不下）'));
   })();
 
   /* ---- personified scenes ---- */
