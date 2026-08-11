@@ -20,7 +20,7 @@
 <section class="slide slide--fit" data-title="硬件与模型">
   <h2>哪些模型能在哪一档跑起来</h2>
   <div class="fitwrap"><svg id="fitmap" viewBox="0 0 1000 452" role="img" aria-label="模型体积 vs 评分 与显存容量"></svg></div>
-  <p class="foot">实心点 = <b>GGUF 实测文件大小</b>；空心点为原生精度（BF16 者按 参数×2B 推算）。
+  <p class="foot">实心点 = <b>GGUF 实测文件大小</b>；空心点 = 原生精度（BF16 = 参数×2 字节）。
   注意 <b>DeepSeek / Kimi 原生就是低精度</b>（FP4·FP8·MXFP4），量化空间本就不大——Flash 几乎没有下降空间。</p>
 </section>
 
@@ -583,9 +583,9 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
     // 量化版 = GGUF 实测文件大小；原生精度见 pf（BF16 者为 参数×2B 推算）
     var ms=[
       {sq:75,gq:138, pq:'IQ4_XS 138G',  sf:75.5,gf:155, pf:'原生 FP4/FP8 ~155G', fx:9, fy:-8,  n:'DS-V4-Flash 284B',  c:'var(--amber)', dx:-10,dy:20, a:'end'},
-      {sq:76,gq:208, pq:'IQ4_XS 208G',  sf:78,  gf:794, pf:'BF16 794G（推算）',  fx:9, fy:4,   n:'Qwen3.5-397B-A17B', c:'var(--amber)', dx:10, dy:-12},
-      {sq:80,gq:264, pq:'Q4_K_M 264G',  sf:81,  gf:856, pf:'BF16 856G（推算）',  fx:9, fy:-7,  n:'MiniMax-M3 428B',   c:'var(--blue)',  dx:10, dy:21},
-      {sq:85,gq:365, pq:'IQ4_XS 365G',  sf:86,  gf:1508,pf:'BF16 1.51T（推算）', fx:-11,fy:5,  n:'GLM-5.2 753B',      c:'var(--teal)',  dx:-10,dy:22, a:'end', fa:'end'},
+      {sq:76,gq:208, pq:'IQ4_XS 208G',  sf:78,  gf:794, pf:'BF16 794G',  fx:9, fy:4,   n:'Qwen3.5-397B-A17B', c:'var(--amber)', dx:10, dy:-12},
+      {sq:80,gq:264, pq:'Q4_K_M 264G',  sf:81,  gf:856, pf:'BF16 856G',  fx:9, fy:-7,  n:'MiniMax-M3 428B',   c:'var(--blue)',  dx:10, dy:21},
+      {sq:85,gq:365, pq:'IQ4_XS 365G',  sf:86,  gf:1508,pf:'BF16 1.51T', fx:-11,fy:5,  n:'GLM-5.2 753B',      c:'var(--teal)',  dx:-10,dy:22, a:'end', fa:'end'},
       {sq:86,gq:594, pq:'IQ1_S 594G',   sf:87,  gf:1400,pf:'原生 MXFP4 1.4T',   fx:-11, fy:5, fa:'end',  n:'Kimi-K3 2.8T',      c:'var(--teal)',  dx:10, dy:-12},
       {sq:87,gq:498, pq:'Q2_K-XL 498G', sf:88,  gf:860, pf:'原生 FP8/FP4 ~860G',fx:11, fy:5, fa:'start',  n:'DS-V4-Pro 1.6T',    c:'var(--teal)',  dx:10, dy:22}
     ];
