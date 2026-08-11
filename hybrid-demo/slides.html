@@ -574,9 +574,9 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
     });
     svg.appendChild(E('text',{x:20,y:(T+B)/2,'text-anchor':'middle','font-size':14,fill:'var(--mut)',transform:'rotate(-90 20 '+((T+B)/2)+')'},'显存占用（权重, 对数轴）'));
 
-    [{g:256,n:'单卡 256G · ¥20k',c:'var(--amber)'},{g:512,n:'双卡 512G · ¥40k',c:'var(--blue)'},{g:1024,n:'四卡 1T · ¥80k',c:'var(--teal)'}].forEach(function(cp){
+    [{g:256,n:'单卡 256G',c:'var(--amber)'},{g:512,n:'双卡 512G',c:'var(--blue)'},{g:1024,n:'四卡 1T',c:'var(--teal)'}].forEach(function(cp){
       svg.appendChild(E('line',{x1:L,y1:Y(cp.g),x2:R,y2:Y(cp.g),stroke:cp.c,'stroke-width':2,'stroke-dasharray':'7 5'}));
-      svg.appendChild(E('text',{x:L+10,y:Y(cp.g)-9,'text-anchor':'start','font-size':14,'font-weight':800,fill:cp.c,'font-family':'var(--mono)'},cp.n));
+      svg.appendChild(E('text',{x:L+96,y:Y(cp.g)-9,'text-anchor':'start','font-size':14,'font-weight':800,fill:cp.c,'font-family':'var(--mono)'},cp.n));
     });
 
     // [score_q, size_q, precision_q, score_full, size_full, precision_full, name, color, label dx/dy/anchor]
