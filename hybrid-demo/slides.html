@@ -19,7 +19,9 @@
 <!-- 2 · TIERS × MODEL INTELLIGENCE -->
 <section class="slide slide--fit" data-title="硬件与模型">
   <h2>哪些模型能在哪一档跑起来</h2>
-  <div class="fitwrap"><svg id="fitmap" viewBox="0 0 1000 470" role="img" aria-label="模型体积 vs 评分 与显存容量"></svg></div>
+  <div class="fitwrap"><svg id="fitmap" viewBox="0 0 1000 452" role="img" aria-label="模型体积 vs 评分 与显存容量"></svg></div>
+  <p class="foot">实心点 = <b>GGUF 实测文件大小</b>；空心点为原生精度（BF16 者按 参数×2B 推算）。
+  注意 <b>DeepSeek / Kimi 原生就是低精度</b>（FP4·FP8·MXFP4），量化空间本就不大——Flash 几乎没有下降空间。</p>
 </section>
 
 <!-- 3 · ARCHITECTURES (personified) -->
@@ -574,18 +576,18 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
 
     [{g:256,n:'单卡 256G · ¥20k',c:'var(--amber)'},{g:512,n:'双卡 512G · ¥40k',c:'var(--blue)'},{g:1024,n:'四卡 1T · ¥80k',c:'var(--teal)'}].forEach(function(cp){
       svg.appendChild(E('line',{x1:L,y1:Y(cp.g),x2:R,y2:Y(cp.g),stroke:cp.c,'stroke-width':2,'stroke-dasharray':'7 5'}));
-      svg.appendChild(E('text',{x:R-3,y:Y(cp.g)-7,'text-anchor':'end','font-size':14,'font-weight':800,fill:cp.c,'font-family':'var(--mono)'},cp.n));
+      svg.appendChild(E('text',{x:L+10,y:Y(cp.g)-9,'text-anchor':'start','font-size':14,'font-weight':800,fill:cp.c,'font-family':'var(--mono)'},cp.n));
     });
 
     // [score_q, size_q, precision_q, score_full, size_full, precision_full, name, color, label dx/dy/anchor]
-    // 真实体积（HuggingFace / Unsloth GGUF 实测文件大小）
+    // 量化版 = GGUF 实测文件大小；原生精度见 pf（BF16 者为 参数×2B 推算）
     var ms=[
-      {sq:75,gq:138, pq:'IQ4_XS 138G',  sf:76,gf:355, pf:'原生 355G',  fx:8, fy:4,  n:'DS-V4-Flash 284B',  c:'var(--amber)', dx:-10, dy:20, a:'end'},
-      {sq:76,gq:208, pq:'IQ4_XS 208G',  sf:78,gf:794, pf:'BF16 794G',  fx:8, fy:4,  n:'Qwen3.5-397B-A17B', c:'var(--amber)', dx:10,  dy:-12},
-      {sq:80,gq:264, pq:'Q4_K_M 264G',  sf:81,gf:852, pf:'BF16 852G',  fx:8, fy:-6, n:'MiniMax-M3 428B',   c:'var(--blue)',  dx:10,  dy:21},
-      {sq:85,gq:365, pq:'IQ4_XS 365G',  sf:86,gf:1510,pf:'BF16 1.51T', fx:-8,fy:14, n:'GLM-5.2 754B',      c:'var(--teal)',  dx:-10, dy:22, a:'end', fa:'end'},
-      {sq:86,gq:594, pq:'IQ1_S 594G',   sf:87,gf:1400,pf:'MXFP4 1.4T', fx:8, fy:16, n:'Kimi-K3 2.8T',      c:'var(--teal)',  dx:10,  dy:-12},
-      {sq:87,gq:498, pq:'Q2_K-XL 498G', sf:88,gf:1500,pf:'原生 1.5T',  fx:8, fy:-6, n:'DS-V4-Pro 1.6T',    c:'var(--teal)',  dx:10,  dy:22}
+      {sq:75,gq:138, pq:'IQ4_XS 138G',  sf:75.5,gf:155, pf:'原生 FP4/FP8 ~155G', fx:9, fy:-8,  n:'DS-V4-Flash 284B',  c:'var(--amber)', dx:-10,dy:20, a:'end'},
+      {sq:76,gq:208, pq:'IQ4_XS 208G',  sf:78,  gf:794, pf:'BF16 794G（推算）',  fx:9, fy:4,   n:'Qwen3.5-397B-A17B', c:'var(--amber)', dx:10, dy:-12},
+      {sq:80,gq:264, pq:'Q4_K_M 264G',  sf:81,  gf:856, pf:'BF16 856G（推算）',  fx:9, fy:-7,  n:'MiniMax-M3 428B',   c:'var(--blue)',  dx:10, dy:21},
+      {sq:85,gq:365, pq:'IQ4_XS 365G',  sf:86,  gf:1508,pf:'BF16 1.51T（推算）', fx:-11,fy:5,  n:'GLM-5.2 753B',      c:'var(--teal)',  dx:-10,dy:22, a:'end', fa:'end'},
+      {sq:86,gq:594, pq:'IQ1_S 594G',   sf:87,  gf:1400,pf:'原生 MXFP4 1.4T',   fx:-11, fy:5, fa:'end',  n:'Kimi-K3 2.8T',      c:'var(--teal)',  dx:10, dy:-12},
+      {sq:87,gq:498, pq:'Q2_K-XL 498G', sf:88,  gf:860, pf:'原生 FP8/FP4 ~860G',fx:11, fy:5, fa:'start',  n:'DS-V4-Pro 1.6T',    c:'var(--teal)',  dx:10, dy:22}
     ];
     ms.forEach(function(d){
       // link full-precision -> quantized
@@ -599,10 +601,10 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--disp);
       svg.appendChild(E('text',{x:X(d.sq)+d.dx,y:Y(d.gq)+d.dy+15,'text-anchor':d.a||'start','font-size':12,fill:d.c,'font-family':'var(--mono)'},d.pq));
     });
     // legend
-    svg.appendChild(E('circle',{cx:L+16,cy:T+8,r:7,fill:'var(--mut)'}));
-    svg.appendChild(E('text',{x:L+29,y:T+13,'font-size':13,fill:'var(--mut)'},'实际部署量化版'));
-    svg.appendChild(E('circle',{cx:L+180,cy:T+8,r:6.5,fill:'var(--surface)',stroke:'var(--mut)','stroke-width':2.2}));
-    svg.appendChild(E('text',{x:L+193,y:T+13,'font-size':13,fill:'var(--mut)'},'原始精度（放不下）'));
+    svg.appendChild(E('circle',{cx:R-330,cy:T+6,r:7,fill:'var(--mut)'}));
+    svg.appendChild(E('text',{x:R-317,y:T+11,'font-size':13,fill:'var(--mut)'},'实际部署量化版'));
+    svg.appendChild(E('circle',{cx:R-190,cy:T+6,r:6.5,fill:'var(--surface)',stroke:'var(--mut)','stroke-width':2.2}));
+    svg.appendChild(E('text',{x:R-177,y:T+11,'font-size':13,fill:'var(--mut)'},'原生精度'));
   })();
 
   /* ---- personified scenes ---- */
